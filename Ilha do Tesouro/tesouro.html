@@ -25,72 +25,136 @@
                     <table class="tabuleiro">
 
                         <tr onclick="">
-                            <td>1.a</td>
-                            <td>2.a</td>
-                            <td>3.a</td>
-                            <td>4.a</td>
-                            <td>5.a</td>
-                            <td>6.a</td>
-                            <td>7.a</td>
+                            <td alt="1.a "></td>
+                            <td alt="2.a "></td>
+                            <td alt="3.a "></td>
+                            <td alt="4.a "></td>
+                            <td alt="5.a "></td>
+                            <td alt="6.a "></td>
+                            <td alt="7.a "></td>
                         </tr>
 
                         <tr onclick="">
-                            <td>1.b</td>
-                            <td>2.b</td>
-                            <td>3.b</td>
-                            <td>4.b</td>
-                            <td>5.b</td>
-                            <td>6.b</td>
-                            <td>7.b</td>
+                            <td alt="1.b "></td>
+                            <td alt="2.b "></td>
+                            <td alt="3.b "></td>
+                            <td alt="4.b "></td>
+                            <td alt="5.b "></td>
+                            <td alt="6.b "></td>
+                            <td alt="7.b "></td>
                         </tr>
 
                         <tr onclick="">
-                            <td>1.c</td>
-                            <td>2.c</td>
-                            <td>3.c</td>
-                            <td>4.c</td>
-                            <td>5.c</td>
-                            <td>6.c</td>
-                            <td>7.c</td>
+                            <td alt="1.c "></td>
+                            <td alt="2.c "></td>
+                            <td alt="3.c "></td>
+                            <td alt="4.c "></td>
+                            <td alt="5.c "></td>
+                            <td alt="6.c "></td>
+                            <td alt="7.c "></td>
                         </tr>
 
                         <tr onclick="">
-                            <td>1.d</td>
-                            <td>2.d</td>
-                            <td>3.d</td>
-                            <td>4.d</td>
-                            <td>5.d</td>
-                            <td>6.d</td>
-                            <td>7.d</td>
+                            <td alt="1.d "></td>
+                            <td alt="2.d "></td>
+                            <td alt="3.d "></td>
+                            <td alt="4.d "></td>
+                            <td alt="5.d "></td>
+                            <td alt="6.d "></td>
+                            <td alt="7.d "></td>
                         </tr>
 
                         <tr onclick="">
-                            <td>1.e</td>
-                            <td>2.e</td>
-                            <td>3.e</td>
-                            <td>4.e</td>
-                            <td>5.e</td>
-                            <td>6.e</td>
-                            <td>7.e</td>
+                            <td alt="1.e "></td>
+                            <td alt="2.e "></td>
+                            <td alt="3.e "></td>
+                            <td alt="4.e "></td>
+                            <td alt="5.e "></td>
+                            <td alt="6.e "></td>
+                            <td alt="7.e "></td>
                         </tr>
 
                         <tr onclick="">
-                            <td>1.f</td>
-                            <td>2.f</td>
-                            <td>3.f</td>
-                            <td>4.f</td>
-                            <td>5.f</td>
-                            <td>6.f</td>
-                            <td>7.f</td>
+                            <td alt="1.f "></td>
+                            <td alt="2.f "></td>
+                            <td alt="3.f "></td>
+                            <td alt="4.f "></td>
+                            <td alt="5.f "></td>
+                            <td alt="6.f "></td>
+                            <td alt="7.f "></td>
                         </tr>
                     </table>
 
-                    <div class="info">
-                        <div class="contadores">
+                    <div class="col" style="order: 2;">
+
+                        <div class="row" id="info">
+
+                            <div class="col-md-6 col-sm-6" style="height: 100px;">
+                                <div class="contadores">
+                                    <div class="cont d-flex align-items-center mt-2" >
+                                        <img class="icon" src="../images/IlhaDoTesouro/pa (1).png" style="width: 30px;"
+                                            alt="">
+                                        <h4 class="ms-2" id="pa">5</h4>
+                                    </div>
+                                    <div class="cont d-flex align-items-center mt-2" >
+                                        <img class="icon" src="../images/IlhaDoTesouro/erro.png" style="width: 30px;"
+                                            alt="">
+                                        <h4 class="ms-2" id="cavacoes"></h4>
+                                    </div>
+                                </div>
+                            </div>
 
 
+                            <div class="col-md-6 col-sm-6" style="height: 100px;">
+                                <div class="contadores">
+                                    <div class="cont d-flex align-items-center mt-2" >
+                                        <img class="icon" src="../images/IlhaDoTesouro/ampulheta.png"
+                                            style="width: 30px;" alt="">
+                                        <h4 class="ms-2" id="tempo"></h4>
+                                    </div>
+                                    <div class="cont d-flex align-items-center mt-2" >
+                                        <img class="icon" src="../images/IlhaDoTesouro/atencao.png" style="width: 30px;" alt="">
+                                        <h4 class="ms-2" id="erros"></h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--CONTAS-->
+                            <div class="col-12" style="margin-top: -80px;">
+                                <!-- Questão -->
+                                <div class="row d-flex align-items-center mt-4" id="conta">
+                                    <div class="col-12 text-center">
+                                        <div class="quest mb-4">
+                                            <h2>10 + 5</h2>
+                                        </div>
+                                    </div>
+
+                                    <!-- Alternativas -->
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="alternativas">
+                                            <div class="altern d-flex justify-content-center align-items-center mt-2">
+                                                <h4 class="ms-2">15</h4>
+                                            </div>
+                                            <div class="altern d-flex justify-content-center align-items-center mt-2">
+                                                <h4 class="ms-2">5</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="alternativas">
+                                            <div class="altern d-flex justify-content-center align-items-center mt-2">
+                                                <h4 class="ms-2">53</h4>
+                                            </div>
+                                            <div class="altern d-flex justify-content-center align-items-center mt-2">
+                                                <h4 class="ms-2">27</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
 
                 </div>
             </div>
@@ -100,6 +164,64 @@
 
 
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const cells = document.querySelectorAll("table.tabuleiro td");
+      
+          const imagemTesouro = "../images/IlhaDoTesouro/tesouro.png";
+          const imagemErro = "../images/IlhaDoTesouro/fechar.png";
+      
+          const indexTesouro = Math.floor(Math.random() * cells.length);
+          console.log("💡 O tesouro está na célula:", indexTesouro);
+      
+          // Elementos de exibição
+          const erroSpan = document.getElementById("cavacoes");
+          const timerSpan = document.getElementById("tempo");
+      
+          let erros = 0;
+          let segundos = 0;
+          let encontrouTesouro = false;
+      
+          // Inicia o timer
+          const timer = setInterval(() => {
+            segundos++;
+            timerSpan.textContent = segundos;
+          }, 1000);
+      
+          // Clique nas células
+          cells.forEach((cell, index) => {
+            cell.addEventListener("click", function () {
+              if (cell.classList.contains("clicado") || encontrouTesouro) return;
+              cell.classList.add("clicado");
+      
+              const img = document.createElement("img");
+              img.style.maxWidth = "80%";
+              img.style.maxHeight = "80%";
+              img.style.objectFit = "contain";
+      
+              if (index === indexTesouro) {
+                img.src = imagemTesouro;
+                cell.appendChild(img);
+                encontrouTesouro = true;
+      
+                clearInterval(timer); // para o timer
+                setTimeout(() => {
+                  alert(`🎉 Parabéns! Você encontrou o tesouro em ${segundos} segundos com ${erros} erros.`);
+                }, 100);
+              } else {
+                img.src = imagemErro;
+                cell.appendChild(img);
+                erros++;
+                erroSpan.textContent = erros;
+              }
+            });
+          });
+        });
+      </script>
+      
+
+
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
