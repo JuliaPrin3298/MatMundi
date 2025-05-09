@@ -1,3 +1,7 @@
+*{
+font-family: "Chewy";
+}
+
 section {
     padding: 60px 0;
     height: 100vh;
@@ -9,4 +13,11 @@ section {
 
 .jogos{
     background: #92C992;
+    
+}
+
+.jogos h2{
+    font-family: "Chewy";
+    margin-top: -200px;
+    margin-bottom: 140px;
 }
