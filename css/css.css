@@ -1,0 +1,12 @@
+section {
+    padding: 60px 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.jogos{
+    background: #92C992;
+}
