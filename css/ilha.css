@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
 
 
-
 .container i {
     font-size: 5vw;
+    color: black;
 }
 
 
@@ -32,25 +32,31 @@
     color: #F3FF4A;
     -webkit-text-stroke: 1px black;
     font-family: 'Chewy', sans-serif;
+}
+
     .game h3 {
-        font-size: clamp(24px, 8vw, 60px);
-    }    
+    font-size: clamp(24px, 8vw, 60px);  
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
 }
 
 
-.game button {
+.game a {
     background-color: #F3FF4A;
     border-radius: 10px;
     border: 1px black solid;
     font-family: 'Chewy', sans-serif;
     font-size: 40px;
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    color: black;
+    width: 15vw;
 }
 
-.game button:hover {
+.game a:hover {
     background-color: #c8d92f;
     box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.6);
+    text-decoration: none;
+    color: black;
 }
 
 

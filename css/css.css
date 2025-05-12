@@ -4,7 +4,7 @@ font-family: "Chewy";
 
 section {
     padding: 60px 0;
-    height: 100vh;
+    height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,4 +20,21 @@ section {
     font-family: "Chewy";
     margin-top: -200px;
     margin-bottom: 140px;
+}
+
+.jogos a.btn {
+    opacity: .75;
+    width: 10vw;
+}
+
+.jogos .card{
+    border-radius: 20px;
+}
+
+.jogos img{
+    border-radius: 20px;
+}
+
+a{
+    text-decoration: none;
 }
