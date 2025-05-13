@@ -22,6 +22,19 @@ section {
     margin-bottom: 100px;
 }
 
-.jogos.btn{
-opacity: 39%;
+.jogos a.btn {
+    opacity: 0.75;
+    width: 10vw;
+}
+
+.jogos .card{
+    border-radius: 20px;
+}
+
+.jogos img{
+    border-radius: 20px;
+}
+
+a{
+    text-decoration: none;
 }
