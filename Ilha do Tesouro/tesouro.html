@@ -91,15 +91,15 @@
 
                             <div class="col-md-6 col-sm-6" style="height: 100px;">
                                 <div class="contadores">
-                                    <div class="cont d-flex align-items-center mt-2" >
+                                    <div class="cont d-flex align-items-center mt-2">
                                         <img class="icon" src="../images/IlhaDoTesouro/pa (1).png" style="width: 30px;"
                                             alt="">
-                                        <h4 class="ms-2" id="pa">5</h4>
+                                        <h4 class="ms-2" id="pa">0</h4>
                                     </div>
-                                    <div class="cont d-flex align-items-center mt-2" >
+                                    <div class="cont d-flex align-items-center mt-2">
                                         <img class="icon" src="../images/IlhaDoTesouro/erro.png" style="width: 30px;"
                                             alt="">
-                                        <h4 class="ms-2" id="cavacoes"></h4>
+                                        <h4 class="ms-2" id="cavacoes">0</h4>
                                     </div>
                                 </div>
                             </div>
@@ -107,14 +107,15 @@
 
                             <div class="col-md-6 col-sm-6" style="height: 100px;">
                                 <div class="contadores">
-                                    <div class="cont d-flex align-items-center mt-2" >
+                                    <div class="cont d-flex align-items-center mt-2">
                                         <img class="icon" src="../images/IlhaDoTesouro/ampulheta.png"
                                             style="width: 30px;" alt="">
                                         <h4 class="ms-2" id="tempo"></h4>
                                     </div>
-                                    <div class="cont d-flex align-items-center mt-2" >
-                                        <img class="icon" src="../images/IlhaDoTesouro/atencao.png" style="width: 30px;" alt="">
-                                        <h4 class="ms-2" id="erros"></h4>
+                                    <div class="cont d-flex align-items-center mt-2">
+                                        <img class="icon" src="../images/IlhaDoTesouro/atencao.png" style="width: 30px;"
+                                            alt="">
+                                        <h4 class="ms-2" id="erros">0</h4>
                                     </div>
                                 </div>
                             </div>
@@ -167,59 +168,194 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-          const cells = document.querySelectorAll("table.tabuleiro td");
-      
-          const imagemTesouro = "../images/IlhaDoTesouro/tesouro.png";
-          const imagemErro = "../images/IlhaDoTesouro/fechar.png";
-      
-          const indexTesouro = Math.floor(Math.random() * cells.length);
-          console.log("💡 O tesouro está na célula:", indexTesouro);
-      
-          // Elementos de exibição
-          const erroSpan = document.getElementById("cavacoes");
-          const timerSpan = document.getElementById("tempo");
-      
-          let erros = 0;
-          let segundos = 0;
-          let encontrouTesouro = false;
-      
-          // Inicia o timer
-          const timer = setInterval(() => {
-            segundos++;
-            timerSpan.textContent = segundos;
-          }, 1000);
-      
-          // Clique nas células
-          cells.forEach((cell, index) => {
-            cell.addEventListener("click", function () {
-              if (cell.classList.contains("clicado") || encontrouTesouro) return;
-              cell.classList.add("clicado");
-      
-              const img = document.createElement("img");
-              img.style.maxWidth = "80%";
-              img.style.maxHeight = "80%";
-              img.style.objectFit = "contain";
-      
-              if (index === indexTesouro) {
-                img.src = imagemTesouro;
-                cell.appendChild(img);
-                encontrouTesouro = true;
-      
-                clearInterval(timer); // para o timer
-                setTimeout(() => {
-                  alert(`🎉 Parabéns! Você encontrou o tesouro em ${segundos} segundos com ${erros} erros.`);
-                }, 100);
-              } else {
-                img.src = imagemErro;
-                cell.appendChild(img);
-                erros++;
-                erroSpan.textContent = erros;
-              }
+            const cells = document.querySelectorAll("table.tabuleiro td");
+            const imagemTesouro = "../images/IlhaDoTesouro/tesouro.png";
+            const imagemErro = "../images/IlhaDoTesouro/fechar.png";
+
+            const indexTesouro = Math.floor(Math.random() * cells.length);
+            console.log("💡 O tesouro está na célula:", indexTesouro);
+
+            const erroSpan = document.getElementById("cavacoes");
+            const timerSpan = document.getElementById("tempo");
+            const paSpan = document.getElementById("pa");
+
+            let erros = 0;
+            let segundos = 0;
+            let encontrouTesouro = false;
+
+            const timer = setInterval(() => {
+                segundos++;
+                timerSpan.textContent = segundos;
+            }, 1000);
+
+            cells.forEach((cell, index) => {
+                cell.addEventListener("click", function () {
+                    // Impede clique se já clicado ou se encontrou o tesouro
+                    if (cell.classList.contains("clicado") || encontrouTesouro) return;
+
+                    let paAtual = parseInt(paSpan.textContent);
+
+                    if (paAtual <= 0) {
+                        alert("❌ Você não tem mais pás! Resolva contas para ganhar mais.");
+                        return;
+                    }
+
+                    // Marca como clicado e desconta pá
+                    cell.classList.add("clicado");
+                    paAtual--;
+                    paSpan.textContent = paAtual;
+
+                    const img = document.createElement("img");
+                    img.style.maxWidth = "80%";
+                    img.style.maxHeight = "80%";
+                    img.style.objectFit = "contain";
+
+                    if (index === indexTesouro) {
+                        img.src = imagemTesouro;
+                        cell.appendChild(img);
+                        encontrouTesouro = true;
+
+                        clearInterval(timer);
+                        setTimeout(() => {
+                            alert(`🎉 Parabéns! Você encontrou o tesouro em ${segundos} segundos com ${erros} erros.`);
+                        }, 100);
+                    } else {
+                        img.src = imagemErro;
+                        cell.appendChild(img);
+                        erros++;
+                        erroSpan.textContent = erros;
+                    }
+                });
             });
-          });
         });
-      </script>
-      
+
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cells = document.querySelectorAll("table.tabuleiro td");
+            const imagemTesouro = "../images/IlhaDoTesouro/tesouro.png";
+            const imagemErro = "../images/IlhaDoTesouro/fechar.png";
+
+            const indexTesouro = Math.floor(Math.random() * cells.length);
+            console.log("💡 O tesouro está na célula:", indexTesouro);
+
+            const erroSpan = document.getElementById("cavacoes");
+            const timerSpan = document.getElementById("tempo");
+            const paSpan = document.getElementById("pa");
+
+            let erros = 0;
+            let segundos = 0;
+            let encontrouTesouro = false;
+
+            const timer = setInterval(() => {
+                segundos++;
+                timerSpan.textContent = segundos;
+            }, 1000);
+
+            cells.forEach((cell, index) => {
+                cell.addEventListener("click", function () {
+                    if (cell.classList.contains("clicado") || encontrouTesouro) return;
+
+                    // lê o valor ATUAL no elemento para garantir sincronização
+                    let paAtual = parseInt(paSpan.textContent);
+
+                    if (paAtual <= 0) {
+                        alert("❌ Você não tem mais pás! Resolva contas para ganhar mais.");
+                        return;
+                    }
+
+                    cell.classList.add("clicado");
+                    paAtual--;
+                    paSpan.textContent = paAtual;
+
+                    const img = document.createElement("img");
+                    img.style.maxWidth = "80%";
+                    img.style.maxHeight = "80%";
+                    img.style.objectFit = "contain";
+
+                    if (index === indexTesouro) {
+                        img.src = imagemTesouro;
+                        cell.appendChild(img);
+                        encontrouTesouro = true;
+
+                        clearInterval(timer);
+                        setTimeout(() => {
+                            alert(`🎉 Parabéns! Você encontrou o tesouro em ${segundos} segundos com ${erros} erros.`);
+                        }, 100);
+                    } else {
+                        img.src = imagemErro;
+                        cell.appendChild(img);
+                        erros++;
+                        erroSpan.textContent = erros;
+                    }
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const contaH2 = document.querySelector('#conta h2');
+            const alternativas = document.querySelectorAll('#conta .altern');
+            const paEl = document.getElementById('pa');
+            const errosEl = document.getElementById('erros');
+
+            function novaConta() {
+                const num1 = Math.floor(Math.random() * 10) + 1;
+                const num2 = Math.floor(Math.random() * 10) + 1;
+                const operacoes = ['+', '-', '*'];
+                const oper = operacoes[Math.floor(Math.random() * operacoes.length)];
+
+                let respostaCerta;
+                if (oper === '+') respostaCerta = num1 + num2;
+                if (oper === '-') respostaCerta = num1 - num2;
+                if (oper === '*') respostaCerta = num1 * num2;
+
+                contaH2.textContent = `${num1} ${oper} ${num2}`;
+                contaH2.setAttribute('data-certa', respostaCerta);
+
+                const respostas = new Set();
+                respostas.add(respostaCerta);
+                while (respostas.size < 4) {
+                    const alternativa = respostaCerta + Math.floor(Math.random() * 11) - 5;
+                    respostas.add(alternativa);
+                }
+
+                const respostasArray = [...respostas].sort(() => Math.random() - 0.5);
+
+                alternativas.forEach((alt, index) => {
+                    alt.querySelector('h4').textContent = respostasArray[index];
+                    alt.setAttribute('data-resposta', respostasArray[index]);
+                });
+            }
+
+            alternativas.forEach(alt => {
+                alt.style.cursor = "pointer";
+                alt.addEventListener('click', () => {
+                    const valor = parseInt(alt.querySelector('h4').textContent);
+                    const certa = parseInt(contaH2.getAttribute('data-certa'));
+
+                    let paAtual = parseInt(paEl.textContent);
+                    let errosAtual = parseInt(errosEl.textContent);
+
+                    if (valor === certa) {
+                        paAtual++;
+                        paEl.textContent = paAtual;
+                        alert('✅ Acertou! +1 pá');
+                    } else {
+                        errosAtual++;
+                        errosEl.textContent = errosAtual;
+                        alert('❌ Errou! +1 erro');
+                    }
+
+                    novaConta();
+                });
+            });
+
+            novaConta(); // Começa com a primeira conta
+        });
+
+    </script>
 
 
 
