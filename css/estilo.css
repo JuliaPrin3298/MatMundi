@@ -1,0 +1,92 @@
+*{
+font-family: "Chewy";
+}
+
+.curva{
+    background: #FFA09D;
+    height: 200px;
+}
+
+.container{
+    padding-top: 20px;
+}
+
+.text h2{
+    font-family: "Chewy";
+    font-size: 80px;
+    color: #FFFFFF;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow: 1px 1px 2px black;
+}
+
+.text h3{
+    font-family: "Chewy";
+    font-size: 50px;
+    color: #8EFAF4;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow: 1px 1px 2px black;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    
+}
+
+.curva2{
+    margin-top: -150px;
+}
+
+.text2 h2{
+ font-family: "Chewy";
+    font-size: 30px;
+/*    margin-top: -180px;*/
+    color: #FFFFFF;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow: 1px 1px 2px black;
+}
+
+.text2 h3{
+    font-family: "Coming soon";
+    font-size: 25px;
+    color: #1F1F1F;
+    opacity: 0.50;
+}
+
+.itenum{
+    margin-top: 30px;
+}
+
+
+
+
+a{
+    text-decoration: none;
+}
+
+.curva2 a.btn {
+    opacity: 0.75;
+    background: #C2A8FF;
+    border: 2px solid #4F2F67;
+    color: #4F2F67;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    padding: 10px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Hover */
+.curva2 a.btn:hover {
+    opacity: 1;
+    background: #B395F5;
+    color: white;
+    transform: scale(1.05);
+}
