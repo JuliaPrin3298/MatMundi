@@ -181,6 +181,13 @@
 
             const indexTesouro = Math.floor(Math.random() * cells.length);
             console.log("💡 O tesouro está na célula:", indexTesouro);
+            const colunas = 7; // sua tabela tem 7 colunas
+            const linha = Math.floor(indexTesouro / colunas) + 1;
+            const coluna = (indexTesouro % colunas) + 1;
+
+            console.log(`📍 O tesouro está na linha ${linha}, coluna ${coluna}`);
+            // começa do 0
+
 
             const erroSpan = document.getElementById("cavacoes");
             const timerSpan = document.getElementById("tempo");
@@ -221,7 +228,8 @@
                         img.src = imagemTesouro;
                         cell.appendChild(img);
                         encontrouTesouro = true;
-                        clearInterval(timer); 
+                        clearInterval(timer);
+                        document.getElementById("jogarNovamente").style.display = "inline-block";
 
                         setTimeout(() => {
                             alert(`🎉 Parabéns! Você encontrou o tesouro em ${segundos} segundos com ${erros} erros.`);
@@ -241,7 +249,7 @@
         });
 
         function reiniciarJogo() {
-            location.reload(); // Simplesmente recarrega a página
+            location.reload();
         }
     </script>
 
