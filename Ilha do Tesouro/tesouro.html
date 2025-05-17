@@ -85,6 +85,13 @@
                         </tr>
                     </table>
 
+
+
+                    <button type="button" id="jogarNovamente" onclick="reiniciarJogo()" style="display: none;"
+                        class="btn btn-warning">
+                        Jogar Novamente
+                    </button>
+
                     <div class="col" style="order: 2;">
 
                         <div class="row" id="info">
@@ -214,11 +221,12 @@
                         img.src = imagemTesouro;
                         cell.appendChild(img);
                         encontrouTesouro = true;
+                        clearInterval(timer); 
 
-                        clearInterval(timer);
                         setTimeout(() => {
                             alert(`🎉 Parabéns! Você encontrou o tesouro em ${segundos} segundos com ${erros} erros.`);
                         }, 100);
+
                     } else {
                         img.src = imagemErro;
                         cell.appendChild(img);
@@ -226,10 +234,15 @@
                         erroSpan.textContent = erros;
                     }
                 });
+
+
+
             });
         });
 
-
+        function reiniciarJogo() {
+            location.reload(); // Simplesmente recarrega a página
+        }
     </script>
 
     <script>
