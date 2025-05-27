@@ -245,7 +245,7 @@
                 location.reload();
             });
 
-            // 📘 CONTAS MÉDIAS +, -, *, /
+            // 📘 CONTAS FÁCEIS + e - APENAS
             const contaH2 = document.querySelector('#conta h2');
             const alternativas = document.querySelectorAll('#conta .altern');
             const paEl = document.getElementById('pa');
@@ -254,29 +254,20 @@
             function novaConta() {
                 if (encontrouTesouro) return;
 
-                const operacoes = ['+', '-', '*', '/'];
+                const operacoes = ['+', '-'];
                 const oper = operacoes[Math.floor(Math.random() * operacoes.length)];
 
-                let num1, num2, respostaCerta;
+                let num1, num2;
 
                 if (oper === '+') {
                     num1 = Math.floor(Math.random() * 41) + 10; // 10 a 50
                     num2 = Math.floor(Math.random() * 41) + 10;
-                    respostaCerta = num1 + num2;
-                } else if (oper === '-') {
+                } else {
                     num1 = Math.floor(Math.random() * 41) + 10;
                     num2 = Math.floor(Math.random() * (num1 - 9)) + 10; // garante que num2 <= num1 e >=10
-                    respostaCerta = num1 - num2;
-                } else if (oper === '*') {
-                    num1 = Math.floor(Math.random() * 12) + 1;
-                    num2 = Math.floor(Math.random() * 12) + 1;
-                    respostaCerta = num1 * num2;
-                } else { // divisão
-                    num2 = Math.floor(Math.random() * 12) + 1;
-                    let resultado = Math.floor(Math.random() * 12) + 1;
-                    num1 = num2 * resultado;
-                    respostaCerta = resultado;
                 }
+
+                let respostaCerta = oper === '+' ? num1 + num2 : num1 - num2;
 
                 contaH2.textContent = `${num1} ${oper} ${num2}`;
                 contaH2.setAttribute('data-certa', respostaCerta);
@@ -285,23 +276,9 @@
 
                 let tentativas = 0;
                 while (respostas.size < 4 && tentativas < 100) {
-                    let variacao;
-                    let alternativa;
-
-                    if (oper === '+' || oper === '-') {
-                        variacao = Math.floor(Math.random() * 9) - 4;
-                        alternativa = respostaCerta + variacao;
-                    } else if (oper === '*') {
-                        variacao = Math.floor(Math.random() * 21) - 10;
-                        alternativa = respostaCerta + variacao;
-                        if (alternativa < 0) alternativa = respostaCerta + Math.floor(Math.random() * 10);
-                    } else { // divisão
-                        variacao = Math.floor(Math.random() * 7) - 3;
-                        alternativa = respostaCerta + variacao;
-                        if (alternativa < 1) alternativa = respostaCerta + Math.floor(Math.random() * 3) + 1;
-                    }
-
-                    if (!respostas.has(alternativa) && Number.isInteger(alternativa)) {
+                    const variacao = Math.floor(Math.random() * 9) - 4;
+                    const alternativa = respostaCerta + variacao;
+                    if (!respostas.has(alternativa) && alternativa >= 0) {
                         respostas.add(alternativa);
                     }
                     tentativas++;
