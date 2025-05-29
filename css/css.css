@@ -41,10 +41,13 @@ section {
     display: flex;
     justify-content: center;
     align-items:center;
+    margin-top: 40px;
 }
 
 .logo img{
     width: 19vw;
+    margin-left: -80px;
+    margin-top: 40px;
 }
 
 .home p{
