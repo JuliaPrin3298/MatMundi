@@ -14,120 +14,86 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet" />
-
-    <style>
-        .carousel-container {
-            max-width: 780px;
-            /* 3 cards * 253px + 2 gaps 10px = 780px */
-            margin: auto;
-            position: relative;
-            overflow: hidden;
-            background: transparent;
-        }
-
-        .carousel-inner {
-            display: flex;
-            gap: 10px;
-            transition: transform 0.4s ease;
-        }
-
-        .carousel-item {
-            flex: 0 0 253px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: none;
-            border: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px;
-            box-sizing: border-box;
-        }
-
-        .carousel-item h1 {
-            margin: 0 0 10px 0;
-            font-size: 8.1rem;
-            text-align: center;
-            font-family: "Cherry Bomb One";
-        }
-
-        .carousel-item a.btn {
-            background: #FFFFFF;
-            opacity: 0.5;
-            color: black;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            font-family: "Chewy";
-            transition: background-color 0.3s ease;
-        }
-
-        .carousel-item a.btn:hover {
-            background: #0056b3;
-        }
-
-        /* Botões de navegação */
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.4);
-            border: none;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 24px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            user-select: none;
-            z-index: 10;
-        }
-
-        .carousel-btn:focus {
-            outline: none;
-            box-shadow: 0 0 5px 2px #007bff;
-        }
-
-        .carousel-btn.prev {
-            left: 10px;
-        }
-
-        .carousel-btn.next {
-            right: 10px;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .carousel-container {
-                max-width: 100%;
-            }
-
-            .carousel-inner {
-                gap: 10px;
-            }
-
-            .carousel-item {
-                flex: 0 0 100%;
-                /* mostra 1 card por vez */
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 
 <body>
+
+    <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link" href="#home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#atividades">Atividades</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#jogos">Jogos</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#login">Login / Cadastrar</a>
+  </li>
+</ul>
     <div class="container"></div>
 
+     <section class="home" style="background: #FFFAB4;">
+        <div class="home" id="home">
+            <h2>Jogos</h2>
+            <div class="row" style="margin-top: 150px;">
+                <div class="col-md-3 col-sm-12">
+                    <div class="masc">
+                    <img src="../images/mascotes.png" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="slogan">
+                    <p>Onde a matemática vira brincadeira,<br>a diversão se multiplica <br> e os númerosfazem <br>festa!</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="logo">
+                    <img src="../images/logo.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#FFFAB4" fill-opacity="1" d="M0,192L48,192C96,192,192,192,288,186.7C384,181,480,171,576,176C672,181,768,203,864,224C960,245,1056,267,1152,256C1248,245,1344,203,1392,181.3L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
+        </path>
+    </svg>
+    
     <!--ATIVIDADES-->
-    <section class="atividades">
-        <div class="atividades" id="atividades">
+    <section class="atividades" id="atividades">
+        <div class="atividades" >
             <h2>Atividades</h2>
             <div class="row">
                 <div class="col-md-12 col-sm-12">
-                    <iframe src="carrossel.html" style="width: 780px; height: 320px; border:none;"></iframe>
+                    <div class="carousel-container" id="carousel">
+                        <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+                        <div class="carousel-inner">
+                            <div class="carousel-item" style="background: #C2A8FF;">
+                                <h1>1°</h1>
+                                <a href="../erro.html" class="btn">Acessar Atividades</a>
+                            </div>
+                            <div class="carousel-item" style="background: #FFFBB5;">
+                                <h1>2°</h1>
+                                <a href="../erro.html" class="btn">Acessar Atividades</a>
+                            </div>
+                            <div class="carousel-item" style="background: #FFA09D;">
+                                <h1>3°</h1>
+                                <a href="../erro.html" class="btn">Acessar Atividades</a>
+                            </div>
+                            <div class="carousel-item" style="background: #75EDE6;">
+                                <h1>4°</h1>
+                                <a href="../erro.html" class="btn">Acessar Atividades</a>
+                            </div>
+                            <div class="carousel-item" style="background: #8ADEFF;">
+                                <h1>5°</h1>
+                                <a href="../erro.html" class="btn">Acessar Atividades</a>
+                            </div>
+                        </div>
+                        <button class="carousel-btn next" aria-label="Próximo">&#10095;</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -176,6 +142,52 @@
             d="M0,224L48,208C96,192,192,160,288,138.7C384,117,480,107,576,117.3C672,128,768,160,864,192C960,224,1056,256,1152,234.7C1248,213,1344,139,1392,101.3L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
         </path>
     </svg>
+
+     <script>
+        (function () {
+            const carousel = document.getElementById('carousel');
+            const inner = carousel.querySelector('.carousel-inner');
+            const items = carousel.querySelectorAll('.carousel-item');
+            const prevBtn = carousel.querySelector('.carousel-btn.prev');
+            const nextBtn = carousel.querySelector('.carousel-btn.next');
+
+            let currentIndex = 0;
+            let cardsPerView = window.innerWidth < 768 ? 1 : 3;
+            const totalItems = items.length;
+
+            function updateCarousel() {
+                const style = window.getComputedStyle(inner);
+                const gap = parseInt(style.gap) || 0;
+                const itemWidth = items[0].offsetWidth + gap;
+                const maxIndex = totalItems - cardsPerView;
+
+                if (currentIndex > maxIndex) currentIndex = 0;
+                if (currentIndex < 0) currentIndex = maxIndex;
+
+                const translateX = -(itemWidth * currentIndex);
+                inner.style.transform = `translateX(${translateX}px)`;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex--;
+                updateCarousel();
+            });
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex++;
+                updateCarousel();
+            });
+
+            window.addEventListener('resize', () => {
+                cardsPerView = window.innerWidth < 768 ? 1 : 3;
+                if (currentIndex > totalItems - cardsPerView) currentIndex = totalItems - cardsPerView;
+                if (currentIndex < 0) currentIndex = 0;
+                updateCarousel();
+            });
+
+            updateCarousel();
+        })();
+    </script>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"

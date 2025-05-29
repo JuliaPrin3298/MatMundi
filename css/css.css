@@ -2,6 +2,27 @@
     font-family: "Chewy";
 }
 
+ul{
+  position: fixed; 
+  top: 0;          
+  left: 0;        
+  width: 100%;    
+  z-index: 1000;   
+  background: linear-gradient(to right, #8ADEFF, #75EDE6);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+ul a {
+  color: black;
+  text-decoration: none; /* se quiser tirar o underline */
+}
+
+/* Se quiser deixar o link preto também ao passar o mouse */
+ul a:hover {
+  color: black;
+  text-decoration: underline; /* ou none, se preferir */
+}
+
 section {
     padding: 100px 0;
     height: 50vh;
@@ -11,7 +32,28 @@ section {
     justify-content: center;
     text-align: center;
 }
-.jogos{
+
+.masc img{
+    width: 29vw;
+}
+
+.slogan{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.logo img{
+    width: 19vw;
+}
+
+.home p{
+    font-size: 20px;
+    font-family: "Press Start 2P";
+    text-align: center;
+}
+
+.jogos {
     margin-top: 0px;
 }
 
@@ -38,6 +80,114 @@ a {
     text-decoration: none;
 }
 
+.carousel-container {
+    width: 100%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+}
 
 
+.carousel-inner {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.4s ease;
+}
 
+.carousel-item {
+    flex: 0 0 253px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.carousel-item h1 {
+    margin: 0 0 10px 0;
+    font-size: 8.1rem;
+    text-align: center;
+    font-family: "Cherry Bomb One";
+}
+
+.carousel-item a.btn {
+    background: #FFFFFF;
+    opacity: 0.5;
+    color: black;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-family: "Chewy";
+    transition: background-color 0.3s ease;
+}
+
+.carousel-item a.btn:hover {
+    background: #000;
+    color: #FFFFFF;
+}
+
+/* Botões de navegação */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    z-index: 10;
+}
+
+.carousel-btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px #000;
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .carousel-container {
+        max-width: 100%;
+    }
+
+    .carousel-inner {
+        gap: 10px;
+    }
+
+    .carousel-item {
+        flex: 0 0 100%;
+        /* mostra 1 card por vez */
+    }
+}
+
+@media (min-width: 769px) {
+    .carousel-inner {
+        flex-wrap: nowrap;
+    }
+
+    .carousel-item {
+        flex: 0 0 calc((100% - 20px) / 3);
+        /* 3 cards com 2 gaps de 10px */
+    }
+}
