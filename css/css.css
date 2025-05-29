@@ -194,3 +194,95 @@ a {
         /* 3 cards com 2 gaps de 10px */
     }
 }
+
+.login-form, .cadastro-form {
+  width: 300px;
+  margin: 0 auto;
+  font-family: "Chewy", sans-serif;
+}
+
+.login-form label, .cadastro-form label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.login-form p, .cadastro-form p {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  color: #000;
+}
+
+.login-form input, .cadastro-form input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #000;
+  outline: none;
+  padding: 6px 4px;
+  font-size: 16px;
+  font-family: "Coming soon";
+  background: transparent;
+  transition: border-color 0.3s;
+}
+
+.login-form input::placeholder, .cadastro-form input::placeholder {
+  color: #999;
+}
+
+.login-form input:focus, .cadastro-form input:focus {
+  border-bottom-color: #000;
+}
+
+.login-form button, .cadastro-form button {
+  width: 100%;
+  background-color: #000;
+  border: none;
+  opacity: 0.70;
+  padding: 10px;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover, .cadastro-form button:hover {
+  background-color: #484848;
+}
+
+/* Container das colunas com flexbox vertical */
+.col-md-5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Força o tamanho idêntico para os forms */
+.login-form, .cadastro-form {
+  width: 320px;       /* Largura fixa para ambos */
+  min-height: 380px;  /* Altura mínima igual para os dois */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribui itens verticalmente */
+}
+
+/* Mantém os botões no fim do form */
+.login-form button, .cadastro-form button {
+  margin-top: 20px;
+}
+
+/* A linha vertical, centralizada e com altura total da coluna */
+.vertical-line {
+  width: 3px;
+  height: auto; /* Ajusta dinamicamente com a altura das colunas */
+  background-color: black;
+  align-self: stretch; /* Faz a linha pegar a altura total */
+  margin: 0 15px;
+}
+.rodape{
+    background:#8ADEFF;
+}
+
+
