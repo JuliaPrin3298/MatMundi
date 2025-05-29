@@ -2,58 +2,167 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MatMundi</title>
-    <link rel="icon" href="../images/logo.png" type="image/png">
+    <link rel="icon" href="../images/logo.png" type="image/png" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/css.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/css.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap" rel="stylesheet" />
 
+    <style>
+        .carousel-container {
+            max-width: 780px;
+            /* 3 cards * 253px + 2 gaps 10px = 780px */
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .carousel-inner {
+            display: flex;
+            gap: 10px;
+            transition: transform 0.4s ease;
+        }
+
+        .carousel-item {
+            flex: 0 0 253px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: none;
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        .carousel-item h1 {
+            margin: 0 0 10px 0;
+            font-size: 8.1rem;
+            text-align: center;
+            font-family: "Cherry Bomb One";
+        }
+
+        .carousel-item a.btn {
+            background: #FFFFFF;
+            opacity: 0.5;
+            color: black;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-family: "Chewy";
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-item a.btn:hover {
+            background: #0056b3;
+        }
+
+        /* Botões de navegação */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            z-index: 10;
+        }
+
+        .carousel-btn:focus {
+            outline: none;
+            box-shadow: 0 0 5px 2px #007bff;
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .carousel-container {
+                max-width: 100%;
+            }
+
+            .carousel-inner {
+                gap: 10px;
+            }
+
+            .carousel-item {
+                flex: 0 0 100%;
+                /* mostra 1 card por vez */
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container"></div>
 
-    <div class="container">
+    <!--ATIVIDADES-->
+    <section class="atividades">
+        <div class="atividades" id="atividades">
+            <h2>Atividades</h2>
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <iframe src="carrossel.html" style="width: 780px; height: 320px; border:none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-    </div>
     <!--JOGOS-->
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path fill="#92C992" fill-opacity="1"
             d="M0,224L60,234.7C120,245,240,267,360,256C480,245,600,203,720,208C840,213,960,267,1080,256C1200,245,1320,171,1380,133.3L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z">
         </path>
     </svg>
-    <section class="jogos">
+    <section class="jogos" style="background: #92C992;">
         <div class="jogos" id="jogos">
-            <H2>Jogos</H2>
-            <div class="row">
+            <h2>Jogos</h2>
+            <div class="row" style="margin-top: -80px;">
                 <div class="col-md-4 col-sm-12">
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top" src="../images/IlhaDoTesouro/Ilha do tesouro logo.png"
-                            alt="Imagem de capa do card">
+                            alt="Imagem de capa do card" />
                         <div class="card-body">
                             <a href="Ilha do Tesouro/ilha.html" class="btn btn-dark">Jogar Agora</a>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="../images/retangulo.png" alt="Imagem de capa do card">
+                        <img class="card-img-top" src="../images/retangulo.png" alt="Imagem de capa do card" />
                         <div class="card-body">
                             <a href="erro.html" class="btn btn-dark">Jogar Agora</a>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="../images/retangulo.png" alt="Imagem de capa do card">
+                        <img class="card-img-top" src="../images/retangulo.png" alt="Imagem de capa do card" />
                         <div class="card-body">
                             <a href="erro.html" class="btn btn-dark">Jogar Agora</a>
                         </div>
@@ -67,12 +176,6 @@
             d="M0,224L48,208C96,192,192,160,288,138.7C384,117,480,107,576,117.3C672,128,768,160,864,192C960,224,1056,256,1152,234.7C1248,213,1344,139,1392,101.3L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
         </path>
     </svg>
-
-
-
-
-
-
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"

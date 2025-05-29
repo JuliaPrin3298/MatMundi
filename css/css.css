@@ -1,18 +1,21 @@
-*{
-font-family: "Chewy";
+* {
+    font-family: "Chewy";
 }
 
 section {
-    padding: 60px 0;
-    height: 70vh;
+    padding: 100px 0;
+    height: 50vh;
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: #92C992;
+}
+.jogos{
+    margin-top: 0px;
 }
 
-.jogos h2{
+.jogos h2 {
     font-family: "Chewy";
     margin-top: 50px;
     margin-bottom: 100px;
@@ -23,15 +26,18 @@ section {
     width: 10vw;
 }
 
-.jogos .card{
+.jogos .card {
     border-radius: 20px;
 }
 
-.jogos img{
+.jogos img {
     border-radius: 20px;
 }
 
-a{
+a {
     text-decoration: none;
 }
+
+
+
 
