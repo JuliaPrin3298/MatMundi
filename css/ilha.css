@@ -151,3 +151,23 @@ table.tabuleiro td img {
     font-size: clamp(16px, 4vw, 28px);
     margin: 0;
 }
+
+ul{
+  position: fixed; 
+  top: 0;          
+  left: 0;        
+  width: 100%;    
+  z-index: 1000;   
+  background: linear-gradient(to right, #8ADEFF, #75EDE6);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+ul a {
+  color: black;
+  text-decoration: none;
+}
+
+ul a:hover {
+  color: black;
+  text-decoration: underline; 
+}
