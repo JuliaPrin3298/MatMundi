@@ -14,13 +14,12 @@ ul{
 
 ul a {
   color: black;
-  text-decoration: none; /* se quiser tirar o underline */
+  text-decoration: none;
 }
 
-/* Se quiser deixar o link preto também ao passar o mouse */
 ul a:hover {
   color: black;
-  text-decoration: underline; /* ou none, se preferir */
+  text-decoration: underline; 
 }
 
 section {
@@ -251,38 +250,29 @@ a {
   background-color: #484848;
 }
 
-/* Container das colunas com flexbox vertical */
-.col-md-5 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Força o tamanho idêntico para os forms */
 .login-form, .cadastro-form {
-  width: 320px;       /* Largura fixa para ambos */
-  min-height: 380px;  /* Altura mínima igual para os dois */
+  width: 320px;       
+  min-height: 380px;  
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribui itens verticalmente */
+  justify-content: space-between; 
 }
 
-/* Mantém os botões no fim do form */
 .login-form button, .cadastro-form button {
   margin-top: 20px;
 }
 
-/* A linha vertical, centralizada e com altura total da coluna */
 .vertical-line {
   width: 3px;
-  height: auto; /* Ajusta dinamicamente com a altura das colunas */
+  height: auto; 
   background-color: black;
-  align-self: stretch; /* Faz a linha pegar a altura total */
+  align-self: stretch;
   margin: 0 15px;
 }
 .rodape{
     background:#8ADEFF;
 }
 
-
+.inicio{
+  height:auto;
+}
