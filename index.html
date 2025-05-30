@@ -12,30 +12,32 @@
     <link rel="stylesheet" href="css/css.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Cherry+Bomb+One&family=Press+Start+2P&family=Coming+Soon&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Chewy&family=Cherry+Bomb+One&family=Press+Start+2P&family=Coming+Soon&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-   
+
 </head>
 
 <body>
-<!--Navbar-->
-  <ul class="nav justify-content-end">
-    <li class="nav-item">
-        <a class="nav-link" href="index.html#home">Home</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="index.html#atividades">Atividades</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="index.html#jogos">Jogos</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="index.html#loca">Login / Cadastrar</a>
-    </li>
-</ul>
+    <!--Navbar-->
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link" href="index.html#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="index.html#atividades">Atividades</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="index.html#jogos">Jogos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="index.html#loca">Login / Cadastrar</a>
+        </li>
+    </ul>
 
 
- <!--Home-->
+    <!--Home-->
 
     <section class="home" style="background: #FFFAB4;" id="home">
         <div>
@@ -72,32 +74,32 @@
             <h2>Atividades</h2>
             <div class="row">
                 <div class="col-md-12 col-sm-12">
-                    <div class="carousel-container" id="carousel">
-                        <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
-                        <div class="carousel-inner">
-                            <div class="carousel-item" style="background: #C2A8FF;">
-                                <h1>1°</h1>
-                                <a href="../atividades.html" class="btn">Acessar Atividades</a>
-                            </div>
-                            <div class="carousel-item" style="background: #FFFBB5;">
-                                <h1>2°</h1>
-                                <a href="../erro.html" class="btn">Acessar Atividades</a>
-                            </div>
-                            <div class="carousel-item" style="background: #FFA09D;">
-                                <h1>3°</h1>
-                                <a href="../erro.html" class="btn">Acessar Atividades</a>
-                            </div>
-                            <div class="carousel-item" style="background: #75EDE6;">
-                                <h1>4°</h1>
-                                <a href="../erro.html" class="btn">Acessar Atividades</a>
-                            </div>
-                            <div class="carousel-item" style="background: #8ADEFF;">
-                                <h1>5°</h1>
-                                <a href="../erro.html" class="btn">Acessar Atividades</a>
-                            </div>
+                     <div class="caroteiner" id="caro">
+                    <button class="carobtn prev" aria-label="Anterior">&#10094;</button>
+                    <div class="caroinner">
+                        <div class="caroitem" style="background: #C2A8FF;">
+                            <h1>1°</h1>
+                            <a href="../erro.html" class="btn">Acessar Atividades</a>
                         </div>
-                        <button class="carousel-btn next" aria-label="Próximo">&#10095;</button>
+                        <div class="caroitem" style="background: #FFFBB5;">
+                            <h1>2°</h1>
+                            <a href="../erro.html" class="btn">Acessar Atividades</a>
+                        </div>
+                        <div class="caroitem" style="background: #FFA09D;">
+                            <h1>3°</h1>
+                            <a href="../erro.html" class="btn">Acessar Atividades</a>
+                        </div>
+                        <div class="caroitem" style="background: #75EDE6;">
+                            <h1>4°</h1>
+                            <a href="../erro.html" class="btn">Acessar Atividades</a>
+                        </div>
+                        <div class="caroitem" style="background: #8ADEFF;">
+                            <h1>5°</h1>
+                            <a href="../erro.html" class="btn">Acessar Atividades</a>
+                        </div>
                     </div>
+                    <button class="carobtn next" aria-label="Próximo">&#10095;</button>
+                </div>
                 </div>
             </div>
         </div>
@@ -198,21 +200,19 @@
     </section>
 
 
-
-
-    <script>
+        <script>
         (function () {
-            const carousel = document.getElementById('carousel');
-            const inner = carousel.querySelector('.carousel-inner');
-            const items = carousel.querySelectorAll('.carousel-item');
-            const prevBtn = carousel.querySelector('.carousel-btn.prev');
-            const nextBtn = carousel.querySelector('.carousel-btn.next');
+            const caro = document.getElementById('caro');
+            const inner = caro.querySelector('.caroinner');
+            const items = caro.querySelectorAll('.caroitem');
+            const prevBtn = caro.querySelector('.carobtn.prev');
+            const nextBtn = caro.querySelector('.carobtn.next');
 
             let currentIndex = 0;
             let cardsPerView = window.innerWidth < 768 ? 1 : 3;
             const totalItems = items.length;
 
-            function updateCarousel() {
+            function updatecaro() {
                 const style = window.getComputedStyle(inner);
                 const gap = parseInt(style.gap) || 0;
                 const itemWidth = items[0].offsetWidth + gap;
@@ -227,24 +227,26 @@
 
             prevBtn.addEventListener('click', () => {
                 currentIndex--;
-                updateCarousel();
+                updatecaro();
             });
 
             nextBtn.addEventListener('click', () => {
                 currentIndex++;
-                updateCarousel();
+                updatecaro();
             });
 
             window.addEventListener('resize', () => {
                 cardsPerView = window.innerWidth < 768 ? 1 : 3;
                 if (currentIndex > totalItems - cardsPerView) currentIndex = totalItems - cardsPerView;
                 if (currentIndex < 0) currentIndex = 0;
-                updateCarousel();
+                updatecaro();
             });
 
-            updateCarousel();
+            updatecaro();
         })();
     </script>
+
+
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"

@@ -1,15 +1,15 @@
 * {
-    font-family: "Chewy";
+  font-family: "Chewy";
 }
 
-ul{
-  position: fixed; 
-  top: 0;          
-  left: 0;        
-  width: 100%;    
-  z-index: 1000;   
+ul {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
   background: linear-gradient(to right, #8ADEFF, #75EDE6);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 ul a {
@@ -19,193 +19,197 @@ ul a {
 
 ul a:hover {
   color: black;
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
 section {
-    padding: 100px 0;
-    height: 50vh;
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  padding: 100px 0;
+  height: 50vh;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-.masc img{
-    width: 29vw;
+.masc img {
+  width: 29vw;
 }
 
-.slogan{
-    display: flex;
-    justify-content: center;
-    align-items:center;
-    margin-top: 40px;
+.slogan {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
 }
 
-.logo img{
-    width: 19vw;
-    margin-left: -80px;
-    margin-top: 40px;
+.logo img {
+  width: 19vw;
+  margin-left: -80px;
+  margin-top: 40px;
 }
 
-.home p{
-    font-size: 20px;
-    font-family: "Press Start 2P";
-    text-align: center;
+.home p {
+  font-size: 20px;
+  font-family: "Press Start 2P";
+  text-align: center;
 }
 
 .jogos {
-    margin-top: 0px;
+  margin-top: 0px;
 }
 
 .jogos h2 {
-    font-family: "Chewy";
-    margin-top: 50px;
-    margin-bottom: 100px;
+  font-family: "Chewy";
+  margin-top: 50px;
+  margin-bottom: 100px;
 }
 
 .jogos a.btn {
-    opacity: 0.75;
-    width: 10vw;
+  opacity: 0.75;
+  width: 10vw;
 }
 
 .jogos .card {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 .jogos img {
-    border-radius: 20px;
+  border-radius: 20px;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-.carousel-container {
-    width: 100%;
-    margin: auto;
-    position: relative;
-    overflow: hidden;
-    background: transparent;
+.caroteiner {
+  width: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  margin-top: 20px;
 }
 
 
-.carousel-inner {
-    display: flex;
-    gap: 10px;
-    transition: transform 0.4s ease;
+.caroinner {
+  display: flex;
+  gap: 10px;
+  transition: transform 0.4s ease;
 }
 
-.carousel-item {
-    flex: 0 0 253px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: none;
-    border: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    box-sizing: border-box;
+.caroitem {
+  flex: 0 0 253px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
-.carousel-item h1 {
-    margin: 0 0 10px 0;
-    font-size: 8.1rem;
-    text-align: center;
-    font-family: "Cherry Bomb One";
+.caroitem h1 {
+  margin: 0 0 10px 0;
+  font-size: 8.1rem;
+  text-align: center;
+  font-family: "Cherry Bomb One";
 }
 
-.carousel-item a.btn {
-    background: #FFFFFF;
-    opacity: 0.5;
-    color: black;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    font-family: "Chewy";
-    transition: background-color 0.3s ease;
+.caroitem a.btn {
+  background: #FFFFFF;
+  opacity: 0.5;
+  color: black;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: "Chewy";
+  transition: background-color 0.3s ease;
 }
 
-.carousel-item a.btn:hover {
-    background: #000;
-    color: #FFFFFF;
+.caroitem a.btn:hover {
+  background: #000;
+  color: #FFFFFF;
 }
 
 /* Botões de navegação */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.4);
-    border: none;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-    z-index: 10;
+.carobtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  z-index: 10;
 }
 
-.carousel-btn:focus {
-    outline: none;
-    box-shadow: 0 0 5px 2px #000;
+.carobtn:focus {
+  outline: none;
+  box-shadow: 0 0 5px 2px #000;
 }
 
-.carousel-btn.prev {
-    left: 10px;
+.carobtn.prev {
+  left: 10px;
 }
 
-.carousel-btn.next {
-    right: 10px;
+.carobtn.next {
+  right: 10px;
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .carousel-container {
-        max-width: 100%;
-    }
+  .caroteiner {
+    max-width: 100%;
+  }
 
-    .carousel-inner {
-        gap: 10px;
-    }
+  .caroinner {
+    gap: 10px;
+  }
 
-    .carousel-item {
-        flex: 0 0 100%;
-        /* mostra 1 card por vez */
-    }
+  .caroitem {
+    flex: 0 0 100%;
+    /* mostra 1 card por vez */
+  }
 }
 
 @media (min-width: 769px) {
-    .carousel-inner {
-        flex-wrap: nowrap;
-    }
+  .caroinner {
+    flex-wrap: nowrap;
+  }
 
-    .carousel-item {
-        flex: 0 0 calc((100% - 20px) / 3);
-        /* 3 cards com 2 gaps de 10px */
-    }
+  .caroitem {
+    flex: 0 0 calc((100% - 20px) / 3);
+    /* 3 cards com 2 gaps de 10px */
+  }
 }
 
-.login-form, .cadastro-form {
+.login-form,
+.cadastro-form {
   width: 300px;
   margin: 0 auto;
   font-family: "Chewy", sans-serif;
 }
 
-.login-form label, .cadastro-form label {
+.login-form label,
+.cadastro-form label {
   display: block;
   margin-bottom: 20px;
 }
 
-.login-form p, .cadastro-form p {
+.login-form p,
+.cadastro-form p {
   display: flex;
   align-items: center;
   font-size: 18px;
@@ -213,7 +217,8 @@ a {
   color: #000;
 }
 
-.login-form input, .cadastro-form input {
+.login-form input,
+.cadastro-form input {
   width: 100%;
   border: none;
   border-bottom: 2px solid #000;
@@ -225,15 +230,18 @@ a {
   transition: border-color 0.3s;
 }
 
-.login-form input::placeholder, .cadastro-form input::placeholder {
+.login-form input::placeholder,
+.cadastro-form input::placeholder {
   color: #999;
 }
 
-.login-form input:focus, .cadastro-form input:focus {
+.login-form input:focus,
+.cadastro-form input:focus {
   border-bottom-color: #000;
 }
 
-.login-form button, .cadastro-form button {
+.login-form button,
+.cadastro-form button {
   width: 100%;
   background-color: #000;
   border: none;
@@ -246,33 +254,37 @@ a {
   transition: background-color 0.3s;
 }
 
-.login-form button:hover, .cadastro-form button:hover {
+.login-form button:hover,
+.cadastro-form button:hover {
   background-color: #484848;
 }
 
-.login-form, .cadastro-form {
-  width: 320px;       
-  min-height: 380px;  
+.login-form,
+.cadastro-form {
+  width: 320px;
+  min-height: 380px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
-.login-form button, .cadastro-form button {
+.login-form button,
+.cadastro-form button {
   margin-top: 20px;
 }
 
 .vertical-line {
   width: 3px;
-  height: auto; 
+  height: auto;
   background-color: black;
   align-self: stretch;
   margin: 0 15px;
 }
-.rodape{
-    background:#8ADEFF;
+
+.rodape {
+  background: #8ADEFF;
 }
 
-.inicio{
-  height:auto;
+.inicio {
+  height: auto;
 }
