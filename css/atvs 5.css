@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+
+
+.container i {
+    font-size: 5vw;
+    color: black;
+}
+
+
+@media (min-width: 1200px) {
+    .container i {
+        font-size: 30px;
+    }
+}
+
+
+
+body{
+    background-color: rgba(138, 222, 255, 0.3);
+}
+.game {
+    background: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    width: 100%;
+    border-radius: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+p{
+    font-family: 'Rammetto One';
+}
+
+
+.game img{
+    width: 100px;
+
+}
+
+
+ul{
+  position: fixed; 
+  top: 0;          
+  left: 0;        
+  width: 100%;    
+  z-index: 1000;   
+  background: linear-gradient(to right, #8ADEFF, #75EDE6);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  font-family: "Chewy"
+}
+
+ul a {
+  color: black;
+  text-decoration: none;
+}
+
+ul a:hover {
+  color: black;
+  text-decoration: underline; 
+}
+
+.rodape {
+  background: #8ADEFF;
+}
