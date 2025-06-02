@@ -29,8 +29,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    padding: 10px;
+    justify-content: space-evenly;
+    padding: 30px;
 }
 
 p{
@@ -41,6 +41,16 @@ p{
 .game img{
     width: 100px;
 
+}
+.game p{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#imgsss img{
+  width: 20vw;
+  height: 20vw;
+  margin-left: 60px;
 }
 
 
