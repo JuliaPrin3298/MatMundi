@@ -1,0 +1,163 @@
+body {
+    margin: 0;
+    font-family: "Chewy", system-ui;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    color: #75EDE6;
+  }
+  
+  
+  .avatar-container {
+    position: relative;
+  }
+  
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .trocar-foto {
+    background: none;
+    border: none;
+    color: #C2A8FF ;
+  }
+  
+  .nome-usuario {
+    margin-top: 5px;
+    font-weight: bold;
+  }
+  
+  .botoes {
+    margin-top: 15px;
+  }
+  
+  .btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 1rem;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .editar {
+    background: #FFA09D ;
+  }
+  
+  .sair {
+    background: #FFA09D ;
+  }
+  
+  .ranking {
+    background: #b6e3b4;
+    padding: 30px;
+    margin: 10px auto;
+    width: 400px;
+    border-radius: 30px;
+  }
+  
+  .ranking h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .ranking ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .ranking li {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    background: #ffffff80;
+    margin: 5px 0;
+    padding: 8px 15px;
+    border-radius: 10px;
+  }
+  
+  .icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  #fotoMascote {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    cursor: pointer;
+    object-fit: cover;
+    border: 4px solid #b58ff2;
+  }
+  
+  .onda-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80vh; /* aumente aqui (ex: 70vh, 80vh...) */
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  
+  .onda-inferior {
+    width: 100%;
+    height: 100%;
+  }
+  
+  main, .ranking, .avatar-container, .botoes {
+    position: relative;
+    z-index: 1; /* fica por cima da onda */
+  }
+  
+  .body {
+      position: relative;
+      z-index:auto
+  }
+  .onda-container-superior {
+    position: absolute;
+    bottom: 20%;
+    left: 0;
+    width: 100%;
+    height: 80vh; /* aumente aqui (ex: 70vh, 80vh...) */
+    z-index: 0;
+    overflow: hidden;
+  }
+  
+  .nome-container {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 300px;
+  }
+  
+  
+  #username {
+    border: 5px solid #FFA09D;
+    transition: border-color 0.3s;
+    background-color: #FFA09D;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-size: 1rem;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  #username:focus {
+    border-color: #b58ff2;
+    box-shadow: 0 0 8px #a5d6a7;
+  }
+  

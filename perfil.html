@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MatMundi</title>
+  <link rel="stylesheet" href="css/perfil.css">
+  <link rel="shortcut icon" href="images/perfil/logo.jpeg" type="image/x-icon">
+  <style>
+    .titulo-site {
+      text-align: center;
+      font-size: 3rem;
+      margin: 20px auto;
+      color: #4B0082; /* Roxo escuro */
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="onda-container-superior">
+        <svg class="onda-superior" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#C2A8FF" fill-opacity="1" d="M0,96L48,85.3C96,75,192,53,288,80C384,107,480,181,576,186.7C672,192,768,128,864,90.7C960,53,1056,43,1152,58.7C1248,75,1344,117,1392,138.7L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        </svg>
+    </div>
+  </header>
+
+  <main>
+    <!-- TÍTULO POSICIONADO ABAIXO DA ONDA -->
+    <h1 class="titulo-site">MatMundi</h1>
+
+    <div class="perfil"></div>
+
+    <div class="avatar-container">
+      <img id="fotoMascote" src="images/perfil/mascote-Photoroom.png" alt="Mascote Atual" style="width: 100px; height: 100px; border-radius: 50%; cursor: pointer;">
+
+      <div id="opcoesAvatares" style="display: none; margin-top: 10px;">
+        <img src="images/perfil/mascote-Photoroom.png" alt="Mascote 2" class="avatar-opcao" style="width: 60px; cursor: pointer; border-radius: 50%;">
+        <img src="images/perfil/mascotinha-removebg-preview.png" alt="Mascote 3" class="avatar-opcao" style="width: 60px; cursor: pointer; border-radius: 50%;">
+        <img src="images/perfil/mascoteverde.png" alt="Mascote 3" class="avatar-opcao" style="width: 60px; cursor: pointer; border-radius: 50%;">
+      </div>
+
+      <br>
+
+      <div class="nome-container">
+        <input type="text" id="username" placeholder="Seu nome" />
+      </div>
+
+      <p id="saudacao"></p>
+
+      <div class="botoes">
+        <button class="btn editar">Editar perfil</button>
+        <button class="btn sair" onclick="window.location.href='index.html#loca'">Sair</button>
+      </div>
+    </div>
+
+    <section class="ranking">
+      <h2>Ranking</h2>
+      <ul>
+        
+        <li><span class="trofeu 🥇">🥇</span><img src="images/perfil/mascote-Photoroom.png" class="icon"> Usuário - <strong>1.000XP</strong></li>
+        <li><span class="trofeu 🥈">🥈</span><img src="images/perfil/mascote-Photoroom.png" class="icon"> Usuário - <strong>990XP</strong></li>
+        <li><span class="trofeu 🥉">🥉</span><img src="images/perfil/mascote-Photoroom.png" class="icon"> Usuário - <strong>950XP</strong></li>
+        <li>4° <img src="images/perfil/mascote-Photoroom.png" class="icon"> Usuário - <strong>940XP</strong></li>
+        <li>5° <img src="images/perfil/mascote-Photoroom.png" class="icon"> Usuário - <strong>900XP</strong></li>
+        <li>6° <img src="images/perfil/mascote-Photoroom.png" class="icon"> Usuário - <strong>800XP</strong></li>
+        <li>7° <img src="images/perfil/mascote-Photoroom.png" class="icon"> Usuário - <strong>700XP</strong></li>
+        <li>8° <img src="images/perfil/mascote-Photoroom.png" class="icon"> Usuário - <strong>600XP</strong></li>
+        <li>9° <img src="images/perfil/mascote-Photoroom.png" class="icon"> Usuário - <strong>500XP</strong></li>
+        <li>10° <img src="images/perfil/mascote-Photoroom.png" class="icon"> Usuário - <strong>300XP</strong></li>
+      </ul>
+    </section>
+
+    <div class="onda-container">
+      <svg class="onda-inferior" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 640" preserveAspectRatio="none">
+        <path fill="#FFFBB5" fill-opacity="1" d="M0,256L60,234.7C120,213,240,171,360,166.7C480,163,600,213,720,240C840,267,960,277,1080,256C1200,235,1320,181,1380,154.7L1440,128L1440,640L1380,640C1320,640,1200,640,1080,640C960,640,840,640,720,640C600,640,480,640,360,640C240,640,120,640,60,640L0,640Z"></path>
+      </svg>
+    </div>
+
+  </main>
+
+  <script>
+    const fotoMascote = document.getElementById('fotoMascote');
+    const opcoesAvatares = document.getElementById('opcoesAvatares');
+    const avatares = document.querySelectorAll('.avatar-opcao');
+
+    const avatarSalvo = localStorage.getItem('avatarSelecionado');
+    if (avatarSalvo) {
+      fotoMascote.src = avatarSalvo;
+    }
+
+    fotoMascote.addEventListener('click', () => {
+      opcoesAvatares.style.display = opcoesAvatares.style.display === 'none' ? 'block' : 'none';
+    });
+
+    avatares.forEach((avatar) => {
+      avatar.addEventListener('click', function () {
+        fotoMascote.src = this.src;
+        localStorage.setItem('avatarSelecionado', this.src);
+        opcoesAvatares.style.display = 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>
