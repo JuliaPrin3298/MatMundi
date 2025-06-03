@@ -45,12 +45,23 @@ p{
 .game p{
   padding-left: 20px;
   padding-right: 20px;
+  margin-top: 10px;
+}
+
+.game h3{
+  font-family: "Reem Kufi Fun";
 }
 
 #imgsss img{
   width: 20vw;
   height: 20vw;
-  margin-left: 60px;
+  margin-left: 100px;
+}
+
+#imgsss{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
