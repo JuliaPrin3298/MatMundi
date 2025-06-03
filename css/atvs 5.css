@@ -23,7 +23,7 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 80vh;
+    height: auto;
     width: 100%;
     border-radius: 55px;
     display: flex;
