@@ -55,10 +55,9 @@ p{
 #imgsss img{
   width: 20vw;
   height: 20vw;
-  margin-left: 100px;
 }
 
-#imgsss{
+#neck{
   display: flex;
   align-items: center;
   justify-content: center;

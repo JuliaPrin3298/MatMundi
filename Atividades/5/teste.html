@@ -16,9 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
-      <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400..700&display=swap" rel="stylesheet">
     <style>
         .exercicio {
             display: none;
@@ -92,21 +91,30 @@
                             </p>
                         </div>
                         <div class="row" id="imgsss">
-                            <div class="imags">
-                                <img src="../../images/Atv 5/Rick com ing.png" alt="">
-                                <img src="../../images/Atv 5/conta exemplo.png" alt="">
+                            <div class="row justify-content-between">
+                                <div class="col-sm-3 col-md-3">
+                                    <img src="../../images/Atv 5/Rick com ing.png" alt="">
+
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <img src="../../images/Atv 5/conta exemplo.png" alt="">
+
+                                </div>
                             </div>
                         </div>
-                        <div class="row" id="imgsss">
+                        <div class="row" id="neck">
                             <div class="next">
                                 <div style="text-align: center; margin-top: 20px;">
-                                    <span class="material-symbols-outlined" onclick="voltarExercicio()" style="cursor: pointer; margin-right: 15px;">
+                                    <span class="material-symbols-outlined" onclick="voltarExercicio()"
+                                        style="cursor: pointer; margin-right: 15px;">
                                         arrow_back
                                     </span>
-                                    <span class="material-symbols-outlined" onclick="proximoExercicio()" style="cursor: pointer;">
+                                    <span class="material-symbols-outlined" onclick="proximoExercicio()"
+                                        style="cursor: pointer;">
                                         arrow_forward
                                     </span>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -116,14 +124,16 @@
                         <!-- Aqui vai o conteúdo do Exercício 2 -->
                         <div style="text-align: center; margin-top: 20px;">
                             <h3> Atividade Exemplo</h3>
-                        </div>             
-                        <div class="row">
-                            
                         </div>
-                        
                         <div class="row">
-                            <p>Problema: Ellie usou 250g de queijo, 100g de calabresa e 150g de molho para fazer uma pizza. 
-                                Depois, ela colocou mais 50g de queijo. Quantos gramas de ingredientes Ellie usou no total?
+
+                        </div>
+
+                        <div class="row">
+                            <p>Problema: Ellie usou 250g de queijo, 100g de calabresa e 150g de molho para fazer uma
+                                pizza.
+                                Depois, ela colocou mais 50g de queijo. Quantos gramas de ingredientes Ellie usou no
+                                total?
 
                             </p>
                         </div>
@@ -155,29 +165,44 @@
                             </p>
                         </div>
 
+
                         <div class="row" id="imgsss">
-                            <div class="imags">
-                                <img src="../../images/Atv 5/conta exemplo.png" alt="">
-                                <img src="../../images/Atv 5/conta exemplo.png" alt="">
-                                <img src="../../images/Atv 5/Rick com ing.png" alt="">
+                            <div class="row justify-content-between">
+                               
+                                <div class="col-sm-3 col-md-3">
+                                    <img src="../../images/Atv 5/conta exemplo.png" alt="">
+
+                                </div>
+
+                                <div class="col-sm-3 col-md-3">
+                                    <img src="../../images/Atv 5/conta exemplo.png" alt="">
+
+                                </div>
+                                
+                                <div class="col-sm-3 col-md-3">
+                                    <img src="../../images/Atv 5/Rick com ing.png" alt="">
+
+                                </div>
                             </div>
                         </div>
-                       
+
                         <div class="row">
-                            <p>  Resposta: 550g
+                            <p> Resposta: 550g
                             </p>
                         </div>
 
-                        <div class="row" id="imgsss">
+                        <div class="row" id="neck">
                             <div class="next">
                                 <div style="text-align: center; margin-top: 20px;">
-                                    <span class="material-symbols-outlined" onclick="voltarExercicio()" style="cursor: pointer; margin-right: 15px;">
+                                    <span class="material-symbols-outlined" onclick="voltarExercicio()"
+                                        style="cursor: pointer; margin-right: 15px;">
                                         arrow_back
                                     </span>
-                                    <span class="material-symbols-outlined" onclick="proximoExercicio()" style="cursor: pointer;">
+                                    <span class="material-symbols-outlined" onclick="proximoExercicio()"
+                                        style="cursor: pointer;">
                                         arrow_forward
                                     </span>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -193,24 +218,24 @@
     </div>
 
     <script>
-       let indexExercicio = 0;
-const exercicios = document.querySelectorAll(".exercicio");
+        let indexExercicio = 0;
+        const exercicios = document.querySelectorAll(".exercicio");
 
-function proximoExercicio() {
-    if (indexExercicio < exercicios.length - 1) {
-        exercicios[indexExercicio].classList.remove("ativo");
-        indexExercicio++;
-        exercicios[indexExercicio].classList.add("ativo");
-    }
-}
+        function proximoExercicio() {
+            if (indexExercicio < exercicios.length - 1) {
+                exercicios[indexExercicio].classList.remove("ativo");
+                indexExercicio++;
+                exercicios[indexExercicio].classList.add("ativo");
+            }
+        }
 
-function voltarExercicio() {
-    if (indexExercicio > 0) {
-        exercicios[indexExercicio].classList.remove("ativo");
-        indexExercicio--;
-        exercicios[indexExercicio].classList.add("ativo");
-    }
-}
+        function voltarExercicio() {
+            if (indexExercicio > 0) {
+                exercicios[indexExercicio].classList.remove("ativo");
+                indexExercicio--;
+                exercicios[indexExercicio].classList.add("ativo");
+            }
+        }
 
     </script>
 
