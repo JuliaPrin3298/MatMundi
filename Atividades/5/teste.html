@@ -64,99 +64,101 @@
                             Rick usou 300g de queijo, 120g de calabresa e 80g de molho. Depois, adicionou mais 40g
                             de molho. Quantos gramas no total?
                         </p>
-                    </div>
-
-                    <div class="row justify-content-between text-center mb-3">
-                        <div class="col-sm-3 col-md-3">
-                            <img src="../../images/Atv 5/queijo.png" alt="Queijo"
-                                style="max-width: 100px; cursor:pointer;" class="clicavel" data-valor="300">
-                            <p style="font-family: 'Sigmar One'; font-size: 20px;">300g</p>
-                        </div>
-
-                        <div class="col-sm-3 col-md-3">
-                            <img src="../../images/Atv 5/calabresa.png" alt="Calabresa"
-                                style="max-width: 100px; cursor:pointer;" class="clicavel" data-valor="120">
-                            <p style="font-family: 'Sigmar One'; font-size: 20px;">120g</p>
-                        </div>
-
-                        <div class="col-sm-3 col-md-3">
-                            <img src="../../images/Atv 5/molho-de-tomate.png" alt="Molho"
-                                style="max-width: 100px; cursor:pointer;" class="clicavel" data-valor="80">
-                            <p style="font-family: 'Sigmar One'; font-size: 20px;">80g</p>
-                        </div>
-
-                        <div class="col-sm-3 col-md-3">
-                            <img src="../../images/Atv 5/molho-de-tomate.png" alt="Molho extra"
-                                style="max-width: 100px; cursor:pointer;" class="clicavel" data-valor="40">
-                            <p style="font-family: 'Sigmar One'; font-size: 20px;">40g</p>
-                        </div>
-                    </div>
-
-                    <!-- Aqui vai aparecer a conta vertical -->
-                    <div id="conta-vertical"
-                        style="font-family: 'Sigmar One'; font-size: 24px; text-align: center; white-space: pre-line; margin-top: 20px; user-select:none;">
-                    </div>
-
-                    <div style="text-align: center; margin-top: 20px;">
-                        <button id="verificar-btn" class="btn alternativa-btn-custom">Verificar</button>
-                    </div>
 
 
-                    <div style="margin-top: 30px; text-align: center; font-family: 'Sigmar One'; font-size: 18px;">
-                        <input id="input-centena" type="text" maxlength="1" size="1" placeholder="C"
-                            style="font-size: 24px; text-align: center;">
-                        <input id="input-dezena" type="text" maxlength="1" size="1" placeholder="D"
-                            style="font-size: 24px; text-align: center; margin-left: 10px;">
-                        <input id="input-unidade" type="text" maxlength="1" size="1" placeholder="U"
-                            style="font-size: 24px; text-align: center; margin-left: 10px;">
-                        <br><br>
-                    </div>
-
-
-                    <div class="row text-center" id="alternativas" style="display:none;">
-
-                        <div class="row">
-                            <div class="col-md-3 mb-2">
-                                <button class="alternativa-btn desativado alternativa-btn-custom"
-                                    onclick="verificarResposta(this, 500)">
-                                    500
-                                </button>
+                        <div class="row justify-content-between text-center mb-3">
+                            <div class="col-sm-3 col-md-3">
+                                <img src="../../images/Atv 5/queijo.png" alt="Queijo"
+                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-valor="300">
+                                <p style="font-family: 'Sigmar One'; font-size: 20px;">300g</p>
                             </div>
-                            <div class="col-md-3 mb-2">
-                                <button class="alternativa-btn desativado alternativa-btn-custom"
-                                    onclick="verificarResposta(this, 540)">
-                                    540
-                                </button>
+
+                            <div class="col-sm-3 col-md-3">
+                                <img src="../../images/Atv 5/calabresa.png" alt="Calabresa"
+                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-valor="120">
+                                <p style="font-family: 'Sigmar One'; font-size: 20px;">120g</p>
                             </div>
-                            <div class="col-md-3 mb-2">
-                                <button class="alternativa-btn desativado alternativa-btn-custom"
-                                    onclick="verificarResposta(this, 530)">
-                                    530
-                                </button>
+
+                            <div class="col-sm-3 col-md-3">
+                                <img src="../../images/Atv 5/molho-de-tomate.png" alt="Molho"
+                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-valor="80">
+                                <p style="font-family: 'Sigmar One'; font-size: 20px;">80g</p>
                             </div>
-                            <div class="col-md-3 mb-2">
-                                <button class="alternativa-btn desativado alternativa-btn-custom"
-                                    onclick="verificarResposta(this, 520)">
-                                    520
-                                </button>
+
+                            <div class="col-sm-3 col-md-3">
+                                <img src="../../images/Atv 5/molho-de-tomate.png" alt="Molho extra"
+                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-valor="40">
+                                <p style="font-family: 'Sigmar One'; font-size: 20px;">40g</p>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Container para os alertas -->
-                    <div id="alerta-container" style="margin-top: 15px;"></div>
+                        <!-- Aqui vai aparecer a conta vertical -->
+                        <div id="conta-vertical"
+                            style="font-family: 'Sigmar One'; font-size: 24px; text-align: center; white-space: pre-line; margin-top: 20px; user-select:none;">
+                        </div>
 
-                    <div class="row" id="neck">
-                        <div class="next">
-                            <div style="text-align: center; margin-top: 20px;">
-                                <span class="material-symbols-outlined" onclick="voltarExercicio()"
-                                    style="cursor: pointer; margin-right: 15px;">
-                                    arrow_back
-                                </span>
-                                <span class="material-symbols-outlined" onclick="proximoExercicio()"
-                                    style="cursor: pointer;">
-                                    arrow_forward
-                                </span>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button id="verificar-btn" class="btn alternativa-btn-custom">Verificar</button>
+                        </div>
+
+
+                        <div style="margin-top: 30px; text-align: center; font-family: 'Sigmar One'; font-size: 18px;">
+                            <input id="input-centena" type="text" maxlength="1" size="1" placeholder="C"
+                                style="font-size: 24px; text-align: center;">
+                            <input id="input-dezena" type="text" maxlength="1" size="1" placeholder="D"
+                                style="font-size: 24px; text-align: center; margin-left: 10px;">
+                            <input id="input-unidade" type="text" maxlength="1" size="1" placeholder="U"
+                                style="font-size: 24px; text-align: center; margin-left: 10px;">
+                            <br><br>
+                        </div>
+
+
+                        <div class="row text-center" id="alternativas" style="display:none;">
+
+                            <div class="row">
+                                <div class="col-md-3 mb-2">
+                                    <button class="alternativa-btn desativado alternativa-btn-custom"
+                                        onclick="verificarResposta(this, 500)">
+                                        500
+                                    </button>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <button class="alternativa-btn desativado alternativa-btn-custom"
+                                        onclick="verificarResposta(this, 540)">
+                                        540
+                                    </button>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <button class="alternativa-btn desativado alternativa-btn-custom"
+                                        onclick="verificarResposta(this, 530)">
+                                        530
+                                    </button>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <button class="alternativa-btn desativado alternativa-btn-custom"
+                                        onclick="verificarResposta(this, 520)">
+                                        520
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Container para os alertas -->
+                        <div id="alerta-container" style="margin-top: 15px;">
+                        </div>
+
+                        <div class="row" id="neck">
+                            <div class="next">
+                                <div style="text-align: center; margin-top: 20px;">
+                                    <span class="material-symbols-outlined" onclick="voltarExercicio()"
+                                        style="cursor: pointer; margin-right: 15px;">
+                                        arrow_back
+                                    </span>
+                                    <span class="material-symbols-outlined" onclick="proximoExercicio()"
+                                        style="cursor: pointer;">
+                                        arrow_forward
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
