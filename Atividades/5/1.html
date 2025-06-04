@@ -119,200 +119,76 @@
                         </div>
                     </div>
 
-                    <div class="exercicio" data-resposta="540">
-                        <!-- Aqui vai o conteúdo do Exercício 1 -->
-                        <h3 class="text-center">Atividade de Fixação</h3>
-                        <p class="text-center" style="font-size: 18px;">
-                            Rick usou 300g de queijo, 120g de calabresa e 80g de molho. Depois, adicionou mais 40g
-                            de molho. Quantos gramas no total?
-                        </p>
 
-
-                        <div class="row justify-content-between text-center mb-3">
-                            <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/queijo.png" alt="Queijo"
-                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="1" data-valor="300">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">300g</p>
-                            </div>
-
-                            <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/calabresa.png" alt="Calabresa"
-                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="1" data-valor="120">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">120g</p>
-                            </div>
-
-                            <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/molho-de-tomate.png" alt="Molho"
-                                    style="max-width: 100px; cursor:pointer;"class="clicavel" data-maxclicks="1" data-valor="80">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">80g</p>
-                            </div>
-
-                            <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/molho-de-tomate.png" alt="Molho extra"
-                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="1" data-valor="40">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">40g</p>
-                            </div>
-                        </div>
-
-                        <!-- Aqui vai aparecer a conta vertical -->
-                        <div id="conta-vertical"
-                            style="font-family: 'Sigmar One'; font-size: 24px; text-align: center; white-space: pre-line; margin-top: 20px; user-select:none;">
-                        </div>
-
+                    <div class="exercicio">
+                        <!-- Atividadde exemplo 2 -->
                         <div style="text-align: center; margin-top: 20px;">
-                            <button id="verificar-btn" class="btn alternativa-btn-custom">Verificar</button>
+                            <h3> Atividade Exemplo</h3>
+                        </div>
+                        <div class="row">
+
                         </div>
 
+                        <div class="row">
+                            <p>Problema: Ellie usou 250g de queijo, 100g de calabresa e 150g de molho para fazer uma
+                                pizza.
+                                Depois, ela colocou mais 50g de queijo. Quantos gramas de ingredientes Ellie usou no
+                                total?
 
-                        <div style="margin-top: 30px; text-align: center; font-family: 'Sigmar One'; font-size: 18px;">
-                            <input id="input-centena" type="text" maxlength="1" size="1" placeholder="C"
-                                style="font-size: 24px; text-align: center;">
-                            <input id="input-dezena" type="text" maxlength="1" size="1" placeholder="D"
-                                style="font-size: 24px; text-align: center; margin-left: 10px;">
-                            <input id="input-unidade" type="text" maxlength="1" size="1" placeholder="U"
-                                style="font-size: 24px; text-align: center; margin-left: 10px;">
-                            <br><br>
+                            </p>
                         </div>
 
-
-                        <div class="row text-center" id="alternativas" style="display:none;">
-
-                            <div class="row">
-                                <div class="col-md-3 mb-2">
-                                    <button class="alternativa-btn desativado alternativa-btn-custom"
-                                        onclick="verificarResposta(this, 500)">
-                                        500
-                                    </button>
-                                </div>
-                                <div class="col-md-3 mb-2">
-                                    <button class="alternativa-btn desativado alternativa-btn-custom"
-                                        onclick="verificarResposta(this, 540)">
-                                        540
-                                    </button>
-                                </div>
-                                <div class="col-md-3 mb-2">
-                                    <button class="alternativa-btn desativado alternativa-btn-custom"
-                                        onclick="verificarResposta(this, 530)">
-                                        530
-                                    </button>
-                                </div>
-                                <div class="col-md-3 mb-2">
-                                    <button class="alternativa-btn desativado alternativa-btn-custom"
-                                        onclick="verificarResposta(this, 520)">
-                                        520
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Container para os alertas -->
-                        <div id="alerta-container" style="margin-top: 15px;">
-                        </div>
-
-                        <div class="row" id="neck">
-                            <div class="next">
-                                <div style="text-align: center; margin-top: 20px;">
-                                    <span class="material-symbols-outlined" onclick="voltarExercicio()"
-                                        style="cursor: pointer; margin-right: 15px;">
-                                        arrow_back
-                                    </span>
-                                    <span class="material-symbols-outlined" onclick="proximoExercicio()"
-                                        style="cursor: pointer;">
-                                        arrow_forward
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="exercicio ativo" data-resposta="1350">
-                        <!-- Aqui vai o conteúdo do Exercício 1 -->
-                        <h3 class="text-center">Atividade de Fixação</h3>
-                        <p class="text-center" style="font-size: 18px;">
-                            Ellie e Trixie fizeram 3 pizzas. Em cada pizza, usaram 200g de queijo, 150g de calabresa e
-                            100g de molho.
-                            Quantos gramas de ingredientes elas usaram para fazer todas as 3 pizzas?
-                        </p>
-
-
-                        <div class="row justify-content-between text-center mb-3">
+                        <div class="row justify-content-between">
                             <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/queijo.png" alt="Queijo"
-                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="3"
-                                    data-valor="200">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">200g</p>
+                                <img src="../../images/Atv 5/queijo.png" alt="">
+                                <p style="font-family: 'Sigmar One'; font-size: 20px;">250g</p>
                             </div>
 
                             <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/calabresa.png" alt="Calabresa"
-                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="3"
-                                    data-valor="150">
+                                <img src="../../images/Atv 5/calabresa.png" alt="">
+                                <p style="font-family: 'Sigmar One'; font-size: 20px;">100g</p>
+                            </div>
+
+                            <div class="col-sm-3 col-md-3">
+                                <img src="../../images/Atv 5/molho-de-tomate.png" alt="">
                                 <p style="font-family: 'Sigmar One'; font-size: 20px;">150g</p>
                             </div>
 
                             <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/molho-de-tomate.png" alt="Molho"
-                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="3"
-                                    data-valor="100">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">100g</p>
+                                <img src="../../images/Atv 5/queijo.png" alt="">
+                                <p style="font-family: 'Sigmar One'; font-size: 20px;">50g</p>
                             </div>
                         </div>
 
-                        <!-- Aqui vai aparecer a conta vertical -->
-                        <div id="conta-vertical"
-                            style="font-family: 'Sigmar One'; font-size: 24px; text-align: center; white-space: pre-line; margin-top: 20px; user-select:none;">
-                        </div>
-
-                        <div style="text-align: center; margin-top: 20px;">
-                            <button id="verificar-btn" class="btn alternativa-btn-custom">Verificar</button>
+                        <div class="row">
+                            <p> Resolução:
+                            </p>
                         </div>
 
 
-                        <div style="margin-top: 30px; text-align: center; font-family: 'Sigmar One'; font-size: 18px;">
-                            <input id="input-milhar" type="text" maxlength="1" size="1" placeholder="M"
-                                style="font-size: 24px; text-align: center;">
-                            <input id="input-centena" type="text" maxlength="1" size="1" placeholder="C"
-                                style="font-size: 24px; text-align: center;">
-                            <input id="input-dezena" type="text" maxlength="1" size="1" placeholder="D"
-                                style="font-size: 24px; text-align: center; margin-left: 10px;">
-                            <input id="input-unidade" type="text" maxlength="1" size="1" placeholder="U"
-                                style="font-size: 24px; text-align: center; margin-left: 10px;">
-                            <br><br>
-                        </div>
+                        <div class="row" id="imgsss">
+                            <div class="row justify-content-between">
+                               
+                                <div class="col-sm-3 col-md-3">
+                                    <img src="../../images/Atv 5/Conta 1.png" alt="">
 
+                                </div>
 
-                        <div class="row text-center" id="alternativas" style="display:none;">
+                                <div class="col-sm-3 col-md-3">
+                                    <img src="../../images/Atv 5/Conta 1.png" alt="">
 
-                            <div class="row">
-                                <div class="col-md-3 mb-2">
-                                    <button class="alternativa-btn desativado alternativa-btn-custom"
-                                        onclick="verificarResposta(this, 1300)">
-                                        1300
-                                    </button>
                                 </div>
-                                <div class="col-md-3 mb-2">
-                                    <button class="alternativa-btn desativado alternativa-btn-custom"
-                                        onclick="verificarResposta(this, 1350)">
-                                        1350
-                                    </button>
-                                </div>
-                                <div class="col-md-3 mb-2">
-                                    <button class="alternativa-btn desativado alternativa-btn-custom"
-                                        onclick="verificarResposta(this, 1250)">
-                                        1250
-                                    </button>
-                                </div>
-                                <div class="col-md-3 mb-2">
-                                    <button class="alternativa-btn desativado alternativa-btn-custom"
-                                        onclick="verificarResposta(this, 1150)">
-                                        1150
-                                    </button>
+                                
+                                <div class="col-sm-3 col-md-3">
+                                    <img src="../../images/Atv 5/Rick com ing.png" alt="">
+
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Container para os alertas -->
-                        <div id="alerta-container" style="margin-top: 15px;">
+                        <div class="row">
+                            <p> Resposta: 550g
+                            </p>
                         </div>
 
                         <div class="row" id="neck">
@@ -330,178 +206,13 @@
                             </div>
                         </div>
                     </div>
-
-                <div class="exercicio">
-                    <!-- Aqui vai o conteúdo do Exercício 3 -->
-                    <p>Conteúdo do exercício 3</p>
                 </div>
             </div>
         </div>
     </div>
     </div>
-    </div>
 
-
-    <style>
-        .clicado {
-            opacity: 0.5;
-            pointer-events: none;
-        }
-
-        .alternativa-btn[disabled] {
-            pointer-events: none;
-            opacity: 0.6;
-        }
-    </style>
     <script>
-        const imgs = document.querySelectorAll(".clicavel");
-        const contaDiv = document.getElementById("conta-vertical");
-        const btnVerificar = document.getElementById("verificar-btn");
-        const alertaContainer = document.getElementById("alerta-container");
-        const alternativas = document.getElementById("alternativas");
-        const botoesAlternativas = document.querySelectorAll(".alternativa-btn");
-
-        let valoresSelecionados = [];
-        let clickCounts = {}; // contagem de clique por valor
-        let somaAtual = 0;
-
-        imgs.forEach(img => {
-            const valor = img.getAttribute("data-valor");
-            clickCounts[valor] = 0; // inicializa
-
-            img.addEventListener("click", () => {
-                const maxClicks = parseInt(img.getAttribute("data-maxclicks")) || 1;
-
-                if (clickCounts[valor] >= maxClicks) return; // bloqueia após limite
-
-                clickCounts[valor]++;
-                valoresSelecionados.push(parseInt(valor));
-                somaAtual = valoresSelecionados.reduce((a, b) => a + b, 0);
-
-                if (clickCounts[valor] >= maxClicks) img.classList.add("clicado");
-
-                mostrarConta();
-                limparInputs();
-                limparAlerta();
-            });
-        });
-
-        function mostrarConta() {
-            // Quebra somaAtual em milhar, centena, dezena e unidade
-            const milhar = Math.floor(somaAtual / 1000);
-            const centena = Math.floor((somaAtual % 1000) / 100);
-            const dezena = Math.floor((somaAtual % 100) / 10);
-            const unidade = somaAtual % 10;
-
-            let texto = "";
-            valoresSelecionados.forEach((v, i) => {
-                texto += (i === 0 ? `${v}\n` : `+${v}\n`);
-            });
-            texto += "----\n";
-            contaDiv.textContent = texto;
-        }
-
-        function limparInputs() {
-            document.getElementById("input-milhar").value = "";
-            document.getElementById("input-centena").value = "";
-            document.getElementById("input-dezena").value = "";
-            document.getElementById("input-unidade").value = "";
-        }
-
-        function mostrarAlerta(tipo, titulo, mensagem) {
-            alertaContainer.innerHTML = `
-    <div class="alert ${tipo} alert-dismissible fade show" role="alert" style="font-family: 'Sigmar One'; font-size: 20px;">
-      <strong>${titulo}</strong> ${mensagem}
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="fecharAlerta()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-  `;
-        }
-
-        function fecharAlerta() {
-            alertaContainer.innerHTML = "";
-        }
-
-        function limparAlerta() {
-            alertaContainer.innerHTML = "";
-        }
-
-        btnVerificar.addEventListener("click", () => {
-            if (valoresSelecionados.length === 0) {
-                mostrarAlerta("alert-warning", "Por favor", "Selecione pelo menos uma imagem para formar a conta.");
-                return;
-            }
-
-            const milhar = Math.floor(somaAtual / 1000);
-            const centena = Math.floor((somaAtual % 1000) / 100);
-            const dezena = Math.floor((somaAtual % 100) / 10);
-            const unidade = somaAtual % 10;
-
-            const inputM = document.getElementById("input-milhar").value.trim();
-            const inputC = document.getElementById("input-centena").value.trim();
-            const inputD = document.getElementById("input-dezena").value.trim();
-            const inputU = document.getElementById("input-unidade").value.trim();
-
-            if (![inputM, inputC, inputD, inputU].every(v => /^\d$/.test(v))) {
-                mostrarAlerta("alert-warning", "Atenção", "Preencha todos os campos com números de 0 a 9.");
-                return;
-            }
-
-            const milharInput = parseInt(inputM);
-            const centenaInput = parseInt(inputC);
-            const dezenaInput = parseInt(inputD);
-            const unidadeInput = parseInt(inputU);
-
-            if (milharInput === milhar && centenaInput === centena && dezenaInput === dezena && unidadeInput === unidade) {
-                mostrarAlerta("alert-success", "Parabéns!", "Resultado correto 🎉");
-                alternativas.style.display = "block";
-                botoesAlternativas.forEach(btn => btn.classList.remove("desativado"));
-
-                gerarAlternativas(somaAtual);
-            } else {
-                mostrarAlerta("alert-danger", "Ops!", "Resultado incorreto. Tente novamente.");
-                alternativas.style.display = "none";
-                botoesAlternativas.forEach(btn => btn.classList.add("desativado"));
-            }
-        });
-
-        function gerarAlternativas(correta) {
-            // Cria 3 valores errados próximos para confundir
-            const alternativasValores = new Set();
-            alternativasValores.add(correta);
-
-            while (alternativasValores.size < 4) {
-                let falso = correta + (Math.floor(Math.random() * 20) - 10);
-                if (falso < 0) falso = Math.abs(falso) + 5;
-                alternativasValores.add(falso);
-            }
-
-            // Embaralha e define texto dos botões
-            const arr = Array.from(alternativasValores);
-            arr.sort(() => Math.random() - 0.5);
-
-            botoesAlternativas.forEach((btn, i) => {
-                btn.textContent = arr[i];
-                btn.dataset.valor = arr[i];
-            });
-        }
-
-        function verificarResposta(botao) {
-            if (botao.classList.contains("desativado")) return;
-
-            limparAlerta();
-
-            const valorEscolhido = parseInt(botao.dataset.valor);
-            const respostaCorreta = somaAtual;
-
-            if (valorEscolhido === respostaCorreta) {
-                mostrarAlerta("alert-success", "Parabéns!", "Resposta correta! 🎉");
-            } else {
-                mostrarAlerta("alert-danger", "Ops!", "Resposta incorreta. Tente novamente.");
-            }
-        }
-
         let indexExercicio = 0;
         const exercicios = document.querySelectorAll(".exercicio");
 
@@ -510,7 +221,6 @@
                 exercicios[indexExercicio].classList.remove("ativo");
                 indexExercicio++;
                 exercicios[indexExercicio].classList.add("ativo");
-                resetarExercicio();
             }
         }
 
@@ -519,33 +229,10 @@
                 exercicios[indexExercicio].classList.remove("ativo");
                 indexExercicio--;
                 exercicios[indexExercicio].classList.add("ativo");
-                resetarExercicio();
             }
         }
 
-        function resetarExercicio() {
-            limparAlerta();
-            valoresSelecionados = [];
-            somaAtual = 0;
-            contaDiv.textContent = "";
-            limparInputs();
-            alternativas.style.display = "none";
-            botoesAlternativas.forEach(btn => btn.classList.add("desativado"));
-            imgs.forEach(img => {
-                img.classList.remove("clicado");
-                const valor = img.getAttribute("data-valor");
-                clickCounts[valor] = 0;
-            });
-        }
-
-        // Inicialmente desativa as alternativas
-        window.addEventListener("DOMContentLoaded", () => {
-            botoesAlternativas.forEach(btn => btn.classList.add("desativado"));
-        });
-
     </script>
-
-
 
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
