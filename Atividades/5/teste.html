@@ -57,7 +57,7 @@
         <div class="row mt-1">
             <div class="col-sm-12 col-md-12 mt-4">
                 <div class="game">
-                    <div class="exercicio ativo">
+                    <div class="exercicio ativo" data-resposta="540">
                         <!-- Aqui vai o conteúdo do Exercício 1 -->
                         <h3 class="text-center">Atividade de Fixação</h3>
                         <p class="text-center" style="font-size: 18px;">
@@ -97,37 +97,49 @@
                         style="font-family: 'Sigmar One'; font-size: 24px; text-align: center; white-space: pre-line; margin-top: 20px; user-select:none;">
                     </div>
 
-                    <!-- Inputs para digitar o resultado -->
-                    <div style="margin-top: 30px; text-align: center; font-family: 'Sigmar One'; font-size: 18px;">
-                        <p>Digite o resultado separando as casas decimais:</p>
-                        <input id="input-centena" type="text" maxlength="1" size="1" placeholder="Centena"
-                            style="font-size: 24px; text-align: center;">
-                        <input id="input-dezena" type="text" maxlength="1" size="1" placeholder="Dezena"
-                            style="font-size: 24px; text-align: center; margin-left: 10px;">
-                        <input id="input-unidade" type="text" maxlength="1" size="1" placeholder="Unidade"
-                            style="font-size: 24px; text-align: center; margin-left: 10px;">
-                        <br><br>
-                        <button id="verificar-btn"
-                            style="font-size: 20px; padding: 8px 20px; cursor: pointer;">Verificar</button>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button id="verificar-btn" class="btn alternativa-btn-custom">Verificar</button>
                     </div>
 
 
-                    <div class="row text-center">
-                        <div class="col-md-3 mb-2">
-                            <button class="btn btn-warning btn-resposta" onclick="verificarResposta(this, 500)">A-
-                                500g</button>
-                        </div>
-                        <div class="col-md-3 mb-2">
-                            <button class="btn btn-warning btn-resposta" onclick="verificarResposta(this, 540)">B-
-                                540g</button>
-                        </div>
-                        <div class="col-md-3 mb-2">
-                            <button class="btn btn-warning btn-resposta" onclick="verificarResposta(this, 530)">C-
-                                530g</button>
-                        </div>
-                        <div class="col-md-3 mb-2">
-                            <button class="btn btn-warning btn-resposta" onclick="verificarResposta(this, 520)">D-
-                                520g</button>
+                    <div style="margin-top: 30px; text-align: center; font-family: 'Sigmar One'; font-size: 18px;">
+                        <input id="input-centena" type="text" maxlength="1" size="1" placeholder="C"
+                            style="font-size: 24px; text-align: center;">
+                        <input id="input-dezena" type="text" maxlength="1" size="1" placeholder="D"
+                            style="font-size: 24px; text-align: center; margin-left: 10px;">
+                        <input id="input-unidade" type="text" maxlength="1" size="1" placeholder="U"
+                            style="font-size: 24px; text-align: center; margin-left: 10px;">
+                        <br><br>
+                    </div>
+
+
+                    <div class="row text-center" id="alternativas" style="display:none;">
+
+                        <div class="row">
+                            <div class="col-md-3 mb-2">
+                                <button class="alternativa-btn desativado alternativa-btn-custom"
+                                    onclick="verificarResposta(this, 500)">
+                                    500
+                                </button>
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <button class="alternativa-btn desativado alternativa-btn-custom"
+                                    onclick="verificarResposta(this, 540)">
+                                    540
+                                </button>
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <button class="alternativa-btn desativado alternativa-btn-custom"
+                                    onclick="verificarResposta(this, 530)">
+                                    530
+                                </button>
+                            </div>
+                            <div class="col-md-3 mb-2">
+                                <button class="alternativa-btn desativado alternativa-btn-custom"
+                                    onclick="verificarResposta(this, 520)">
+                                    520
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -157,18 +169,35 @@
     </div>
     </div>
 
+    <style>
+        .clicado {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .alternativa-btn[disabled] {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+    </style>
+
     <script>
         const imgs = document.querySelectorAll(".clicavel");
         const contaDiv = document.getElementById("conta-vertical");
         const btnVerificar = document.getElementById("verificar-btn");
         const alertaContainer = document.getElementById("alerta-container");
+        const alternativas = document.getElementById("alternativas");
+        const botoesAlternativas = document.querySelectorAll(".alternativa-btn");
 
         let valoresSelecionados = [];
 
         imgs.forEach(img => {
             img.addEventListener("click", () => {
+                if (img.classList.contains("clicado")) return;
+
                 const valor = parseInt(img.getAttribute("data-valor"));
                 valoresSelecionados.push(valor);
+                img.classList.add("clicado");
                 mostrarConta();
                 limparInputs();
                 limparAlerta();
@@ -185,8 +214,6 @@
             });
 
             texto += "----\n";
-            texto += soma;
-
             contaDiv.textContent = texto;
         }
 
@@ -197,15 +224,14 @@
         }
 
         function mostrarAlerta(tipo, titulo, mensagem) {
-            // tipo pode ser alert-warning, alert-success, alert-danger
             alertaContainer.innerHTML = `
             <div class="alert ${tipo} alert-dismissible fade show" role="alert" style="font-family: 'Sigmar One'; font-size: 20px;">
-                <strong>${titulo}</strong> ${mensagem}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="fecharAlerta()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+              <strong>${titulo}</strong> ${mensagem}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="fecharAlerta()">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
-        `;
+          `;
         }
 
         function fecharAlerta() {
@@ -222,29 +248,39 @@
                 return;
             }
 
-            let soma = valoresSelecionados.reduce((acc, cur) => acc + cur, 0);
-            let centena = Math.floor(soma / 100);
-            let dezena = Math.floor((soma % 100) / 10);
-            let unidade = soma % 10;
+            const soma = valoresSelecionados.reduce((acc, cur) => acc + cur, 0);
+            const centena = Math.floor(soma / 100);
+            const dezena = Math.floor((soma % 100) / 10);
+            const unidade = soma % 10;
 
             const inputC = document.getElementById("input-centena").value.trim();
             const inputD = document.getElementById("input-dezena").value.trim();
             const inputU = document.getElementById("input-unidade").value.trim();
 
             if (!/^\d$/.test(inputC) || !/^\d$/.test(inputD) || !/^\d$/.test(inputU)) {
-                mostrarAlerta("alert-warning", "Oloco, meu!", "Por favor, preencha todos os campos com números de 0 a 9.");
+                mostrarAlerta("alert-warning", "Preencha todos os campos com números de 0 a 9.");
                 return;
             }
 
-            if (parseInt(inputC) === centena && parseInt(inputD) === dezena && parseInt(inputU) === unidade) {
+            const centenaInput = parseInt(inputC);
+            const dezenaInput = parseInt(inputD);
+            const unidadeInput = parseInt(inputU);
+
+            if (centenaInput === centena && dezenaInput === dezena && unidadeInput === unidade) {
                 mostrarAlerta("alert-success", "Parabéns!", "Resultado correto 🎉");
+                alternativas.style.display = "block";
+                // Ativa botões
+                botoesAlternativas.forEach(btn => btn.classList.remove("desativado"));
             } else {
                 mostrarAlerta("alert-danger", "Ops!", "Resultado incorreto. Tente novamente.");
+                alternativas.style.display = "none";
+                botoesAlternativas.forEach(btn => btn.classList.add("desativado"));
             }
         });
 
-        // Corrigindo a função para verificar resposta dos botões
         function verificarResposta(botao, valorEscolhido) {
+            if (botao.classList.contains("desativado")) return; // impede clique
+
             const respostaCorreta = 540;
             limparAlerta();
 
@@ -255,7 +291,6 @@
             }
         }
 
-        // Funções para navegar entre exercícios
         let indexExercicio = 0;
         const exercicios = document.querySelectorAll(".exercicio");
 
@@ -264,10 +299,7 @@
                 exercicios[indexExercicio].classList.remove("ativo");
                 indexExercicio++;
                 exercicios[indexExercicio].classList.add("ativo");
-                limparAlerta();
-                valoresSelecionados = [];
-                contaDiv.textContent = "";
-                limparInputs();
+                resetarExercicio();
             }
         }
 
@@ -276,13 +308,26 @@
                 exercicios[indexExercicio].classList.remove("ativo");
                 indexExercicio--;
                 exercicios[indexExercicio].classList.add("ativo");
-                limparAlerta();
-                valoresSelecionados = [];
-                contaDiv.textContent = "";
-                limparInputs();
+                resetarExercicio();
             }
         }
+
+        function resetarExercicio() {
+            limparAlerta();
+            valoresSelecionados = [];
+            contaDiv.textContent = "";
+            limparInputs();
+            alternativas.style.display = "none";
+            imgs.forEach(img => img.classList.remove("clicado"));
+            botoesAlternativas.forEach(btn => btn.classList.add("desativado"));
+        }
+
+        // Inicialmente desativa as alternativas
+        window.addEventListener("DOMContentLoaded", () => {
+            botoesAlternativas.forEach(btn => btn.classList.add("desativado"));
+        });
     </script>
+
 
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
