@@ -57,36 +57,42 @@
         <div class="row mt-1">
             <div class="col-sm-12 col-md-12 mt-4">
                 <div class="game">
-                    <div class="exercicio ativo" data-resposta="1350">
+                    <div class="exercicio ativo" data-resposta="540">
                         <!-- Aqui vai o conteúdo do Exercício 1 -->
                         <h3 class="text-center">Atividade de Fixação</h3>
                         <p class="text-center" style="font-size: 18px;">
-                            Ellie e Trixie fizeram 3 pizzas. Em cada pizza, usaram 200g de queijo, 150g de calabresa e
-                            100g de molho.
-                            Quantos gramas de ingredientes elas usaram para fazer todas as 3 pizzas?
+                            Rick usou 300g de queijo, 120g de calabresa e 80g de molho para uma pizza. Depois, adicionou mais 40g de molho. 
+                            Quantos gramas de ingredientes ele usou no total?
                         </p>
 
 
                         <div class="row justify-content-between text-center mb-3">
                             <div class="col-sm-3 col-md-3">
                                 <img src="../../images/Atv 5/queijo.png" alt="Queijo"
-                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="3"
-                                    data-valor="200">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">200g</p>
+                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="1"
+                                    data-valor="300">
+                                <p style="font-family: 'Sigmar One'; font-size: 20px;">300g</p>
                             </div>
 
                             <div class="col-sm-3 col-md-3">
                                 <img src="../../images/Atv 5/calabresa.png" alt="Calabresa"
-                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="3"
-                                    data-valor="150">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">150g</p>
+                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="1"
+                                    data-valor="120">
+                                <p style="font-family: 'Sigmar One'; font-size: 20px;">120g</p>
                             </div>
 
                             <div class="col-sm-3 col-md-3">
                                 <img src="../../images/Atv 5/molho-de-tomate.png" alt="Molho"
-                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="3"
-                                    data-valor="100">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">100g</p>
+                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="1"
+                                    data-valor="80">
+                                <p style="font-family: 'Sigmar One'; font-size: 20px;">80g</p>
+                            </div>
+
+                            <div class="col-sm-3 col-md-3">
+                                <img src="../../images/Atv 5/molho-de-tomate.png" alt="Molho"
+                                    style="max-width: 100px; cursor:pointer;" class="clicavel" data-maxclicks="1"
+                                    data-valor="40">
+                                <p style="font-family: 'Sigmar One'; font-size: 20px;">40g</p>
                             </div>
                         </div>
 
@@ -113,33 +119,11 @@
                         </div>
 
 
+                       
                         <div class="row text-center" id="alternativas" style="display:none;">
 
                             <div class="row">
-                                <div class="col-md-3 mb-2">
-                                    <button class="alternativa-btn desativado alternativa-btn-custom"
-                                        onclick="verificarResposta(this, 1300)">
-                                        1300
-                                    </button>
-                                </div>
-                                <div class="col-md-3 mb-2">
-                                    <button class="alternativa-btn desativado alternativa-btn-custom"
-                                        onclick="verificarResposta(this, 1350)">
-                                        1350
-                                    </button>
-                                </div>
-                                <div class="col-md-3 mb-2">
-                                    <button class="alternativa-btn desativado alternativa-btn-custom"
-                                        onclick="verificarResposta(this, 1250)">
-                                        1250
-                                    </button>
-                                </div>
-                                <div class="col-md-3 mb-2">
-                                    <button class="alternativa-btn desativado alternativa-btn-custom"
-                                        onclick="verificarResposta(this, 1150)">
-                                        1150
-                                    </button>
-                                </div>
+                                <p>Muito bom! Siga agora para a próxima tarefa, pelo visto Ellie e Trixie precisam de ajuda </p>
                             </div>
                         </div>
 
@@ -150,14 +134,15 @@
                         <div class="row" id="neck">
                             <div class="next">
                                 <div style="text-align: center; margin-top: 20px;">
-                                    <span class="material-symbols-outlined" onclick="voltarExercicio()"
+                                    <span class="material-symbols-outlined" onclick="window.history.back()"
                                         style="cursor: pointer; margin-right: 15px;">
                                         arrow_back
                                     </span>
-                                    <span class="material-symbols-outlined" onclick="proximoExercicio()"
-                                        style="cursor: pointer;">
-                                        arrow_forward
-                                    </span>
+                                    <a href="../../Atividades/5/atv2.html" onclick="proximoExercicio()" style="cursor: pointer; text-decoration: none; color: inherit;">
+                                        <span class="material-symbols-outlined">
+                                          arrow_forward
+                                        </span>
+                                      </a>
                                 </div>
                             </div>
                         </div>
