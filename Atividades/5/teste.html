@@ -59,165 +59,203 @@
                 <div class="game">
                     <div class="exercicio ativo">
                         <!-- Aqui vai o conteúdo do Exercício 1 -->
-                        <div class="row">
-                            <p>Na pizzaria, para fazer uma pizza gostosa, precisamos somar a quantidade (em gramas) dos
-                                ingredientes. Somar massas é importante para saber o total usado.
-                            </p>
+                        <h3 class="text-center">Atividade de Fixação</h3>
+                        <p class="text-center" style="font-size: 18px;">
+                            Rick usou 300g de queijo, 120g de calabresa e 80g de molho. Depois, adicionou mais 40g
+                            de molho. Quantos gramas no total?
+                        </p>
+                    </div>
+
+                    <div class="row justify-content-between text-center mb-3">
+                        <div class="col-sm-3 col-md-3">
+                            <img src="../../images/Atv 5/queijo.png" alt="Queijo"
+                                style="max-width: 100px; cursor:pointer;" class="clicavel" data-valor="300">
+                            <p style="font-family: 'Sigmar One'; font-size: 20px;">300g</p>
                         </div>
-                        <div class="row justify-content-between">
-                            <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/queijo.png" alt="">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">250g</p>
-                            </div>
 
-                            <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/calabresa.png" alt="">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">250g</p>
-                            </div>
-
-                            <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/molho-de-tomate.png" alt="">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">250g</p>
-                            </div>
-
-                            <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/massa.png" alt="">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">250g</p>
-                            </div>
+                        <div class="col-sm-3 col-md-3">
+                            <img src="../../images/Atv 5/calabresa.png" alt="Calabresa"
+                                style="max-width: 100px; cursor:pointer;" class="clicavel" data-valor="120">
+                            <p style="font-family: 'Sigmar One'; font-size: 20px;">120g</p>
                         </div>
-                        <div class="row">
-                            <p>Exemplo: 250g de queijo + 100g de calabresa + 150g de molho + 500g de massa
-                                = 500g no total.
-                            </p>
+
+                        <div class="col-sm-3 col-md-3">
+                            <img src="../../images/Atv 5/molho-de-tomate.png" alt="Molho"
+                                style="max-width: 100px; cursor:pointer;" class="clicavel" data-valor="80">
+                            <p style="font-family: 'Sigmar One'; font-size: 20px;">80g</p>
                         </div>
-                        <div class="row" id="imgsss">
-                            <div class="row justify-content-between">
-                                <div class="col-sm-3 col-md-3">
-                                    <img src="../../images/Atv 5/Rick com ing.png" alt="">
 
-                                </div>
-
-                                <div class="col-sm-3 col-md-3">
-                                    <img src="../../images/Atv 5/conta exemplo.png" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" id="neck">
-                            <div class="next">
-                                <div style="text-align: center; margin-top: 20px;">
-                                    <span class="material-symbols-outlined" onclick="voltarExercicio()"
-                                        style="cursor: pointer; margin-right: 15px;">
-                                        arrow_back
-                                    </span>
-                                    <span class="material-symbols-outlined" onclick="proximoExercicio()"
-                                        style="cursor: pointer;">
-                                        arrow_forward
-                                    </span>
-                                </div>
-                            </div>
+                        <div class="col-sm-3 col-md-3">
+                            <img src="../../images/Atv 5/molho-de-tomate.png" alt="Molho extra"
+                                style="max-width: 100px; cursor:pointer;" class="clicavel" data-valor="40">
+                            <p style="font-family: 'Sigmar One'; font-size: 20px;">40g</p>
                         </div>
                     </div>
 
+                    <!-- Aqui vai aparecer a conta vertical -->
+                    <div id="conta-vertical"
+                        style="font-family: 'Sigmar One'; font-size: 24px; text-align: center; white-space: pre-line; margin-top: 20px; user-select:none;">
+                    </div>
 
-                    <div class="exercicio">
-                        <!-- Aqui vai o conteúdo do Exercício 2 -->
-                        <div style="text-align: center; margin-top: 20px;">
-                            <h3> Atividade Exemplo</h3>
+                    <!-- Inputs para digitar o resultado -->
+                    <div style="margin-top: 30px; text-align: center; font-family: 'Sigmar One'; font-size: 18px;">
+                        <p>Digite o resultado separando as casas decimais:</p>
+                        <input id="input-centena" type="text" maxlength="1" size="1" placeholder="Centena"
+                            style="font-size: 24px; text-align: center;">
+                        <input id="input-dezena" type="text" maxlength="1" size="1" placeholder="Dezena"
+                            style="font-size: 24px; text-align: center; margin-left: 10px;">
+                        <input id="input-unidade" type="text" maxlength="1" size="1" placeholder="Unidade"
+                            style="font-size: 24px; text-align: center; margin-left: 10px;">
+                        <br><br>
+                        <button id="verificar-btn"
+                            style="font-size: 20px; padding: 8px 20px; cursor: pointer;">Verificar</button>
+                    </div>
+
+
+                    <div class="row text-center">
+                        <div class="col-md-3 mb-2">
+                            <button class="btn btn-warning btn-resposta" onclick="verificarResposta(this, 500)">A-
+                                500g</button>
                         </div>
-                        <div class="row">
-
+                        <div class="col-md-3 mb-2">
+                            <button class="btn btn-warning btn-resposta" onclick="verificarResposta(this, 540)">B-
+                                540g</button>
                         </div>
-
-                        <div class="row">
-                            <p>Problema: Ellie usou 250g de queijo, 100g de calabresa e 150g de molho para fazer uma
-                                pizza.
-                                Depois, ela colocou mais 50g de queijo. Quantos gramas de ingredientes Ellie usou no
-                                total?
-
-                            </p>
+                        <div class="col-md-3 mb-2">
+                            <button class="btn btn-warning btn-resposta" onclick="verificarResposta(this, 530)">C-
+                                530g</button>
                         </div>
-
-                        <div class="row justify-content-between">
-                            <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/queijo.png" alt="">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">250g</p>
-                            </div>
-
-                            <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/calabresa.png" alt="">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">100g</p>
-                            </div>
-
-                            <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/molho-de-tomate.png" alt="">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">150g</p>
-                            </div>
-
-                            <div class="col-sm-3 col-md-3">
-                                <img src="../../images/Atv 5/queijo.png" alt="">
-                                <p style="font-family: 'Sigmar One'; font-size: 20px;">50g</p>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <p> Resolução:
-                            </p>
-                        </div>
-
-
-                        <div class="row" id="imgsss">
-                            <div class="row justify-content-between">
-                               
-                                <div class="col-sm-3 col-md-3">
-                                    <img src="../../images/Atv 5/conta exemplo.png" alt="">
-
-                                </div>
-
-                                <div class="col-sm-3 col-md-3">
-                                    <img src="../../images/Atv 5/conta exemplo.png" alt="">
-
-                                </div>
-                                
-                                <div class="col-sm-3 col-md-3">
-                                    <img src="../../images/Atv 5/Rick com ing.png" alt="">
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <p> Resposta: 550g
-                            </p>
-                        </div>
-
-                        <div class="row" id="neck">
-                            <div class="next">
-                                <div style="text-align: center; margin-top: 20px;">
-                                    <span class="material-symbols-outlined" onclick="voltarExercicio()"
-                                        style="cursor: pointer; margin-right: 15px;">
-                                        arrow_back
-                                    </span>
-                                    <span class="material-symbols-outlined" onclick="proximoExercicio()"
-                                        style="cursor: pointer;">
-                                        arrow_forward
-                                    </span>
-                                </div>
-                            </div>
+                        <div class="col-md-3 mb-2">
+                            <button class="btn btn-warning btn-resposta" onclick="verificarResposta(this, 520)">D-
+                                520g</button>
                         </div>
                     </div>
 
-                    <div class="exercicio">
-                        <!-- Aqui vai o conteúdo do Exercício 3 -->
-                        <p>Conteúdo do exercício 3</p>
+                    <!-- Container para os alertas -->
+                    <div id="alerta-container" style="margin-top: 15px;"></div>
+
+                    <div class="row" id="neck">
+                        <div class="next">
+                            <div style="text-align: center; margin-top: 20px;">
+                                <span class="material-symbols-outlined" onclick="voltarExercicio()"
+                                    style="cursor: pointer; margin-right: 15px;">
+                                    arrow_back
+                                </span>
+                                <span class="material-symbols-outlined" onclick="proximoExercicio()"
+                                    style="cursor: pointer;">
+                                    arrow_forward
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>
     </div>
+    </div>
 
     <script>
+        const imgs = document.querySelectorAll(".clicavel");
+        const contaDiv = document.getElementById("conta-vertical");
+        const btnVerificar = document.getElementById("verificar-btn");
+        const alertaContainer = document.getElementById("alerta-container");
+
+        let valoresSelecionados = [];
+
+        imgs.forEach(img => {
+            img.addEventListener("click", () => {
+                const valor = parseInt(img.getAttribute("data-valor"));
+                valoresSelecionados.push(valor);
+                mostrarConta();
+                limparInputs();
+                limparAlerta();
+            });
+        });
+
+        function mostrarConta() {
+            let texto = "";
+            let soma = 0;
+
+            valoresSelecionados.forEach((v, i) => {
+                texto += (i === 0 ? `${v}\n` : `+${v}\n`);
+                soma += v;
+            });
+
+            texto += "----\n";
+            texto += soma;
+
+            contaDiv.textContent = texto;
+        }
+
+        function limparInputs() {
+            document.getElementById("input-centena").value = "";
+            document.getElementById("input-dezena").value = "";
+            document.getElementById("input-unidade").value = "";
+        }
+
+        function mostrarAlerta(tipo, titulo, mensagem) {
+            // tipo pode ser alert-warning, alert-success, alert-danger
+            alertaContainer.innerHTML = `
+            <div class="alert ${tipo} alert-dismissible fade show" role="alert" style="font-family: 'Sigmar One'; font-size: 20px;">
+                <strong>${titulo}</strong> ${mensagem}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="fecharAlerta()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        `;
+        }
+
+        function fecharAlerta() {
+            alertaContainer.innerHTML = "";
+        }
+
+        function limparAlerta() {
+            alertaContainer.innerHTML = "";
+        }
+
+        btnVerificar.addEventListener("click", () => {
+            if (valoresSelecionados.length === 0) {
+                mostrarAlerta("alert-warning", "Por favor", "Selecione pelo menos uma imagem para formar a conta.");
+                return;
+            }
+
+            let soma = valoresSelecionados.reduce((acc, cur) => acc + cur, 0);
+            let centena = Math.floor(soma / 100);
+            let dezena = Math.floor((soma % 100) / 10);
+            let unidade = soma % 10;
+
+            const inputC = document.getElementById("input-centena").value.trim();
+            const inputD = document.getElementById("input-dezena").value.trim();
+            const inputU = document.getElementById("input-unidade").value.trim();
+
+            if (!/^\d$/.test(inputC) || !/^\d$/.test(inputD) || !/^\d$/.test(inputU)) {
+                mostrarAlerta("alert-warning", "Oloco, meu!", "Por favor, preencha todos os campos com números de 0 a 9.");
+                return;
+            }
+
+            if (parseInt(inputC) === centena && parseInt(inputD) === dezena && parseInt(inputU) === unidade) {
+                mostrarAlerta("alert-success", "Parabéns!", "Resultado correto 🎉");
+            } else {
+                mostrarAlerta("alert-danger", "Ops!", "Resultado incorreto. Tente novamente.");
+            }
+        });
+
+        // Corrigindo a função para verificar resposta dos botões
+        function verificarResposta(botao, valorEscolhido) {
+            const respostaCorreta = 540;
+            limparAlerta();
+
+            if (valorEscolhido === respostaCorreta) {
+                mostrarAlerta("alert-success", "Parabéns!", "Resposta correta! 🎉");
+            } else {
+                mostrarAlerta("alert-danger", "Ops!", "Resposta incorreta. Tente novamente.");
+            }
+        }
+
+        // Funções para navegar entre exercícios
         let indexExercicio = 0;
         const exercicios = document.querySelectorAll(".exercicio");
 
@@ -226,6 +264,10 @@
                 exercicios[indexExercicio].classList.remove("ativo");
                 indexExercicio++;
                 exercicios[indexExercicio].classList.add("ativo");
+                limparAlerta();
+                valoresSelecionados = [];
+                contaDiv.textContent = "";
+                limparInputs();
             }
         }
 
@@ -234,9 +276,12 @@
                 exercicios[indexExercicio].classList.remove("ativo");
                 indexExercicio--;
                 exercicios[indexExercicio].classList.add("ativo");
+                limparAlerta();
+                valoresSelecionados = [];
+                contaDiv.textContent = "";
+                limparInputs();
             }
         }
-
     </script>
 
 

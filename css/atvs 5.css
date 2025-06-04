@@ -85,6 +85,17 @@ ul a:hover {
   text-decoration: underline; 
 }
 
+.clicavel {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.clicavel:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px #007bff;
+}
+
+
 .rodape {
   background: #8ADEFF;
 }
