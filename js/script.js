@@ -1,12 +1,16 @@
-window.onerror = function(message, source, lineno, colno, error) {
-  console.error('Erro capturado:', message);
-  console.error('Arquivo:', source);
-  console.error('Linha:', lineno, 'Coluna:', colno);
-  console.error('Objeto de erro:', error);
-  
-  // Redireciona para a página de erro
-  window.location.href = 'erro.html';
-  
-  // Retorna true para evitar que o erro apareça duplicado no console
-  return true;
-};
+document.addEventListener("DOMContentLoaded", function () {
+  const links = document.querySelectorAll(".caroinner a");
+
+  links.forEach(link => {
+    link.addEventListener("click", function (event) {
+      const href = link.getAttribute("href");
+
+      // Redireciona para erro.html se o href estiver vazio, nulo ou for "#"
+      if (!href || href.trim() === "" || href.trim() === "#") {
+        event.preventDefault();
+        console.log("Redirecionando para erro.html porque o href está vazio");
+        window.location.href = "erro.html";
+      }
+    });
+  });
+});
