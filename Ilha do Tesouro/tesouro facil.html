@@ -40,6 +40,8 @@
         <a href="javascript:void(0)" onclick="window.history.back()" class="">
             <i class="bi bi-arrow-left fs-6"></i>
         </a>
+         <div id="alerta-container" style="margin-top: 15px;">
+        </div>
         <div class="row mt-1">
             <div class="col-sm-12 col-md-12 mt-4">
                 <div class="jogo">
@@ -216,6 +218,14 @@
             let segundos = 0;
             let encontrouTesouro = false;
 
+             function mostrarAlerta(mensagem, tipo = "info") {
+                const alertaContainer = document.getElementById("alerta-container");
+                alertaContainer.innerHTML = `
+        <div class="alert alert-${tipo}" role="alert" style="font-size: 1.2em;">
+            ${mensagem}
+        </div> `;
+            }
+
             const timer = setInterval(() => {
                 segundos++;
                 timerSpan.textContent = segundos;
@@ -228,7 +238,7 @@
                     let paAtual = parseInt(paSpan.textContent);
 
                     if (paAtual <= 0) {
-                        alert("❌ Você não tem mais pás! Resolva contas para ganhar mais.");
+                        mostrarAlerta("❌ Você não tem mais pás! Resolva contas para ganhar mais.", "warning");
                         return;
                     }
 
@@ -250,7 +260,7 @@
                         document.getElementById("jogarNovamente").style.display = "inline-block";
 
                         setTimeout(() => {
-                            alert(`🎉 Parabéns! Você encontrou o tesouro em ${segundos} segundos com ${erros} erros.`);
+                            mostrarAlerta(`🎉 Parabéns! Você encontrou o tesouro em ${segundos} segundos com ${erros} erros.`, "success");
                         }, 100);
                     } else {
                         img.src = imagemErro;
@@ -326,11 +336,11 @@
                     if (valor === certa) {
                         paAtual++;
                         paEl.textContent = paAtual;
-                        alert('✅ Acertou! +1 pá');
+                        mostrarAlerta('✅ Acertou! +1 pá', "success");
                     } else {
                         errosAtual++;
                         errosEl.textContent = errosAtual;
-                        alert('❌ Errou! +1 erro');
+                        mostrarAlerta('❌ Errou! +1 erro', "danger");
                     }
 
                     novaConta();
