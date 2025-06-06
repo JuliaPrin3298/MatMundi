@@ -76,6 +76,8 @@ section {
 
 .jogos img {
   border-radius: 20px;
+  width: 286px;
+  height: 261px;
 }
 
 a {
