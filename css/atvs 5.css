@@ -92,7 +92,44 @@ ul a:hover {
 
 .clicavel:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 8px #007bff;
+}
+
+.alternativa-btn.desativado {
+  pointer-events: none;
+  opacity: 0.4;
+  filter: grayscale(100%);
+}
+
+.alternativa-btn-custom {
+  background-color: #FFFBB5;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.alternativa-btn-custom:hover {
+  background-color: yellow; /* Pode usar #FFFF00 também */
+  cursor: pointer;
+}
+
+.clicado {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.alternativa-btn[disabled] {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.exercicio {
+  display: none;
+}
+
+.exercicio.ativo {
+  display: block;
 }
 
 
