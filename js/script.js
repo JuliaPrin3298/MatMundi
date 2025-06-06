@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const links = document.querySelectorAll(".caroinner a");
+  const links = document.querySelectorAll("a");
 
   links.forEach(link => {
     link.addEventListener("click", function (event) {
       const href = link.getAttribute("href");
 
-      // Redireciona para erro.html se o href estiver vazio, nulo ou for "#"
+      // Se o href for vazio, nulo ou só espaços, redireciona para erro.html
       if (!href || href.trim() === "" || href.trim() === "#") {
-        event.preventDefault();
-        console.log("Redirecionando para erro.html porque o href está vazio");
-        window.location.href = "erro.html";
+        event.preventDefault(); // impede o redirecionamento padrão
+        console.log("Redirecionando para erro.html");
+        window.location.href = "erro.html"; // ajuste o caminho se necessário
       }
     });
   });
