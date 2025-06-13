@@ -25,7 +25,6 @@ ul a:hover {
 section {
   padding: 100px 0;
   height: 50vh;
-  margin-top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,13 +39,12 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
+
 }
 
 .logo img {
   width: 19vw;
   margin-left: -80px;
-  margin-top: 40px;
 }
 
 .home p {
@@ -55,14 +53,14 @@ section {
   text-align: center;
 }
 
-.jogos {
-  margin-top: 0px;
+.jogos{
+  padding: 20px;
 }
 
 .jogos h2 {
   font-family: "Chewy";
-  margin-top: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
+  margin-top: -90px;
 }
 
 .jogos a.btn {
@@ -85,7 +83,7 @@ a {
 }
 
 .caroteiner {
-  width: 100%;
+  width: 70%;
   margin: auto;
   position: relative;
   overflow: hidden;
