@@ -168,33 +168,6 @@ a {
   right: 10px;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .caroteiner {
-    max-width: 100%;
-  }
-
-  .caroinner {
-    gap: 10px;
-  }
-
-  .caroitem {
-    flex: 0 0 100%;
-    /* mostra 1 card por vez */
-  }
-}
-
-@media (min-width: 769px) {
-  .caroinner {
-    flex-wrap: nowrap;
-  }
-
-  .caroitem {
-    flex: 0 0 calc((100% - 20px) / 3);
-    /* 3 cards com 2 gaps de 10px */
-  }
-}
-
 .login-form,
 .cadastro-form {
   width: 300px;
@@ -290,4 +263,53 @@ a {
 
 .inicio {
   height: auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .caroteiner {
+    max-width: 100%;
+  }
+
+  .caroinner {
+    gap: 10px;
+  }
+
+  .caroitem {
+    flex: 0 0 100%;
+    /* mostra 1 card por vez */
+  }
+}
+
+@media (min-width: 769px) {
+  .caroinner {
+    flex-wrap: nowrap;
+  }
+
+  .caroitem {
+    flex: 0 0 calc((100% - 20px) / 3);
+    /* 3 cards com 2 gaps de 10px */
+  }
+
+  .home p {
+    font-size: 10px;
+  }
+
 }
