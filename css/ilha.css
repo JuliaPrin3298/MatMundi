@@ -67,7 +67,7 @@
 
 .jogo{
     background-color: #66BDEA;
-    height: 80vh;
+    height: 90vh;
     width: 100%;
     border-radius: 55px;
     display: flex;
@@ -121,6 +121,10 @@ table.tabuleiro td img {
 
 #contadores{
     height: 100px;
+}
+
+#abacate{
+    margin-top: 10px;
 }
 
 .cont h4{
