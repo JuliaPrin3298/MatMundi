@@ -48,11 +48,6 @@
             </ul>
         </div>
     </nav>
-
-     <div id="rotate-warning" style="display: none;">
-            <p>🔄 Vire seu celular para o modo retrato para melhor visualização!</p>
-        </div>
-
     <!--Home-->
 
     <section class="emoh" style="background: #FFFAB4;" id="emoh">
@@ -160,24 +155,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-
-    <script>
-        function checkOrientation() {
-            const warning = document.getElementById('rotate-warning');
-            const isLandscape = window.innerWidth > window.innerHeight;
-
-            if (isLandscape) {
-                warning.style.display = 'flex'; // Modo paisagem: exibir aviso
-            } else {
-                warning.style.display = 'none'; // Modo retrato: esconder aviso
-            }
-        }
-
-        window.addEventListener('load', checkOrientation);
-        window.addEventListener('resize', checkOrientation);
-        window.addEventListener('orientationchange', checkOrientation);
-    </script>
-
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
