@@ -2,7 +2,7 @@
 
 
 .container i {
-    font-size: 5vw;
+    font-size: 30px;
     color: black;
 }
 
@@ -18,7 +18,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 80vh;
+    height: 90vh;
     width: 100%;
     border-radius: 55px;
     display: flex;
@@ -196,35 +196,13 @@ ul a:hover {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media screen and (max-width: 480px) {
-
-    .game a{
-        width:140px;
-        font-size: 20px;
-    }
-
+@media (max-width: 480px) {
+  .game a {
+    width: 90% !important;
+    max-width: 90% !important;
+    font-size: 20px !important;
+    padding: 8px 0 !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
 }
