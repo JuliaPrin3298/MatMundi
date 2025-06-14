@@ -64,9 +64,9 @@
                 </div>
                 <div class="col-md-7 col-sm-12">
                     <div class="slogan">
-                        <p>Onde a matemática vira brincadeira,<br>a diversão se multiplica <br> e os númerosfazem
+                        <h1>Onde a matemática vira brincadeira,<br>a diversão se multiplica <br> e os números fazem
                             <br>festa!
-                        </p>
+                        </h1>
                     </div>
                 </div>
                 <div class="col-md-2 col-sm-12">
@@ -131,7 +131,7 @@
             <h2>Jogos</h2>
             <div class="row">
                 <div class="col-md-4 col-sm-12">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img class="card-img-top" src="../images/IlhaDoTesouro/Ilha do tesouro logo.png"
                             alt="Imagem de capa do card" />
                         <div class="card-body">
@@ -140,7 +140,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-12">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img class="card-img-top" src="../images/jogo em dev.jpeg" alt="Imagem de capa do card" />
                         <div class="card-body">
                             <a href="" class="btn btn-dark">Jogar Agora</a>
@@ -148,7 +148,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-12">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card">
                         <img class="card-img-top" src="../images/jogo em dev.jpeg" alt="Imagem de capa do card" />
                         <div class="card-body">
                             <a href="" class="btn btn-dark">Jogar Agora</a>
@@ -223,20 +223,21 @@
             const prevBtn = caro.querySelector('.carobtn.prev');
             const nextBtn = caro.querySelector('.carobtn.next');
 
-            let currentIndex = 0;
-            let cardsPerView = window.innerWidth < 768 ? 1 : 3;
+            const cardsPerView = 3; // fixo: 3 cards sempre
             const totalItems = items.length;
+            let currentIndex = 0;
 
             function updatecaro() {
                 const style = window.getComputedStyle(inner);
                 const gap = parseInt(style.gap) || 0;
                 const itemWidth = items[0].offsetWidth + gap;
+
                 const maxIndex = totalItems - cardsPerView;
 
                 if (currentIndex > maxIndex) currentIndex = 0;
                 if (currentIndex < 0) currentIndex = maxIndex;
 
-                const translateX = -(itemWidth * currentIndex);
+                const translateX = -itemWidth * currentIndex;
                 inner.style.transform = `translateX(${translateX}px)`;
             }
 
@@ -250,15 +251,9 @@
                 updatecaro();
             });
 
-            window.addEventListener('resize', () => {
-                cardsPerView = window.innerWidth < 768 ? 1 : 3;
-                if (currentIndex > totalItems - cardsPerView) currentIndex = totalItems - cardsPerView;
-                if (currentIndex < 0) currentIndex = 0;
-                updatecaro();
-            });
-
             updatecaro();
         })();
+
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -272,6 +267,9 @@
             });
         });
     </script>
+
+
+
 
 
 </body>

@@ -2,12 +2,15 @@
   font-family: "Chewy";
 }
 
+nav{  
+  z-index: 1000;
+}
+
 ul {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000;
   background: linear-gradient(to right, #8ADEFF, #75EDE6);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -47,13 +50,13 @@ section {
   margin-left: -80px;
 }
 
-.home p {
+.home h1 {
   font-size: 20px;
   font-family: "Press Start 2P";
   text-align: center;
 }
 
-.jogos{
+.jogos {
   padding: 20px;
 }
 
@@ -65,11 +68,13 @@ section {
 
 .jogos a.btn {
   opacity: 0.75;
-  width: 10vw;
+  width: auto;
 }
 
 .jogos .card {
   border-radius: 20px;
+  width: 286px;
+  margin-left: 20px;
 }
 
 .jogos img {
@@ -154,6 +159,15 @@ a {
   user-select: none;
   z-index: 10;
 }
+
+  .caroinner {
+    flex-wrap: nowrap;
+  }
+
+  .caroitem {
+    flex: 0 0 calc((100% - 20px) / 3);
+    /* 3 cards com 2 gaps de 10px */
+  }
 
 .carobtn:focus {
   outline: none;
@@ -254,9 +268,10 @@ a {
   margin: 0 15px;
 }
 
-.loca{
+.loca {
   margin-bottom: 120px;
 }
+
 .rodape {
   background: #8ADEFF;
 }
@@ -285,31 +300,65 @@ a {
 /* Responsividade */
 @media (max-width: 768px) {
   .caroteiner {
-    max-width: 100%;
+    width: 70%;
   }
 
-  .caroinner {
-    gap: 10px;
+  .jogos .card img{
+    width: 153px;
+    height: 140px;
   }
 
-  .caroitem {
-    flex: 0 0 100%;
-    /* mostra 1 card por vez */
+    .home h1 {
+    font-size: 15px;
   }
+
+  .atividades {
+    margin-top: -40px;
+    margin-bottom: 60px;
+  }
+
+  .carobtn {
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
 }
 
-@media (min-width: 769px) {
-  .caroinner {
-    flex-wrap: nowrap;
+  .jogos h2 {
+    margin-top: -60px;
   }
 
-  .caroitem {
-    flex: 0 0 calc((100% - 20px) / 3);
-    /* 3 cards com 2 gaps de 10px */
+  .jogos .card{
+    width: 153px;
   }
 
-  .home p {
-    font-size: 10px;
-  }
+
+.login-form,
+.cadastro-form {
+  width: 200px;
+  margin: 0 auto;
+  font-family: "Chewy", sans-serif;
+}
+
+.loca{
+  margin-bottom: 150px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
+
+
