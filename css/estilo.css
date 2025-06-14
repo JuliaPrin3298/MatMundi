@@ -2,6 +2,15 @@
 font-family: "Chewy";
 }
 
+.erros .logo{
+    width: 300px;
+}
+
+.curva2 .personagens{
+   width: 500px;
+   margin-top: -100px;
+}
+
 .curva{
     background: #FFA09D;
     height: 200px;
@@ -114,4 +123,50 @@ ul a:hover {
 
 .rodape {
   background: #8ADEFF;
+}
+
+
+
+@media screen and (max-width: 480px) {
+
+.text h2{
+    font-family: "Chewy";
+    font-size: 80px;
+    color: #FFFFFF;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    text-shadow: 1px 1px 2px black;
+}
+
+.text h3{
+    font-family: "Chewy";
+    font-size: 50px;
+}
+
+.curva2{
+    margin-top: -150px;
+}
+
+.text2 h2{
+    font-size: 20px;
+
+}
+
+.text2 h3{
+ 
+    font-size: 10px;
+}
+
+.erros .logo{
+    width: 100px;
+}
+
+.curva2 .personagens{
+    width: 200px; 
+}
+
+.curva{
+    background: #FFA09D;
+    height: auto;
+}
 }
