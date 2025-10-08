@@ -172,14 +172,14 @@
                 <!-- Entrar -->
                 <div class="col-md-5 col-sm-12 d-flex flex-column justify-content-center align-items-center">
                     <h2>Entrar</h2>
-                    <form class="login-form">
+                    <form class="login-form" action="class/login.php" method="POST">
                         <label>
                             <p><i class="bi bi-person"></i> Nome</p>
-                            <input type="text" placeholder="Nome de Usuário" required />
+                            <input type="text" name="nome" placeholder="Nome de Usuário" required />
                         </label>
                         <label>
                             <p><i class="bi bi-lock"></i> Senha</p>
-                            <input type="password" placeholder="Senha" required />
+                            <input type="password" name="senha" placeholder="Senha" required />
                         </label>
                         <button type="submit">Entrar</button>
                     </form>
@@ -193,18 +193,18 @@
                 <!-- Cadastrar -->
                 <div class="col-md-5 col-sm-12 d-flex flex-column justify-content-center align-items-center">
                     <h2>Cadastrar</h2>
-                    <form class="cadastro-form">
+                    <form class="cadastro-form" action="class/Cadastrar.php" method="POST">
                         <label>
                             <p><i class="bi bi-person"></i> Nome</p>
-                            <input type="text" placeholder="Nome de Usuário" required />
+                            <input type="text" name="nome" placeholder="Nome de Usuário" required />
                         </label>
                         <label>
                             <p><i class="bi bi-envelope-at"></i> Email</p>
-                            <input type="text" placeholder="Email" required />
+                            <input type="text" name="email" placeholder="Email" required />
                         </label>
                         <label>
                             <p><i class="bi bi-lock"></i> Senha</p>
-                            <input type="password" placeholder="Senha" required />
+                            <input type="password" name="senha" placeholder="Senha" required />
                         </label>
                         <button type="submit">Cadastrar</button>
                     </form>
