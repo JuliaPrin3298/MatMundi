@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MatMundi</title>
-    <link rel="icon" href="../images/logo.png" type="image/png" />
+    <link rel="icon" href="images/logo.png" type="image/png" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/css.css" />
@@ -59,7 +59,7 @@
             <div class="row">
                 <div class="col-md-3 col-sm-3">
                     <div class="masc">
-                        <img src="../images/mascotes.png" alt="">
+                        <img src="images/mascotes.png" alt="">
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-7">
@@ -71,7 +71,7 @@
                 </div>
                 <div class="col-md-2 col-sm-2">
                     <div class="logo">
-                        <img src="../images/logo.png">
+                        <img src="images/logo.png">
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                             </div>
                             <div class="caroitem" style="background: #8ADEFF;">
                                 <h1>5°</h1>
-                                <a href="../atividades5.html" class="btn">Acessar Atividades</a>
+                                <a href="atividades5.html" class="btn">Acessar Atividades</a>
                             </div>
                         </div>
                         <button class="carobtn next" aria-label="Próximo">&#10095;</button>
@@ -132,7 +132,7 @@
             <div class="row">
                <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-center">
                     <div class="card">
-                        <img class="card-img-top" src="../images/IlhaDoTesouro/Ilha do tesouro logo.png"
+                        <img class="card-img-top" src="images/IlhaDoTesouro/Ilha do tesouro logo.png"
                             alt="Imagem de capa do card" />
                         <div class="card-body">
                             <a href="Ilha do Tesouro/ilha.html" class="btn btn-dark">Jogar Agora</a>
@@ -141,7 +141,7 @@
                 </div>
                <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-center">
                     <div class="card">
-                        <img class="card-img-top" src="../images/jogo em dev.jpeg" alt="Imagem de capa do card" />
+                        <img class="card-img-top" src="images/jogo em dev.jpeg" alt="Imagem de capa do card" />
                         <div class="card-body">
                             <a href="" class="btn btn-dark">Jogar Agora</a>
                         </div>
@@ -149,7 +149,7 @@
                 </div>
                 <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-center">
                     <div class="card">
-                        <img class="card-img-top" src="../images/jogo em dev.jpeg" alt="Imagem de capa do card" />
+                        <img class="card-img-top" src="images/jogo em dev.jpeg" alt="Imagem de capa do card" />
                         <div class="card-body">
                             <a href="" class="btn btn-dark">Jogar Agora</a>
                         </div>
@@ -172,14 +172,14 @@
                 <!-- Entrar -->
                 <div class="col-md-5 col-sm-12 d-flex flex-column justify-content-center align-items-center">
                     <h2>Entrar</h2>
-                    <form class="login-form">
+                    <form class="login-form" action="class/login.php" method="POST">
                         <label>
                             <p><i class="bi bi-person"></i> Nome</p>
-                            <input type="text" placeholder="Nome de Usuário" required />
+                            <input type="text" name="nome" placeholder="Nome de Usuário" required />
                         </label>
                         <label>
                             <p><i class="bi bi-lock"></i> Senha</p>
-                            <input type="password" placeholder="Senha" required />
+                            <input type="password" name="senha" placeholder="Senha" required />
                         </label>
                         <button type="submit">Entrar</button>
                     </form>
@@ -193,18 +193,18 @@
                 <!-- Cadastrar -->
                 <div class="col-md-5 col-sm-12 d-flex flex-column justify-content-center align-items-center">
                     <h2>Cadastrar</h2>
-                    <form class="cadastro-form">
+                    <form class="cadastro-form" action="class/Cadastrar.php" method="POST">
                         <label>
                             <p><i class="bi bi-person"></i> Nome</p>
-                            <input type="text" placeholder="Nome de Usuário" required />
+                            <input type="text" name="nome" placeholder="Nome de Usuário" required />
                         </label>
                         <label>
                             <p><i class="bi bi-envelope-at"></i> Email</p>
-                            <input type="text" placeholder="Email" required />
+                            <input type="text" name="email" placeholder="Email" required />
                         </label>
                         <label>
                             <p><i class="bi bi-lock"></i> Senha</p>
-                            <input type="password" placeholder="Senha" required />
+                            <input type="password" name="senha" placeholder="Senha" required />
                         </label>
                         <button type="submit">Cadastrar</button>
                     </form>
@@ -284,7 +284,7 @@
     <div class="rodape text-center py-3">
         <div class="row align-items-center">
             <div class="col-12 col-md-4 mb-3 mb-md-0">
-                <img src="../images/logo.png" class="img-fluid logo" alt="Logo" style="max-height: 80px;">
+                <img src="images/logo.png" class="img-fluid logo" alt="Logo" style="max-height: 80px;">
             </div>
             <div class="col-12 col-md-8">
                 <p class="mb-0" style="font-family: 'Coming Soon', cursive; font-size: 15px;">© 2025 Copyright</p>
