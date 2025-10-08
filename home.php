@@ -56,7 +56,7 @@ if (!isset($_SESSION["id_usuario"])) {
                     <a class="nav-link" href="index.php#jogos">Jogos</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php#loca">Login / Cadastrar</a>
+                    <a class="nav-link" href="index.php#loca">Rankings</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="perfil.html">Perfil</a>
