@@ -47,8 +47,8 @@ create table jogar(
 ============================================================================
 
 USUÁRIO
-insert into usuario(id_usuario, nome_usuario, email_usuario, data_nascimento) values(01, 'Camila Santos', 'camila123@outlook.com', '10/03/2019');
-insert into usuario(id_usuario, nome_usuario, email_usuario, data_nascimento) values(02, 'Carlos Santos', 'carlos123@outlook.com', '14/11/2018');
+insert into usuario(id_usuario, nome_usuario, email_usuario, senha_usuario, data_nascimento) values(01, 'Camila Santos', 'camila123@outlook.com', '1234', '10/03/2019');
+insert into usuario(id_usuario, nome_usuario, email_usuario, senha_usuario, data_nascimento) values(02, 'Carlos Santos', 'carlos123@outlook.com', '1234', '14/11/2018');
 
 
 JOGO
