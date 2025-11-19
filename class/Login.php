@@ -3,10 +3,10 @@ session_start();
 include("Conectar.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST["nome"];
-    $senha = $_POST["senha"];
+    $nome = $_POST["txtnome"];
+    $senha = $_POST["txtsenha"];
 
-    $sql = $conn->prepare("SELECT * FROM usuario WHERE nome_usuario = ? AND senha_usuario = ?");
+    $sql = $conexao->prepare("SELECT * FROM usuario WHERE nome_usuario = ? AND senha_usuario = ?");
     $sql->bind_param("ss", $nome, $senha);
     $sql->execute();
     $resultado = $sql->get_result();

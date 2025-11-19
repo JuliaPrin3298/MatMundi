@@ -1,3 +1,35 @@
+   <?php
+                session_start();
+                include("class/Conectar.php");
+
+                $erroLogin = ""; // mensagem pra exibir no form
+
+                if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["tipo"] ?? "") === "login") {
+
+                    $nome = $_POST["txtnome"] ?? "";
+                    $senha = $_POST["txtsenha"] ?? "";
+
+                    // Prepara consulta
+                    $sql = $conexao->prepare("SELECT * FROM usuario WHERE nome_usuario = ? AND senha_usuario = ?");
+                    $sql->bind_param("ss", $nome, $senha);
+                    $sql->execute();
+                    $resultado = $sql->get_result();
+
+                    if ($resultado->num_rows == 1) {
+                        // Login OK
+                        $usuario = $resultado->fetch_assoc();
+                        $_SESSION["id_usuario"] = $usuario["id_usuario"];
+                        $_SESSION["nome_usuario"] = $usuario["nome_usuario"];
+
+                        header("Location: home.php"); // mesma pasta
+                        exit;
+                    } else {
+                        // Login errado = mostra mensagem no form
+                        $erroLogin = "Nome ou senha incorretos!";
+                    }
+                }
+                ?>
+                
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -172,17 +204,20 @@
                 <!-- Entrar -->
                 <div class="col-md-5 col-sm-12 d-flex flex-column justify-content-center align-items-center">
                     <h2>Entrar</h2>
-                    <form class="login-form" action="class/login.php" method="POST">
+                    <form class="login-form" method="POST">
+                        <input type="hidden" name="tipo" value="login">
                         <label>
                             <p><i class="bi bi-person"></i> Nome</p>
                             <input type="text" name="txtnome" placeholder="Nome de Usuário" required />
                         </label>
                         <label>
                             <p><i class="bi bi-lock"></i> Senha</p>
-                            <input type="password" name="senha" placeholder="Senha" required />
+                            <input type="password" name="txtsenha" placeholder="Senha" required />
                         </label>
                         <button type="submit">Entrar</button>
+                        <p style="color:red;"><?php echo $erroLogin; ?></p>
                     </form>
+
                 </div>
 
                 <!-- Linha Vertical -->
@@ -197,7 +232,7 @@
 
                 $mensagem = ""; // mostrar o retorno na mesma página
 
-                if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["tipo"] ?? "") === "cadastro") {
 
                     $nome = $_POST["txtnome"] ?? "";
                     $email = $_POST["txtemail"] ?? "";
@@ -222,6 +257,7 @@
                 <div class="col-md-5 col-sm-12 d-flex flex-column justify-content-center align-items-center">
                     <h2>Cadastrar</h2>
                     <form class="cadastro-form" method="POST">
+                        <input type="hidden" name="tipo" value="cadastro">
                         <label>
                             <p><i class="bi bi-person"></i> Nome</p>
                             <input type="text" name="txtnome" placeholder="Nome de Usuário" required />
@@ -235,8 +271,7 @@
                             <input type="password" name="txtsenha" placeholder="Senha" required />
                         </label>
                         <button type="submit">Cadastrar</button>
-                        <br>
-                        <p><?php echo $mensagem; ?></p> <!--Retorno de erro // dps tira-->
+                        <p><?php echo $mensagem; ?></p>
                     </form>
                 </div>
 
