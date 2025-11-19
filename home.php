@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 <?php
 session_start();
 if (!isset($_SESSION["id_usuario"])) {
@@ -8,15 +5,6 @@ if (!isset($_SESSION["id_usuario"])) {
     exit();
 }
 ?>
-
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -314,4 +302,3 @@ if (!isset($_SESSION["id_usuario"])) {
 
 
 </html>
->>>>>>> a79907ff51adc113a712848bf23fde8e6c28d04d

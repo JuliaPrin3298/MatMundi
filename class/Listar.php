@@ -3,28 +3,37 @@ include_once __DIR__ . '/Conectar.php';
 
 class Listar
 {
-    private $con;
+    private $conexao;
+
+    public function __construct()
+    {
+        // pega a conexão criada no Conectar.php
+        global $conexao;
+        $this->conexao = $conexao;
+    }
 
     public function listarTop($limite = 10)
     {
-        try {
-            $this->con = Conectar::getInstance();
+        // segurança básica
+        $limite = intval($limite);
 
-            $sql = "SELECT u.nome_usuario, g.nome_jogo, j.pontuacao
-                    FROM usuario u
-                    JOIN jogar j ON u.id_usuario = j.id_usuario
-                    JOIN jogo g ON g.id_jogo = j.id_jogo
-                    ORDER BY j.pontuacao DESC
-                    LIMIT :limite";
+        $sql = "
+            SELECT u.nome_usuario, g.nome_jogo, j.pontuacao
+            FROM usuario u
+            JOIN jogar j ON u.id_usuario = j.id_usuario
+            JOIN jogo g ON g.id_jogo = j.id_jogo
+            ORDER BY j.pontuacao DESC
+            LIMIT $limite
+        ";
 
-            $stmt = $this->con->prepare($sql);
-            $stmt->bindValue(':limite', $limite, PDO::PARAM_INT);
-            $stmt->execute();
+        $resultado = $this->conexao->query($sql);
 
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo "Erro de banco de dados: " . $e->getMessage();
+        if (!$resultado) {
+            echo "Erro na consulta: " . $this->conexao->error;
+            return [];
         }
+
+        return $resultado->fetch_all(MYSQLI_ASSOC);
     }
 }
 ?>
