@@ -47,9 +47,14 @@ CREATE TABLE jogar(
 ============================================================================
 
 USUÁRIO
+<<<<<<< HEAD
 
 INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Camila Santos', 'camila123@outlook.com', '1234');
 INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Carlos Santos', 'carlos123@outlook.com', '1234');
+=======
+insert into usuario(id_usuario, nome_usuario, email_usuario, senha_usuario, data_nascimento) values(01, 'Camila Santos', 'camila123@outlook.com', '1234', '10/03/2019');
+insert into usuario(id_usuario, nome_usuario, email_usuario, senha_usuario, data_nascimento) values(02, 'Carlos Santos', 'carlos123@outlook.com', '1234', '14/11/2018');
+>>>>>>> a79907ff51adc113a712848bf23fde8e6c28d04d
 
 
 JOGO
