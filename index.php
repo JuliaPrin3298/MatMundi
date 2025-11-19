@@ -130,16 +130,16 @@
         <div>
             <h2>Jogos</h2>
             <div class="row">
-               <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-center">
+                <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-center">
                     <div class="card">
-                        <img class="card-img-top" src="../images/IlhaDoTesouro/Ilha do tesouro logo.png"
+                        <img class="card-img-top" src="images/IlhaDoTesouro/Ilha do tesouro logo.png"
                             alt="Imagem de capa do card" />
                         <div class="card-body">
                             <a href="Ilha do Tesouro/ilha.html" class="btn btn-dark">Jogar Agora</a>
                         </div>
                     </div>
                 </div>
-               <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-center">
+                <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-center">
                     <div class="card">
                         <img class="card-img-top" src="../images/jogo em dev.jpeg" alt="Imagem de capa do card" />
                         <div class="card-body">
@@ -175,7 +175,7 @@
                     <form class="login-form" action="class/login.php" method="POST">
                         <label>
                             <p><i class="bi bi-person"></i> Nome</p>
-                            <input type="text" name="nome" placeholder="Nome de Usuário" required />
+                            <input type="text" name="txtnome" placeholder="Nome de Usuário" required />
                         </label>
                         <label>
                             <p><i class="bi bi-lock"></i> Senha</p>
@@ -191,22 +191,52 @@
                 </div>
 
                 <!-- Cadastrar -->
+
+                <?php
+                include("class/Conectar.php");
+
+                $mensagem = ""; // mostrar o retorno na mesma página
+
+                if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+                    $nome = $_POST["txtnome"] ?? "";
+                    $email = $_POST["txtemail"] ?? "";
+                    $senha = $_POST["txtsenha"] ?? "";
+
+                    if ($nome != "" && $email != "" && $senha != "") {
+
+                        $sql = "INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario)
+                VALUES ('$nome', '$email', '$senha')";
+
+                        if ($conexao->query($sql) === TRUE) {
+                            $mensagem = "Usuário cadastrado com sucesso!";
+                        } else {
+                            $mensagem = "Erro ao cadastrar: " . $conexao->error;
+                        }
+                    } else {
+                        $mensagem = "Preencha todos os campos!";
+                    }
+                }
+                ?>
+
                 <div class="col-md-5 col-sm-12 d-flex flex-column justify-content-center align-items-center">
                     <h2>Cadastrar</h2>
-                    <form class="cadastro-form" action="class/Cadastrar.php" method="POST">
+                    <form class="cadastro-form" method="POST">
                         <label>
                             <p><i class="bi bi-person"></i> Nome</p>
-                            <input type="text" name="nome" placeholder="Nome de Usuário" required />
+                            <input type="text" name="txtnome" placeholder="Nome de Usuário" required />
                         </label>
                         <label>
                             <p><i class="bi bi-envelope-at"></i> Email</p>
-                            <input type="text" name="email" placeholder="Email" required />
+                            <input type="text" name="txtemail" placeholder="Email" required />
                         </label>
                         <label>
                             <p><i class="bi bi-lock"></i> Senha</p>
-                            <input type="password" name="senha" placeholder="Senha" required />
+                            <input type="password" name="txtsenha" placeholder="Senha" required />
                         </label>
                         <button type="submit">Cadastrar</button>
+                        <br>
+                        <p><?php echo $mensagem; ?></p> <!--Retorno de erro // dps tira-->
                     </form>
                 </div>
 
@@ -216,7 +246,7 @@
 
 
     <script>
-        (function () {
+        (function() {
             const caro = document.getElementById('caro');
             const inner = caro.querySelector('.caroinner');
             const items = caro.querySelectorAll('.caroitem');
@@ -253,7 +283,6 @@
 
             updatecaro();
         })();
-
     </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -261,8 +290,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        $(document).ready(function () {
-            $('.navbar-nav>li>a').on('click', function () {
+        $(document).ready(function() {
+            $('.navbar-nav>li>a').on('click', function() {
                 $('.navbar-collapse').collapse('hide');
             });
         });

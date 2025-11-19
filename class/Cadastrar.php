@@ -1,27 +1,26 @@
 <?php
-include("Conectar.php");
+include("class/Conectar.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
-    $senha = $_POST["senha"];
+$mensagem = ""; // Só pra mostrar o retorno na mesma página
 
-    $verifica = $conn->prepare("SELECT * FROM usuario WHERE email_usuario = ?");
-    $verifica->bind_param("s", $email);
-    $verifica->execute();
-    $resultado = $verifica->get_result();
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    if ($resultado->num_rows > 0) {
-        echo "<script>alert('Esse e-mail já está cadastrado!'); window.location='../index.php#loca';</script>";
-    } else {
-        $sql = $conn->prepare("INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES (?, ?, ?)");
-        $sql->bind_param("sss", $nome, $email, $senha);
+    $nome = $_POST["txtnome"] ?? "";
+    $email = $_POST["txtemail"] ?? "";
+    $senha = $_POST["txtsenha"] ?? "";
 
-        if ($sql->execute()) {
-            echo "<script>alert('Cadastro realizado com sucesso!'); window.location='../index.php#loca';</script>";
+    if ($nome != "" && $email != "" && $senha != "") {
+
+        $sql = "INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario)
+                VALUES ('$nome', '$email', '$senha')";
+
+        if ($conexao->query($sql) === TRUE) {
+            $mensagem = "Usuário cadastrado com sucesso!";
         } else {
-            echo "<script>alert('Erro ao cadastrar!'); window.location='../index.php#loca';</script>";
+            $mensagem = "Erro ao cadastrar: " . $conexao->error;
         }
+    } else {
+        $mensagem = "Preencha todos os campos!";
     }
 }
 ?>
