@@ -1,10 +1,23 @@
 <?php
 session_start();
+include("class/Conectar.php");
+
 if (!isset($_SESSION["id_usuario"])) {
     header("Location: index.php");
     exit();
 }
+
+// Pega o nome do usuário pelo id da sessão
+$id = $_SESSION["id_usuario"];
+$sql = $conexao->prepare("SELECT nome_usuario FROM usuario WHERE id_usuario = ?");
+$sql->bind_param("i", $id);
+$sql->execute();
+$result = $sql->get_result();
+$usuario = $result->fetch_assoc();
+$nomeUsuario = $usuario['nome_usuario'];
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -16,7 +29,7 @@ if (!isset($_SESSION["id_usuario"])) {
     <link rel="icon" href="images/logo.png" type="image/png" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/css.css" />
+    <link rel="stylesheet" href="css/css-novo.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -30,13 +43,14 @@ if (!isset($_SESSION["id_usuario"])) {
 
 <body>
     <!--Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient(to right, #8ADEFF, #75EDE6);">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background: linear-gradient(to right, #8ADEFF, #75EDE6);">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav justify-content-end">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="index.php#home">Home</a>
                 </li>
@@ -47,44 +61,33 @@ if (!isset($_SESSION["id_usuario"])) {
                     <a class="nav-link" href="index.php#jogos">Jogos</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php#loca">Rankings</a>
+                    <a class="nav-link" href="index.php#loca">Login / Cadastrar</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="perfil.html">Perfil</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="class/logout.php">Sair</a>
-                </li>
-
             </ul>
         </div>
     </nav>
 
-
-
-
     <!--Home-->
 
-    <section class="home" style="background: #FFFAB4;" id="home">
-        <div>
-            <div class="row">
-                <div class="col-md-3 col-sm-3">
-                    <div class="masc">
-                        <img src="images/mascotes.png" alt="">
-                    </div>
+    <section class="home d-flex align-items-center" style="background:#FFFAB4;" id="home">
+        <div class="container p-4">
+            <div class="row w-100 align-items-center">
+
+                <div class="masc col-3 col-md-3 d-flex justify-content-center">
+                    <img src="images/mascotes_500px.png" class="img-fluid" alt="">
                 </div>
-                <div class="col-md-7 col-sm-7">
-                    <div class="boas-vindas">
-                        <h1>Bem-vindo(a), <?php echo $_SESSION["nome_usuario"]; ?></h1>
-                        <br>
-                        <h1>MatMundi - Continue sua jornada!</h1>
-                    </div>
+
+                <div class="slogan col-6 col-md-7 d-flex justify-content-center text-center">
+                    <h1>Bem-vindo(a), <?php echo htmlspecialchars($nomeUsuario); ?> <br> MatMundi - Continue sua jornada!</h1>
                 </div>
-                <div class="col-md-2 col-sm-2">
-                    <div class="logo">
-                        <img src="images/logo.png">
-                    </div>
+
+                <div class="logo col-3 col-md-2 d-flex justify-content-center">
+                    <img src="images/logo.png" class="img-fluid" alt="">
                 </div>
+
             </div>
         </div>
     </section>
@@ -96,7 +99,7 @@ if (!isset($_SESSION["id_usuario"])) {
 
     <!--ATIVIDADES-->
     <section class="atividades" id="atividades">
-        <div>
+        <div class="container text-center">
             <h2>Atividades</h2>
             <div class="row">
                 <div class="col-md-12 col-sm-12">
@@ -138,34 +141,38 @@ if (!isset($_SESSION["id_usuario"])) {
         </path>
     </svg>
     <section class="jogos" style="background: #92C992;" id="jogos">
-        <div>
+        <div class="container py-5 text-center">
             <h2>Jogos</h2>
-            <div class="row">
-                <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-center">
-                    <div class="card">
-                        <img class="card-img-top" src="images/IlhaDoTesouro/Ilha do tesouro logo.png"
-                            alt="Imagem de capa do card" />
+
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-md-4 col-sm-6 d-flex py-3 justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top img-fluid" src="images/IlhaDoTesouro/Ilha do tesouro logo.png" alt="">
                         <div class="card-body">
-                            <a href="Ilha do Tesouro/ilha.html" class="btn btn-dark">Jogar Agora</a>
+                            <a href="Ilha do Tesouro/ilha.html" class="btn btn-dark w-100">Jogar Agora</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-center">
-                    <div class="card">
-                        <img class="card-img-top" src="images/jogo em dev.jpeg" alt="Imagem de capa do card" />
+
+                <div class="col-md-4 col-sm-6 d-flex py-3  justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top img-fluid" src="images/jogo em dev.jpeg" alt="">
                         <div class="card-body">
-                            <a href="" class="btn btn-dark">Jogar Agora</a>
+                            <a href="#" class="btn btn-dark w-100">Jogar Agora</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-12 d-flex align-items-center justify-content-center">
-                    <div class="card">
-                        <img class="card-img-top" src="images/jogo em dev.jpeg" alt="Imagem de capa do card" />
+
+                <div class="col-md-4 col-sm-6 d-flex py-3 justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top img-fluid" src="images/jogo em dev.jpeg" alt="">
                         <div class="card-body">
-                            <a href="" class="btn btn-dark">Jogar Agora</a>
+                            <a href="#" class="btn btn-dark w-100">Jogar Agora</a>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -186,41 +193,41 @@ if (!isset($_SESSION["id_usuario"])) {
 
     ?>
 
-
-
-
     <section class="top-rank">
-        <table class="table table-sm" id="top-rank">
-            <thead class="thead">
-                <tr>
-                    <th>Posição</th>
-                    <th>Nome</th>
-                    <th>Jogo</th>
-                    <th>Pontuação</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                if (!empty($dados)) {
-                    $pos = 1;
-                    foreach ($dados as $mostrar) {
-                        echo "<tr>";
-                        echo "<td>{$pos}</td>";
-                        echo "<td>{$mostrar['nome_usuario']}</td>";
-                        echo "<td>{$mostrar['nome_jogo']}</td>";
-                        echo "<td>{$mostrar['pontuacao']}</td>";
-                        echo "</tr>";
-                        $pos++;
-                    }
-                } else {
-                    echo "<tr><td colspan='4'>Nenhuma pontuação registrada</td></tr>";
-                }
-                ?>
-            </tbody>
-        </table>
+        <div class="container py-4 text-center">
+            <h2>Ranking Geral</h2>
+            <div class="row py-3">
+                <table class="table table-sm" id="top-rank">
+                    <thead class="thead">
+                        <tr>
+                            <th>Posição</th>
+                            <th>Nome</th>
+                            <th>Jogo</th>
+                            <th>Pontuação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if (!empty($dados)) {
+                            $pos = 1;
+                            foreach ($dados as $mostrar) {
+                                echo "<tr>";
+                                echo "<td>{$pos}</td>";
+                                echo "<td>{$mostrar['nome_usuario']}</td>";
+                                echo "<td>{$mostrar['nome_jogo']}</td>";
+                                echo "<td>{$mostrar['pontuacao']}</td>";
+                                echo "</tr>";
+                                $pos++;
+                            }
+                        } else {
+                            echo "<tr><td colspan='4'>Nenhuma pontuação registrada</td></tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </section>
-
-
 
     <script>
         (function() {
@@ -287,7 +294,7 @@ if (!isset($_SESSION["id_usuario"])) {
         </path>
     </svg>
 
-    <div class="rodape text-center py-3">
+    <div class="rodape text-center py-3" style="background: #8ADEFF;">
         <div class="row align-items-center">
             <div class="col-12 col-md-4 mb-3 mb-md-0">
                 <img src="images/logo.png" class="img-fluid logo" alt="Logo" style="max-height: 80px;">

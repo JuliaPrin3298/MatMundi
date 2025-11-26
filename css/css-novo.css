@@ -215,3 +215,32 @@ body {
 .loca {
   margin-bottom: 120px;
 }
+
+#rotate-warning {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #ffeb3b;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 9999;
+  font-size: 1.5rem;
+  padding: 20px;
+}
+
+#top-rank{
+  background-color: #b6e3b4;
+  padding: 30px;
+  margin: 10px auto;
+  width: 500px;
+  border-radius: 30px;
+}
+
+#top-rank .thead{
+  background-color: #6abd65 ;
+}

@@ -6,12 +6,12 @@
 
     if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["tipo"] ?? "") === "login") {
 
-        $nome = $_POST["txtnome"] ?? "";
+        $email = $_POST["txtemail"] ?? "";
         $senha = $_POST["txtsenha"] ?? "";
 
         // Prepara consulta
-        $sql = $conexao->prepare("SELECT * FROM usuario WHERE nome_usuario = ? AND senha_usuario = ?");
-        $sql->bind_param("ss", $nome, $senha);
+        $sql = $conexao->prepare("SELECT * FROM usuario WHERE email_usuario = ? AND senha_usuario = ?");
+        $sql->bind_param("ss", $email, $senha);
         $sql->execute();
         $resultado = $sql->get_result();
 
@@ -19,13 +19,13 @@
             // Login OK
             $usuario = $resultado->fetch_assoc();
             $_SESSION["id_usuario"] = $usuario["id_usuario"];
-            $_SESSION["nome_usuario"] = $usuario["nome_usuario"];
+            $_SESSION["email_usuario"] = $usuario["email_usuario"];
 
             header("Location: home.php"); // mesma pasta
             exit;
         } else {
             // Login errado = mostra mensagem no form
-            $erroLogin = "Nome ou senha incorretos!";
+            $erroLogin = "Email ou senha incorretos!";
         }
     }
     ?>
@@ -210,8 +210,8 @@
                            <input type="hidden" name="tipo" value="login">
 
                            <label>
-                               <p><i class="bi bi-person"></i> Nome</p>
-                               <input type="text" name="txtnome" placeholder="Nome de Usuário" required>
+                               <p><i class="bi bi-person"></i> Email</p>
+                               <input type="email" name="txtemail" placeholder="Email do Usuário" required>
                            </label>
 
                            <label>
@@ -362,7 +362,7 @@
            </path>
        </svg>
 
-       <div class="rodape text-center py-3">
+       <div class="rodape text-center py-3" style="background: #8ADEFF;">
            <div class="row align-items-center">
                <div class="col-12 col-md-4 mb-3 mb-md-0">
                    <img src="images/logo.png" class="img-fluid logo" alt="Logo" style="max-height: 80px;">
