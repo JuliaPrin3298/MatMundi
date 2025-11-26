@@ -1,0 +1,217 @@
+* {
+    font-family: "Chewy";
+}
+
+body {
+    padding-top: 50px;
+    /* navbar */
+}
+
+/*HOME*/
+
+.masc img {
+    width: 100%;
+    height: auto;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+.slogan h1 {
+    font-size: clamp(1.2rem, 2.5vw, 2.5rem);
+    line-height: 1.2;
+}
+
+/*ATIVIDADES*/
+
+.caroteiner {
+    width: 70%;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    margin-top: 20px;
+}
+
+
+.caroinner {
+    display: flex;
+    gap: 10px;
+    transition: transform 0.4s ease;
+}
+
+.caroitem {
+    flex: 0 0 253px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.caroitem h1 {
+    margin: 0 0 10px 0;
+    text-align: center;
+    font-family: "Cherry Bomb One";
+    font-size: clamp(2rem, 8vw, 10rem);
+    line-height: 1.2;
+}
+
+
+.caroitem a.btn {
+    background: #FFFFFF;
+    opacity: 0.5;
+    color: black;
+    text-decoration: none;
+    padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 16px);
+    border-radius: 10px;
+   font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+    font-family: "Chewy";
+    transition: background-color 0.3s ease;
+}
+
+.caroitem a.btn:hover {
+    background: #000;
+    color: #FFFFFF;
+}
+
+/* Botões de navegação */
+.carobtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    z-index: 10;
+}
+
+.caroinner {
+    flex-wrap: nowrap;
+}
+
+.caroitem {
+    flex: 0 0 calc((100% - 20px) / 3);
+    /* 3 cards com 2 gaps de 10px */
+}
+
+.carobtn:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px #000;
+}
+
+.carobtn.prev {
+    left: 10px;
+}
+
+.carobtn.next {
+    right: 10px;
+}
+
+/*LOCA*/
+
+/* garante largura dos forms e layout igual ao seu design */
+.login-form,
+.cadastro-form {
+  width: 320px;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto; /* centraliza dentro da coluna */
+  font-family: "Chewy", sans-serif;
+}
+
+/* labels e textos */
+.login-form label,
+.cadastro-form label {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.login-form p,
+.cadastro-form p {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  margin: 0 0 8px 0;
+  color: #000;
+}
+
+/* REMOVE bordas default e estilos do bootstrap, mantendo só a borda de baixo */
+.login-form input,
+.cadastro-form input {
+  width: 100%;
+  border: none !important;
+  background: transparent;
+  outline: none;
+  box-shadow: none !important;
+  border-bottom: 2px solid #000; /* seu estilo */
+  padding: 6px 4px;
+  font-size: 16px;
+  font-family: "Coming soon";
+  transition: border-color 0.3s;
+}
+
+/* placeholder */
+.login-form input::placeholder,
+.cadastro-form input::placeholder {
+  color: #999;
+}
+
+/* foco */
+.login-form input:focus,
+.cadastro-form input:focus {
+  border-bottom-color: #000;
+  box-shadow: none !important;
+}
+
+/* botão */
+.login-form button,
+.cadastro-form button {
+  width: 100%;
+  background-color: #000;
+  border: none;
+  opacity: 0.70;
+  padding: 10px;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+/* hover do botão */
+.login-form button:hover,
+.cadastro-form button:hover {
+  background-color: #484848;
+}
+
+/* linha vertical responsiva (aparece só no desktop) */
+.vertical-line {
+  width: 3px;
+  height: 250px;
+  background-color: black;
+  margin: 0 15px;
+}
+
+/* espaçamento da seção */
+.loca {
+  margin-bottom: 120px;
+}

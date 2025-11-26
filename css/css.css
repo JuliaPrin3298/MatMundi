@@ -27,33 +27,26 @@ ul a:hover {
 
 section {
   padding: 100px 0;
-  height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  height: auto;
 }
 
-.masc img {
-  width: 29vw;
+.home img {
+  width: 200px;
 }
 
 .slogan {
   display: flex;
   justify-content: center;
   align-items: center;
-
-}
-
-.logo img {
-  width: 19vw;
-  margin-left: -80px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .home h1 {
   font-size: 20px;
   font-family: "Press Start 2P";
   text-align: center;
+  
 }
 
 .jogos {
@@ -289,20 +282,12 @@ a {
     height: 180px;
   }
 
-.csam img {
-  width: 29vw;
-}
 
 .nagols{
   display: flex;
   justify-content: center;
   align-items: center;
 
-}
-
-.ogol img {
-  width: 19vw;
-  margin-left: -80px;
 }
 
 .emoh h1 {
