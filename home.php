@@ -124,7 +124,7 @@ $nomeUsuario = $usuario['nome_usuario'];
                             </div>
                             <div class="caroitem" style="background: #8ADEFF;">
                                 <h1>5°</h1>
-                                <a href="atividades5.html" class="btn">Acessar Atividades</a>
+                                <a href="atv5.php" class="btn">Acessar Atividades</a>
                             </div>
                         </div>
                         <button class="carobtn next" aria-label="Próximo">&#10095;</button>
@@ -183,6 +183,7 @@ $nomeUsuario = $usuario['nome_usuario'];
     </svg>
 
 
+<!--RAnking geral de jogos-->
 
     <?php
     include_once __DIR__ . '/class/Listar.php';
