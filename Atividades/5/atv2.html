@@ -184,7 +184,7 @@
         const btnVerificar = document.getElementById("verificar-btn");
         const alertaContainer = document.getElementById("alerta-container");
         const alternativas = document.getElementById("alternativas");
-        const botoesAlternativas = document.querySelectorAll(".alternativa-btn");
+        const botoesAlternativas = [];
 
         let valoresSelecionados = [];
         let clickCounts = {}; // contagem de clique por valor
@@ -280,113 +280,116 @@
 
             if (milharInput === milhar && centenaInput === centena && dezenaInput === dezena && unidadeInput === unidade) {
                 mostrarAlerta("alert-success", "Parabéns!", "Resultado correto 🎉");
-                alternativas.style.display = "block";
-                botoesAlternativas.forEach(btn => btn.classList.remove("desativado"));
 
-                gerarAlternativas(somaAtual);
+                // alternativas.style.display = "block";
+                // botoesAlternativas.forEach(btn => btn.classList.remove("desativado"));
+
+                // gerarAlternativas(somaAtual);
+
             } else {
                 mostrarAlerta("alert-danger", "Ops!", "Resultado incorreto. Tente novamente.");
+
+                // alternativas.style.display = "none";
+                // botoesAlternativas.forEach(btn => btn.classList.add("desativado"));
+            }
+
+
+            function gerarAlternativas(correta) {
+                // Cria 3 valores errados próximos para confundir
+                const alternativasValores = new Set();
+                alternativasValores.add(correta);
+
+                while (alternativasValores.size < 4) {
+                    let falso = correta + (Math.floor(Math.random() * 20) - 10);
+                    if (falso < 0) falso = Math.abs(falso) + 5;
+                    alternativasValores.add(falso);
+                }
+
+                // Embaralha e define texto dos botões
+                const arr = Array.from(alternativasValores);
+                arr.sort(() => Math.random() - 0.5);
+
+                botoesAlternativas.forEach((btn, i) => {
+                    btn.textContent = arr[i];
+                    btn.dataset.valor = arr[i];
+                });
+            }
+
+            function verificarResposta(botao) {
+                if (botao.classList.contains("desativado")) return;
+
+                limparAlerta();
+
+                const valorEscolhido = parseInt(botao.dataset.valor);
+                const respostaCorreta = somaAtual;
+
+                if (valorEscolhido === respostaCorreta) {
+                    mostrarAlerta("alert-success", "Parabéns!", "Resposta correta! 🎉");
+                } else {
+                    mostrarAlerta("alert-danger", "Ops!", "Resposta incorreta. Tente novamente.");
+                }
+            }
+
+            let indexExercicio = 0;
+            const exercicios = document.querySelectorAll(".exercicio");
+
+            function proximoExercicio() {
+                if (indexExercicio < exercicios.length - 1) {
+                    exercicios[indexExercicio].classList.remove("ativo");
+                    indexExercicio++;
+                    exercicios[indexExercicio].classList.add("ativo");
+                    resetarExercicio();
+                }
+            }
+
+            function voltarExercicio() {
+                if (indexExercicio > 0) {
+                    exercicios[indexExercicio].classList.remove("ativo");
+                    indexExercicio--;
+                    exercicios[indexExercicio].classList.add("ativo");
+                    resetarExercicio();
+                }
+            }
+
+            function resetarExercicio() {
+                limparAlerta();
+                valoresSelecionados = [];
+                somaAtual = 0;
+                contaDiv.textContent = "";
+                limparInputs();
                 alternativas.style.display = "none";
                 botoesAlternativas.forEach(btn => btn.classList.add("desativado"));
-            }
-        });
-
-        function gerarAlternativas(correta) {
-            // Cria 3 valores errados próximos para confundir
-            const alternativasValores = new Set();
-            alternativasValores.add(correta);
-
-            while (alternativasValores.size < 4) {
-                let falso = correta + (Math.floor(Math.random() * 20) - 10);
-                if (falso < 0) falso = Math.abs(falso) + 5;
-                alternativasValores.add(falso);
+                imgs.forEach(img => {
+                    img.classList.remove("clicado");
+                    const valor = img.getAttribute("data-valor");
+                    clickCounts[valor] = 0;
+                });
             }
 
-            // Embaralha e define texto dos botões
-            const arr = Array.from(alternativasValores);
-            arr.sort(() => Math.random() - 0.5);
-
-            botoesAlternativas.forEach((btn, i) => {
-                btn.textContent = arr[i];
-                btn.dataset.valor = arr[i];
+            // Inicialmente desativa as alternativas
+            window.addEventListener("DOMContentLoaded", () => {
+                botoesAlternativas.forEach(btn => btn.classList.add("desativado"));
             });
-        }
-
-        function verificarResposta(botao) {
-            if (botao.classList.contains("desativado")) return;
-
-            limparAlerta();
-
-            const valorEscolhido = parseInt(botao.dataset.valor);
-            const respostaCorreta = somaAtual;
-
-            if (valorEscolhido === respostaCorreta) {
-                mostrarAlerta("alert-success", "Parabéns!", "Resposta correta! 🎉");
-            } else {
-                mostrarAlerta("alert-danger", "Ops!", "Resposta incorreta. Tente novamente.");
-            }
-        }
-
-        let indexExercicio = 0;
-        const exercicios = document.querySelectorAll(".exercicio");
-
-        function proximoExercicio() {
-            if (indexExercicio < exercicios.length - 1) {
-                exercicios[indexExercicio].classList.remove("ativo");
-                indexExercicio++;
-                exercicios[indexExercicio].classList.add("ativo");
-                resetarExercicio();
-            }
-        }
-
-        function voltarExercicio() {
-            if (indexExercicio > 0) {
-                exercicios[indexExercicio].classList.remove("ativo");
-                indexExercicio--;
-                exercicios[indexExercicio].classList.add("ativo");
-                resetarExercicio();
-            }
-        }
-
-        function resetarExercicio() {
-            limparAlerta();
-            valoresSelecionados = [];
-            somaAtual = 0;
-            contaDiv.textContent = "";
-            limparInputs();
-            alternativas.style.display = "none";
-            botoesAlternativas.forEach(btn => btn.classList.add("desativado"));
-            imgs.forEach(img => {
-                img.classList.remove("clicado");
-                const valor = img.getAttribute("data-valor");
-                clickCounts[valor] = 0;
-            });
-        }
-
-        // Inicialmente desativa as alternativas
-        window.addEventListener("DOMContentLoaded", () => {
-            botoesAlternativas.forEach(btn => btn.classList.add("desativado"));
-        });
 
     </script>
 
 
     <script>
-        function checkOrientation() {
-            const warning = document.getElementById('rotate-warning');
-            const isMobile = window.innerWidth <= 768; // você pode ajustar esse número se quiser
-            const isPortrait = window.innerHeight > window.innerWidth;
+            function checkOrientation() {
+                const warning = document.getElementById('rotate-warning');
+                const isMobile = window.innerWidth <= 768; // você pode ajustar esse número se quiser
+                const isPortrait = window.innerHeight > window.innerWidth;
 
-            if (isMobile && isPortrait) {
-                warning.style.display = 'flex';
-            } else {
-                warning.style.display = 'none';
+                if (isMobile && isPortrait) {
+                    warning.style.display = 'flex';
+                } else {
+                    warning.style.display = 'none';
+                }
             }
-        }
 
-        window.addEventListener('load', checkOrientation);
-        window.addEventListener('resize', checkOrientation);
-        window.addEventListener('orientationchange', checkOrientation);
+            window.addEventListener('load', checkOrientation);
+            window.addEventListener('resize', checkOrientation);
+            window.addEventListener('orientationchange', checkOrientation);
 
     </script>
 
@@ -405,11 +408,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-        $(document).ready(function () {
-            $('.navbar-nav>li>a').on('click', function () {
-                $('.navbar-collapse').collapse('hide');
+            $(document).ready(function () {
+                $('.navbar-nav>li>a').on('click', function () {
+                    $('.navbar-collapse').collapse('hide');
+                });
             });
-        });
     </script>
 </body>
 
