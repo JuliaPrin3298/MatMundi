@@ -20,8 +20,20 @@
     <script src="js/script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
 
-</style>
-
+        <style>
+    #top-rank{
+        background-color: #b6e3b4;
+        padding: 30px;
+        margin: 10px auto;
+        width: 500px;
+        border-radius: 30px;
+    }
+  
+    #top-rank .thead{
+        background-color: #6abd65 ;
+    }
+        </style>
+        
 </head>
 
 <body>
