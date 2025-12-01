@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -126,12 +129,12 @@
                                     <div class="cont d-flex align-items-center mt-2">
                                         <img class="icon" src="../images/IlhaDoTesouro/pa (1).png" style="width: 30px;"
                                             alt="">
-                                        <h4 class="ms-2" id="pa" name="txtpa">0</h4>
+                                        <h4 class="ms-2" id="pa">0</h4>
                                     </div>
                                     <div class="cont d-flex align-items-center mt-2">
                                         <img class="icon" src="../images/IlhaDoTesouro/erro.png" style="width: 30px;"
                                             alt="">
-                                        <h4 class="ms-2" id="cavacoes" name="txtcava">0</h4>
+                                        <h4 class="ms-2" id="cavacoes">0</h4>
                                     </div>
                                 </div>
                             </div>
@@ -200,7 +203,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content" style="border-radius: 20px;">
                 <div class="modal-header" style="background: #8ADEFF;">
-                    <h5 class="modal-title">🏆 Pontuação Final</h5>
+                    <h5 class="modal-title">Pontuação Final</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -209,8 +212,12 @@
                 <div class="modal-body text-center">
                     <h4>⏱️ Tempo: <span id="finalTempo"></span>s</h4>
                     <h4>❌ Erros: <span id="finalErros"></span></h4>
+                    <h4>📘 Erros de Conta: <span id="finalErrosConta"></span></h4>
                     <h4>🪓 Pás restantes: <span id="finalPas"></span></h4>
+                    <h4>🏆 Pontuação: <span id="pontuacaoFinal"></span></h4>
+                    <h5 id="alertLogin" class="text-warning" style="display:none;"></h5>
                 </div>
+
 
                 <div class="modal-footer d-flex justify-content-center">
                     <button id="jogarNovamente" class="btn btn-warning" onclick="reiniciarJogoReal()">Jogar
@@ -231,8 +238,8 @@
 
     <!-- Script para fechar menu mobile -->
     <script>
-        $(document).ready(function () {
-            $('.navbar-nav>li>a').on('click', function () {
+        $(document).ready(function() {
+            $('.navbar-nav>li>a').on('click', function() {
                 $('.navbar-collapse').collapse('hide');
             });
         });
@@ -240,6 +247,10 @@
 
     <!-- Seu script principal do jogo -->
     <script src="../js/tesouro.js"></script>
+    <script>
+        const usuarioLogado = <?php echo isset($_SESSION['id_usuario']) ? 1 : 0; ?>;
+    </script>
+
 
 </body>
 

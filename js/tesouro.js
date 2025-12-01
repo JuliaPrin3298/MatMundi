@@ -1,5 +1,24 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    function salvarPontuacao(chave, valor) {
+        let pontuacoes = JSON.parse(localStorage.getItem("pontuacoesTesouro")) || {};
+        pontuacoes[chave] = valor;
+        localStorage.setItem("pontuacoesTesouro", JSON.stringify(pontuacoes));
+    }
+
+    function calcularPontuacaoFinal() {
+        let pontuacoes = JSON.parse(localStorage.getItem("pontuacoesTesouro")) || {};
+        let total = 0;
+        for (let v of Object.values(pontuacoes)) {
+            total += Number(v);
+        }
+        return total;
+    }
+
+    function resetPontuacoes() {
+        localStorage.removeItem("pontuacoesTesouro");
+    }
+
     // 📌 VARIÁVEIS DO JOGO
 
     const cells = document.querySelectorAll("table.tabuleiro td");
@@ -133,7 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
             img.style.maxHeight = "80%";
 
             if (index === indexTesouro) {
-
                 img.src = imagemTesouro;
                 cell.appendChild(img);
 
@@ -141,13 +159,51 @@ document.addEventListener("DOMContentLoaded", function () {
                 clearInterval(timer);
 
                 setTimeout(() => {
-                    // preencher dados do modal
                     document.getElementById("finalTempo").textContent = segundos;
                     document.getElementById("finalErros").textContent = erros;
                     document.getElementById("finalPas").textContent = paAtual;
 
+                    let errosDeConta = parseInt(errosEl.textContent) || 0;
+                    document.getElementById("finalErrosConta").textContent = errosDeConta;
+
+                    let pontuacaoFinal =
+                        (paAtual * 30) +
+                        (erros * 20) +
+                        (errosDeConta * -50) +
+                        (segundos * -1);
+
+                    pontuacaoFinal = Math.round(pontuacaoFinal);
+                    document.getElementById("pontuacaoFinal").textContent = pontuacaoFinal;
+
+                    const alertaLogin = document.getElementById("alertLogin");
+
+                    if (!usuarioLogado) {
+                        // Mostra alerta dentro do modal
+                        alertaLogin.textContent = "⚠️ Faça login para salvar a pontuação!";
+                        alertaLogin.style.display = "block";
+                    } else {
+                        // Esconde alerta e salva pontuação
+                        alertaLogin.style.display = "none";
+
+                        fetch('../class/SalvarPontuacao.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                            body: `id_jogo=1&pontuacao=${pontuacaoFinal}`
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.sucesso) {
+                                    console.log('Ranking atualizado:', data.ranking);
+                                } else {
+                                    console.error(data.erro);
+                                }
+                            });
+                    }
+
+                    // mostra o modal sempre
                     $('#modalPontuacao').modal('show');
                 }, 300);
+
 
             } else {
                 img.src = imagemErro;
@@ -163,6 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     document.getElementById("jogarNovamente")?.addEventListener("click", () => {
+        resetPontuacoes();
         location.reload();
     });
 
