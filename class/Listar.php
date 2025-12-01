@@ -18,11 +18,11 @@ class Listar
         $limite = intval($limite);
 
         $sql = "
-            SELECT u.nome_usuario, g.nome_jogo, j.pontuacao
+            SELECT u.nome_usuario, jg.nome_jogo, jg.dificuldade, jgr.pontuacao
             FROM usuario u
-            JOIN jogar j ON u.id_usuario = j.id_usuario
-            JOIN jogo g ON g.id_jogo = j.id_jogo
-            ORDER BY j.pontuacao DESC
+            JOIN jogar jgr ON u.id_usuario = jgr.id_usuario
+            JOIN jogo jg ON jg.id_jogo = jgr.id_jogo
+            ORDER BY jgr.pontuacao DESC
             LIMIT $limite
         ";
 

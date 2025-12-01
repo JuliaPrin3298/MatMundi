@@ -204,6 +204,7 @@ $nomeUsuario = $usuario['nome_usuario'];
                             <th>Posição</th>
                             <th>Nome</th>
                             <th>Jogo</th>
+                            <th>Dificuldade</th>
                             <th>Pontuação</th>
                         </tr>
                     </thead>
@@ -216,6 +217,7 @@ $nomeUsuario = $usuario['nome_usuario'];
                                 echo "<td>{$pos}</td>";
                                 echo "<td>{$mostrar['nome_usuario']}</td>";
                                 echo "<td>{$mostrar['nome_jogo']}</td>";
+                                echo "<td>{$mostrar['dificuldade']}</td>";
                                 echo "<td>{$mostrar['pontuacao']}</td>";
                                 echo "</tr>";
                                 $pos++;

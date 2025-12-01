@@ -49,12 +49,24 @@ CREATE TABLE jogar(
 
 USUÁRIO
 
-INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Camila Santos', 'camila123@outlook.com', '1234');
-INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Carlos Santos', 'carlos123@outlook.com', '1234');
+INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Camila', 'camila@gmail.com', '1234');
+INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Lola', 'Lola@gmail.com', '1234');
+INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Kemi', 'kemi@gmail.com', '1234');
+INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Jae', 'jae@gmail.com', '1234');
+INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Jonas', 'jonas@gmail.com', '1234');
+INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Gabriela', 'gabriela@gmail.com', '1234');
+INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Rafael', 'rafael@gmail.com', '1234');
+INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Lauro', 'lauro@gmail.com', '1234');
+INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Henri', 'henri@gmail.com', '1234');
+INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Dalmo', 'dalmo@gmail.com', '1234');
+INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario) VALUES ('Lavinia', 'lavinia@gmail.com', '1234');
+
+
 
 JOGO
+INSERT INTO jogo (nome_jogo, dificuldade) VALUES ('Ilha do Tesouro', 'Facil');
 INSERT INTO jogo (nome_jogo, dificuldade) VALUES ('Ilha do Tesouro', 'Medio');
-INSERT INTO jogo (nome_jogo, dificuldade) VALUES ('Lancador de bolas', 'Facil');
+INSERT INTO jogo (nome_jogo, dificuldade) VALUES ('Ilha do Tesouro', 'Dificil');
 
 ATIVIDADE
 INSERT INTO atividade (titulo_atividade, descricao, habilidade, serie) VALUES ('A soma dos doces', 'Comprando doces na loja e fazendo a soma entre eles', 'Realizar adicoes simples com numeros naturais', '2° ano');
@@ -66,8 +78,17 @@ INSERT INTO realizar (id_usuario, id_atividade, estado) VALUES (1, 1, 'F');
 INSERT INTO realizar (id_usuario, id_atividade, estado) VALUES (2, 2, 'T');
 
 JOGAR
-INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (550, 1, 1);
-INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (650, 2, 2);
+INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (330, 1, 1);
+INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (240, 2, 2);
+INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (390, 3, 3);
+INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (340, 4, 1);
+INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (310, 5, 1);
+INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (250, 6, 2);
+INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (120, 7, 3);
+INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (360, 8, 1);
+INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (190, 9, 2);
+INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (360, 10, 3);
+INSERT INTO jogar (pontuacao, id_usuario, id_jogo) VALUES (320, 11, 3);
 
 ===========================================================================
 
