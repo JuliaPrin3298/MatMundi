@@ -150,7 +150,7 @@ $nomeUsuario = $usuario['nome_usuario'];
                     <div class="card" style="width: 18rem;">
                         <img class="card-img-top img-fluid" src="images/IlhaDoTesouro/Ilha do tesouro logo.png" alt="">
                         <div class="card-body">
-                            <a href="Ilha do Tesouro/ilha.html" class="btn btn-dark w-100">Jogar Agora</a>
+                            <a href="Ilha do Tesouro/ilha.php" class="btn btn-dark w-100">Jogar Agora</a>
                         </div>
                     </div>
                 </div>

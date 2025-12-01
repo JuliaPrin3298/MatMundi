@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -70,7 +74,54 @@
         </div>
     </div>
 
+    <?php
+ include_once 'C:/xampp/htdocs/matmundi/class/Listar_IT_F.php';
 
+
+    $cat = new Listar_IT_F();
+    $dados = $cat->listarTop(10);
+    //var_dump($dados); // só pra testar
+
+    ?>
+
+
+    <section class="top-rank">
+        <div class="container py-4 text-center">
+            <h2>Ranking Fácil</h2>
+            <div class="row py-3">
+                <table class="table table-sm" id="top-rank">
+                    <thead class="thead">
+                        <tr>
+                            <th>Posição</th>
+                            <th>Nome</th>
+                            <th>Jogo</th>
+                            <th>Dificuldade</th>
+                            <th>Pontuação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if (!empty($dados)) {
+                            $pos = 1;
+                            foreach ($dados as $mostrar) {
+                                echo "<tr>";
+                                echo "<td>{$pos}</td>";
+                                echo "<td>{$mostrar['nome_usuario']}</td>";
+                                echo "<td>{$mostrar['nome_jogo']}</td>";
+                                echo "<td>{$mostrar['dificuldade']}</td>";
+                                echo "<td>{$mostrar['pontuacao']}</td>";
+                                echo "</tr>";
+                                $pos++;
+                            }
+                        } else {
+                            echo "<tr><td colspan='4'>Nenhuma pontuação registrada</td></tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
     </div>
 

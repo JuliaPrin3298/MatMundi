@@ -1,9 +1,9 @@
 <?php
 include_once __DIR__ . '/Conectar.php';
 
-// LISTA O RANKING GERAL
+// LISTA O RANKING ILHA DO TESOURO FÁCIL
 
-class Listar
+class Listar_IT_F
 {
     private $conexao;
 
@@ -24,7 +24,8 @@ class Listar
             FROM usuario u
             JOIN jogar jgr ON u.id_usuario = jgr.id_usuario
             JOIN jogo jg ON jg.id_jogo = jgr.id_jogo
-            ORDER BY jgr.pontuacao DESC
+            WHERE jg.dificuldade = 'Facil'
+            ORDER BY jgr.pontuacao DESC 
             LIMIT $limite
         ";
 

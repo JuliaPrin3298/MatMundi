@@ -59,7 +59,17 @@
     color: black;
 }
 
-
+#top-rank{
+    background-color: #b6e3b4;
+    padding: 30px;
+    margin: 10px auto;
+    width: 500px;
+    border-radius: 30px;
+  }
+  
+  #top-rank .thead{
+    background-color: #6abd65 ;
+  }
 
 /*Tesouro*/
 
@@ -210,3 +220,7 @@ ul a:hover {
     margin: 0 auto !important;
   }
 }
+
+
+
+  
