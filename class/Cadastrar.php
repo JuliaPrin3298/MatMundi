@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($conexao->query($sql) === TRUE) {
             $mensagem = "Usuário cadastrado com sucesso!";
+            header("Location: ../perfil.php");
         } else {
             $mensagem = "Erro ao cadastrar: " . $conexao->error;
         }

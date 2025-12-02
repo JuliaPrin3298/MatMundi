@@ -28,6 +28,39 @@
             $erroLogin = "Email ou senha incorretos!";
         }
     }
+
+
+                    $mensagem = ""; // mostrar o retorno na mesma página
+
+                    if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["tipo"] ?? "") === "cadastro") {
+                        $nome = $_POST["txtnome"] ?? "";
+                        $email = $_POST["txtemail"] ?? "";
+                        $senha = $_POST["txtsenha"] ?? "";
+
+                        if ($nome != "" && $email != "" && $senha != "") {
+
+                            // Verifica se o email já existe
+                            $sql_check = "SELECT * FROM usuario WHERE email_usuario = '$email'";
+                            $resultado_check = $conexao->query($sql_check);
+
+                            if ($resultado_check->num_rows > 0) {
+                                $mensagem = "Este email já está cadastrado!";
+                            } else {
+                                $sql = "INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario)
+                    VALUES ('$nome', '$email', '$senha')";
+
+                                if ($conexao->query($sql) === TRUE) {
+                                    $mensagem = "Usuário cadastrado com sucesso!";
+                                    //header("Location: perfil.php");
+                                   // exit;
+                                } else {
+                                    $mensagem = "Erro ao cadastrar: " . $conexao->error;
+                                }
+                            }
+                        } else {
+                            $mensagem = "Preencha todos os campos!";
+                        }
+                    }
     ?>
 
    <!DOCTYPE html>
@@ -232,37 +265,7 @@
 
 
                    <?php
-                    include("class/Conectar.php");
-
-                    $mensagem = ""; // mostrar o retorno na mesma página
-
-                    if ($_SERVER["REQUEST_METHOD"] === "POST" && ($_POST["tipo"] ?? "") === "cadastro") {
-                        $nome = $_POST["txtnome"] ?? "";
-                        $email = $_POST["txtemail"] ?? "";
-                        $senha = $_POST["txtsenha"] ?? "";
-
-                        if ($nome != "" && $email != "" && $senha != "") {
-
-                            // Verifica se o email já existe
-                            $sql_check = "SELECT * FROM usuario WHERE email_usuario = '$email'";
-                            $resultado_check = $conexao->query($sql_check);
-
-                            if ($resultado_check->num_rows > 0) {
-                                $mensagem = "Este email já está cadastrado!";
-                            } else {
-                                $sql = "INSERT INTO usuario (nome_usuario, email_usuario, senha_usuario)
-                    VALUES ('$nome', '$email', '$senha')";
-
-                                if ($conexao->query($sql) === TRUE) {
-                                    $mensagem = "Usuário cadastrado com sucesso!";
-                                } else {
-                                    $mensagem = "Erro ao cadastrar: " . $conexao->error;
-                                }
-                            }
-                        } else {
-                            $mensagem = "Preencha todos os campos!";
-                        }
-                    }
+                  
                     ?>
 
                    <div class="col-lg-4 col-md-5 col-sm-12 py-4 d-flex flex-column align-items-center">

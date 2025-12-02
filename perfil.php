@@ -103,20 +103,24 @@ $nomeUsuario = $usuario['nome_usuario'];
                 </div>
 
                 <!-- Botões -->
-                <button class="btn font-weight-bold rounded-pill mx-1"
-                    style="background:#FFA09D;"
-                    data-toggle="modal"
-                    data-target="#modalEditarPerfil">
-                    Editar perfil
-                </button>
+                <div class="d-flex justify-content-center gap-3 mt-3">
+
+                    <button class="btn px-4 mr-2"
+                        style="background:#FFA09D; border-radius:15px; font-weight:bold;"
+                        data-toggle="modal"
+                        data-target="#modalEditarPerfil">
+                        Editar perfil
+                    </button>
+
+                    <button class="btn px-4 ml-2"
+                        style="background:#FFA09D; border-radius:15px; font-weight:bold;"
+                        onclick="window.location.href='index.php#loca'">
+                        Sair
+                    </button>
+
+                </div>
 
 
-
-                <button class="btn font-weight-bold rounded-pill mx-1"
-                    onclick="window.location.href='index.php#loca'"
-                    style="background:#FFA09D;">
-                    Sair
-                </button>
             </div>
         </div>
         </div>
@@ -228,29 +232,36 @@ $nomeUsuario = $usuario['nome_usuario'];
 
 
 
-    <script>
-        const fotoMascote = document.getElementById('fotoMascote');
-        const opcoesAvatares = document.getElementById('opcoesAvatares');
-        const avatares = document.querySelectorAll('.avatar-opcao');
+   <script>
+document.addEventListener('DOMContentLoaded', function () {
 
-        const avatarSalvo = localStorage.getItem('avatarSelecionado');
-        if (avatarSalvo) {
-            fotoMascote.src = avatarSalvo;
-        }
+    const fotoMascote = document.getElementById('fotoMascote');
+    const opcoesAvatares = document.getElementById('opcoesAvatares');
+    const avatares = document.querySelectorAll('.avatar-opcao');
 
-        fotoMascote.addEventListener('click', () => {
-            opcoesAvatares.style.display =
-                opcoesAvatares.style.display === 'none' ? 'block' : 'none';
+    // carregar foto salva
+    const avatarSalvo = localStorage.getItem('avatarSelecionado');
+    if (avatarSalvo) {
+        fotoMascote.src = avatarSalvo;
+    }
+
+    // abrir/fechar opções usando classes do Bootstrap
+    fotoMascote.addEventListener('click', () => {
+        opcoesAvatares.classList.toggle('d-none');
+    });
+
+    // escolher avatar
+    avatares.forEach((avatar) => {
+        avatar.addEventListener('click', function () {
+            fotoMascote.src = this.src;
+            localStorage.setItem('avatarSelecionado', this.src);
+            opcoesAvatares.classList.add('d-none'); // fecha
         });
+    });
 
-        avatares.forEach((avatar) => {
-            avatar.addEventListener('click', function() {
-                fotoMascote.src = this.src;
-                localStorage.setItem('avatarSelecionado', this.src);
-                opcoesAvatares.style.display = 'none';
-            });
-        });
-    </script>
+});
+</script>
+
 
 
 </body>
