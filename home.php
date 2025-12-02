@@ -52,19 +52,19 @@ $nomeUsuario = $usuario['nome_usuario'];
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php#home">Home</a>
+                    <a class="nav-link" href="home.php#home">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php#atividades">Atividades</a>
+                    <a class="nav-link" href="home.php#atividades">Atividades</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php#jogos">Jogos</a>
+                    <a class="nav-link" href="home.php#jogos">Jogos</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php#loca">Login / Cadastrar</a>
+                    <a class="nav-link" href="home.php#top-ranking">Ranking Geral</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="perfil.html">Perfil</a>
+                    <a class="nav-link" href="perfil.php">Perfil</a>
                 </li>
             </ul>
         </div>
@@ -194,7 +194,7 @@ $nomeUsuario = $usuario['nome_usuario'];
 
     ?>
 
-    <section class="top-rank">
+    <section class="top-rank" id="top-ranking">
         <div class="container py-4 text-center">
             <h2>Ranking Geral</h2>
             <div class="row py-3">

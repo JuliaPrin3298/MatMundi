@@ -75,9 +75,6 @@
                    <li class="nav-item active">
                        <a class="nav-link" href="index.php#loca">Login / Cadastrar</a>
                    </li>
-                   <li class="nav-item active">
-                       <a class="nav-link" href="perfil.html">Perfil</a>
-                   </li>
                </ul>
            </div>
        </nav>

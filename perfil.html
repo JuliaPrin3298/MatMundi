@@ -1,3 +1,21 @@
+<?php
+session_start();
+include("class/Conectar.php");
+
+if (!isset($_SESSION["id_usuario"])) {
+    header("Location: index.php");
+    exit();
+}
+
+// Pega o nome do usuário pelo id da sessão
+$id = $_SESSION["id_usuario"];
+$sql = $conexao->prepare("SELECT nome_usuario FROM usuario WHERE id_usuario = ?");
+$sql->bind_param("i", $id);
+$sql->execute();
+$result = $sql->get_result();
+$usuario = $result->fetch_assoc();
+$nomeUsuario = $usuario['nome_usuario'];
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
