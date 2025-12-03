@@ -1,5 +1,7 @@
 # MatMUndi
-Projeto Integrador 1° Semestre Fatec
+Projeto Integrador 2° Semestre Fatec
+
+O MatMundi é uma plataforma gamificada criada para tornar o aprendizado de matemática mais divertido e acessível para alunos do Ensino Fundamental. Com jogos, desafios, pontuação e uma interface lúdica alinhada à BNCC, o sistema incentiva a motivação e o engajamento dos estudantes. Desenvolvido com HTML, CSS, Bootstrap, JavaScript, PHP e SQL, o projeto oferece uma base sólida e expansível para futuras melhorias.
 
 ==========================================================
 
