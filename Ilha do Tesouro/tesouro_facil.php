@@ -47,6 +47,7 @@ session_start();
         </div>
     </nav>
 
+    <!-- tabuleiro e menu de contadores -->
     <div class="container mt-4 pt-4">
         <a href="javascript:void(0)" onclick="window.history.back()" class="">
             <i class="bi bi-arrow-left fs-6"></i>

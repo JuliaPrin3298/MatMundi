@@ -48,7 +48,7 @@
         </div>
     </nav>
 
-
+    <!-- tabuleiro e menu de contadores -->
     <div class="container mt-4 pt-4">
         <a href="javascript:void(0)" onclick="window.history.back()" class="">
             <i class="bi bi-arrow-left fs-6"></i>
@@ -120,13 +120,6 @@
                             <td alt="7.f "></td>
                         </tr>
                     </table>
-
-
-
-                    <button type="button" id="jogarNovamente" onclick="reiniciarJogo()" style="display: none;"
-                        class="btn btn-warning">
-                        Jogar Novamente
-                    </button>
 
                     <div class="col" style="order: 2;">
 
@@ -205,207 +198,60 @@
         </div>
     </div>
 
+    <!-- Modal de Pontuação Final -->
+    <div class="modal fade" id="modalPontuacao" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style="border-radius: 20px;">
+                <div class="modal-header" style="background: #8ADEFF;">
+                    <h5 class="modal-title">Pontuação Final</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body text-center">
+                    <h4>⏱️ Tempo: <span id="finalTempo"></span>s</h4>
+                    <h4>❌ Erros: <span id="finalErros"></span></h4>
+                    <h4>📘 Erros de Conta: <span id="finalErrosConta"></span></h4>
+                    <h4>🪓 Pás restantes: <span id="finalPas"></span></h4>
+                    <h4>🏆 Pontuação: <span id="pontuacaoFinal"></span></h4>
+                    <h5 id="alertLogin" class="text-warning" style="display:none;"></h5>
+                </div>
 
 
+                <div class="modal-footer d-flex justify-content-center">
+                    <button id="jogarNovamente" class="btn btn-warning" onclick="reiniciarJogoReal()">Jogar
+                        Novamente</button>
+                </div>
+            </div>
+        </div>
     </div>
 
+    </div>
+  <!-- jQuery (UMA versão, a completa) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const cells = document.querySelectorAll("table.tabuleiro td");
-            const imagemTesouro = "../images/IlhaDoTesouro/tesouro.png";
-            const imagemErro = "../images/IlhaDoTesouro/fechar.png";
-
-            const indexTesouro = Math.floor(Math.random() * cells.length);
-            console.log("💡 O tesouro está na célula:", indexTesouro);
-
-            const colunas = 7;
-            const linha = Math.floor(indexTesouro / colunas) + 1;
-            const coluna = (indexTesouro % colunas) + 1;
-            console.log(`📍 O tesouro está na linha ${linha}, coluna ${coluna}`);
-
-            const erroSpan = document.getElementById("cavacoes");
-            const timerSpan = document.getElementById("tempo");
-            const paSpan = document.getElementById("pa");
-
-            let erros = 0;
-            let segundos = 0;
-            let encontrouTesouro = false;
-
-             function mostrarAlerta(mensagem, tipo = "info") {
-                const alertaContainer = document.getElementById("alerta-container");
-                alertaContainer.innerHTML = `
-        <div class="alert alert-${tipo}" role="alert" style="font-size: 1.2em;">
-            ${mensagem}
-        </div> `;
-            }
-
-            const timer = setInterval(() => {
-                segundos++;
-                timerSpan.textContent = segundos;
-            }, 1000);
-
-            cells.forEach((cell, index) => {
-                cell.addEventListener("click", function () {
-                    if (cell.classList.contains("clicado") || encontrouTesouro) return;
-
-                    let paAtual = parseInt(paSpan.textContent);
-
-                    if (paAtual <= 0) {
-                        mostrarAlerta("❌ Você não tem mais pás! Resolva contas para ganhar mais.", "warning");
-                        return;
-                    }
-
-                    cell.classList.add("clicado");
-                    paAtual--;
-                    paSpan.textContent = paAtual;
-
-                    const img = document.createElement("img");
-                    img.style.maxWidth = "80%";
-                    img.style.maxHeight = "80%";
-                    img.style.objectFit = "contain";
-
-                    if (index === indexTesouro) {
-                        img.src = imagemTesouro;
-                        cell.appendChild(img);
-                        encontrouTesouro = true;
-                        clearInterval(timer);
-
-                        // 👇 mostra o botão de jogar novamente
-                        document.getElementById("jogarNovamente").style.display = "inline-block";
-
-                        setTimeout(() => {
-                            mostrarAlerta(`🎉 Parabéns! Você encontrou o tesouro em ${segundos} segundos com ${erros} erros.`, "success");
-                        }, 100);
-                    } else {
-                        img.src = imagemErro;
-                        cell.appendChild(img);
-                        erros++;
-                        erroSpan.textContent = erros;
-                    }
-                });
-            });
-
-            // ✅ BOTÃO DE JOGAR NOVAMENTE
-            const btnJogarNovamente = document.getElementById("jogarNovamente");
-            btnJogarNovamente.addEventListener("click", () => {
-                location.reload(); // Recarrega a página para reiniciar o jogo
-            });
-
-            // PARTE DAS CONTAS
-            const contaH2 = document.querySelector('#conta h2');
-            const alternativas = document.querySelectorAll('#conta .altern');
-            const paEl = document.getElementById('pa');
-            const errosEl = document.getElementById('erros');
-
-            function novaConta() {
-                if (encontrouTesouro) return;
-
-                const operacoes = ['+', '-', '*', '/'];
-                const oper = operacoes[Math.floor(Math.random() * operacoes.length)];
-
-                let num1, num2;
-
-                if (oper === '+' || oper === '-') {
-                    num1 = Math.floor(Math.random() * 900) + 100;
-                    num2 = Math.floor(Math.random() * 900) + 100;
-                } else if (oper === '*') {
-                    num1 = Math.floor(Math.random() * 90) + 10;
-                    num2 = Math.floor(Math.random() * 90) + 10;
-                } else if (oper === '/') {
-                    num2 = Math.floor(Math.random() * 20) + 2;
-                    const resultadoInteiro = Math.floor(Math.random() * 30) + 2;
-                    num1 = num2 * resultadoInteiro;
-                }
-
-                let respostaCerta;
-                if (oper === '+') respostaCerta = num1 + num2;
-                else if (oper === '-') respostaCerta = num1 - num2;
-                else if (oper === '*') respostaCerta = num1 * num2;
-                else if (oper === '/') respostaCerta = num1 / num2;
-
-                contaH2.textContent = `${num1} ${oper} ${num2}`;
-                contaH2.setAttribute('data-certa', respostaCerta);
-
-                const respostas = new Set([respostaCerta]);
-
-                let tentativas = 0;
-                while (respostas.size < 4 && tentativas < 100) {
-                    const variacao = oper === '/' ? Math.floor(Math.random() * 5) - 2
-                        : Math.floor(Math.random() * 31) - 15;
-                    const alternativa = respostaCerta + variacao;
-
-                    if (!respostas.has(alternativa) && Number.isInteger(alternativa)) {
-                        respostas.add(alternativa);
-                    }
-
-                    tentativas++;
-                }
-
-                const respostasArray = [...respostas].sort(() => Math.random() - 0.5);
-
-                alternativas.forEach((alt, index) => {
-                    alt.querySelector('h4').textContent = respostasArray[index];
-                    alt.setAttribute('data-resposta', respostasArray[index]);
-                });
-            }
-
-            alternativas.forEach(alt => {
-                alt.style.cursor = "pointer";
-                alt.addEventListener('click', () => {
-                    if (encontrouTesouro) return;
-
-                    const valor = parseInt(alt.querySelector('h4').textContent);
-                    const certa = parseInt(contaH2.getAttribute('data-certa'));
-
-                    let paAtual = parseInt(paEl.textContent);
-                    let errosAtual = parseInt(errosEl.textContent);
-
-                    if (valor === certa) {
-                        paAtual++;
-                        paEl.textContent = paAtual;
-                        mostrarAlerta('✅ Acertou! +1 pá', "success");
-                    } else {
-                        errosAtual++;
-                        errosEl.textContent = errosAtual;
-                        mostrarAlerta('❌ Errou! +1 erro', "danger");
-                    }
-
-                    novaConta();
-                });
-            });
-
-            novaConta();
-        });
-
-    </script>
-
-
-
-
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-
-         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Popper (necessário pro Bootstrap) -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+    <!-- Bootstrap (UMA versão, a mais estável 4.5.2) -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <!-- Script para fechar menu mobile -->
     <script>
-        $(document).ready(function () {
-            $('.navbar-nav>li>a').on('click', function () {
+        $(document).ready(function() {
+            $('.navbar-nav>li>a').on('click', function() {
                 $('.navbar-collapse').collapse('hide');
             });
         });
     </script>
+
+    <!-- Seu script principal do jogo -->
+    <script src="../js/tesouroD.js"></script>
+    <script>
+        const usuarioLogado = <?php echo isset($_SESSION['id_usuario']) ? 1 : 0; ?>;
+    </script>
+
 </body>
 
 

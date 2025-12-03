@@ -42,13 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
     let segundos = 0;
     let encontrouTesouro = false;
 
-    // Timer
+     // Timer
     let timer = setInterval(() => {
         segundos++;
         timerSpan.textContent = segundos;
     }, 1000);
 
-    // Função de alerta
+     // Função de alerta
 
     function mostrarAlerta(mensagem, tipo = "info") {
         const alertaContainer = document.getElementById("alerta-container");
@@ -58,46 +58,67 @@ document.addEventListener("DOMContentLoaded", function () {
             </div>`;
     }
 
-    //  Função de nova conta
+    // PARTE DAS CONTAS
     const contaH2 = document.querySelector('#conta h2');
     const alternativas = document.querySelectorAll('#conta .altern');
+    const paEl = document.getElementById('pa');
     const errosEl = document.getElementById('erros');
 
     function novaConta() {
         if (encontrouTesouro) return;
 
-        const operacoes = ['+', '-'];
+        const operacoes = ['+', '-', '*', '/'];
+        const igual = ['='];
         const oper = operacoes[Math.floor(Math.random() * operacoes.length)];
 
-        let num1 = Math.floor(Math.random() * 41) + 10;
-        let num2 = Math.floor(Math.random() * 41) + 10;
+        let num1, num2;
 
-        if (oper === '-') {
-            if (num2 > num1) [num1, num2] = [num2, num1];
+        if (oper === '+' || oper === '-') {
+            num1 = Math.floor(Math.random() * 900) + 100;
+            num2 = Math.floor(Math.random() * 900) + 100;
+        } else if (oper === '*') {
+            num1 = Math.floor(Math.random() * 90) + 10;
+            num2 = Math.floor(Math.random() * 90) + 10;
+        } else if (oper === '/') {
+            num2 = Math.floor(Math.random() * 20) + 2;
+            const resultadoInteiro = Math.floor(Math.random() * 30) + 2;
+            num1 = num2 * resultadoInteiro;
         }
 
-        let respostaCerta = oper === '+' ? num1 + num2 : num1 - num2;
+        let respostaCerta;
+        if (oper === '+') respostaCerta = num1 + num2;
+        else if (oper === '-') respostaCerta = num1 - num2;
+        else if (oper === '*') respostaCerta = num1 * num2;
+        else if (oper === '/') respostaCerta = num1 / num2;
 
-        contaH2.textContent = `${num1} ${oper} ${num2}`;
+        contaH2.textContent = `${num1} ${oper} ${num2} ${igual}`;
         contaH2.setAttribute('data-certa', respostaCerta);
 
-        // gerar alternativas
         const respostas = new Set([respostaCerta]);
-        while (respostas.size < 4) {
-            const variacao = Math.floor(Math.random() * 9) - 4;
-            const alt = respostaCerta + variacao;
-            if (alt >= 0) respostas.add(alt);
+
+        let tentativas = 0;
+        while (respostas.size < 4 && tentativas < 100) {
+            const variacao = oper === '/' ? Math.floor(Math.random() * 5) - 2
+                : Math.floor(Math.random() * 31) - 15;
+            const alternativa = respostaCerta + variacao;
+
+            if (!respostas.has(alternativa) && Number.isInteger(alternativa)) {
+                respostas.add(alternativa);
+            }
+
+            tentativas++;
         }
 
-        const arr = [...respostas].sort(() => Math.random() - 0.5);
+        const respostasArray = [...respostas].sort(() => Math.random() - 0.5);
 
-        alternativas.forEach((alt, i) => {
-            alt.querySelector('h4').textContent = arr[i];
+        alternativas.forEach((alt, index) => {
+            alt.querySelector('h4').textContent = respostasArray[index];
+            alt.setAttribute('data-resposta', respostasArray[index]);
         });
     }
 
-    //  CLICK NAS ALTERNATIVAS
-
+//  CLICK NAS ALTERNATIVAS
+    
     alternativas.forEach(alt => {
         alt.style.cursor = "pointer";
 
@@ -125,9 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     novaConta();
 
-
     // CLICK NO TABULEIRO
-
 
     cells.forEach((cell, index) => {
         cell.addEventListener("click", function () {
@@ -217,5 +236,4 @@ document.addEventListener("DOMContentLoaded", function () {
         resetPontuacoes();
         location.reload();
     });
-
 });

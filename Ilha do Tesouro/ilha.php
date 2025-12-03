@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    ?>
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -20,25 +20,25 @@
     <script src="js/script.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
 
-        <style>
-    #top-rank{
-        background-color: #b6e3b4;
-        padding: 30px;
-        margin: 10px auto;
-        width: 500px;
-        border-radius: 30px;
-    }
-  
-    #top-rank .thead{
-        background-color: #6abd65 ;
-    }
-        </style>
-        
+    <style>
+        #top-rank {
+            background-color: #b6e3b4;
+            padding: 30px;
+            margin: 10px auto;
+            width: 500px;
+            border-radius: 30px;
+        }
+
+        #top-rank .thead {
+            background-color: #6abd65;
+        }
+    </style>
+
 </head>
 
 <body>
     <!--Navbar-->
-     <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient(to right, #8ADEFF, #75EDE6);">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient(to right, #8ADEFF, #75EDE6);">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
             <span class="navbar-toggler-icon"></span>
@@ -80,26 +80,123 @@
                     <h3>Ilha do Tesouro</h3>
                     <a href="tesouro_facil.php" class="btn">Fácil</a>
                     <a href="tesouro.html" class="btn">Médio</a>
-                    <a href="tesouro dificil.html" class="btn">Difícil</a>
+                    <a href="tesouro_dificil.php" class="btn">Difícil</a>
                 </div>
             </div>
         </div>
     </div>
 
     <?php
- include_once 'C:/xampp/htdocs/matmundi/class/Listar_IT_F.php';
+    include_once 'C:/xampp/htdocs/matmundi/class/Listar_IT_F.php';
 
 
     $cat = new Listar_IT_F();
     $dados = $cat->listarTop(10);
     //var_dump($dados); // só pra testar
-
+    
     ?>
 
 
     <section class="top-rank">
         <div class="container py-4 text-center">
             <h2>Ranking Fácil</h2>
+            <div class="row py-3">
+                <table class="table table-sm" id="top-rank">
+                    <thead class="thead">
+                        <tr>
+                            <th>Posição</th>
+                            <th>Nome</th>
+                            <th>Jogo</th>
+                            <th>Dificuldade</th>
+                            <th>Pontuação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if (!empty($dados)) {
+                            $pos = 1;
+                            foreach ($dados as $mostrar) {
+                                echo "<tr>";
+                                echo "<td>{$pos}</td>";
+                                echo "<td>{$mostrar['nome_usuario']}</td>";
+                                echo "<td>{$mostrar['nome_jogo']}</td>";
+                                echo "<td>{$mostrar['dificuldade']}</td>";
+                                echo "<td>{$mostrar['pontuacao']}</td>";
+                                echo "</tr>";
+                                $pos++;
+                            }
+                        } else {
+                            echo "<tr><td colspan='4'>Nenhuma pontuação registrada</td></tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <?php
+    include_once 'C:/xampp/htdocs/matmundi/class/Listar_IT_M.php';
+
+
+    $cat = new Listar_IT_M();
+    $dados = $cat->listarTop(10);
+    //var_dump($dados); // só pra testar
+    
+    ?>
+
+    <section class="top-rank">
+        <div class="container py-4 text-center">
+            <h2>Ranking Médio</h2>
+            <div class="row py-3">
+                <table class="table table-sm" id="top-rank">
+                    <thead class="thead">
+                        <tr>
+                            <th>Posição</th>
+                            <th>Nome</th>
+                            <th>Jogo</th>
+                            <th>Dificuldade</th>
+                            <th>Pontuação</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if (!empty($dados)) {
+                            $pos = 1;
+                            foreach ($dados as $mostrar) {
+                                echo "<tr>";
+                                echo "<td>{$pos}</td>";
+                                echo "<td>{$mostrar['nome_usuario']}</td>";
+                                echo "<td>{$mostrar['nome_jogo']}</td>";
+                                echo "<td>{$mostrar['dificuldade']}</td>";
+                                echo "<td>{$mostrar['pontuacao']}</td>";
+                                echo "</tr>";
+                                $pos++;
+                            }
+                        } else {
+                            echo "<tr><td colspan='4'>Nenhuma pontuação registrada</td></tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+    <?php
+    include_once 'C:/xampp/htdocs/matmundi/class/Listar_IT_D.php';
+
+
+    $cat = new Listar_IT_D();
+    $dados = $cat->listarTop(10);
+    //var_dump($dados); // só pra testar
+    
+    ?>
+
+    <section class="top-rank">
+        <div class="container py-4 text-center">
+            <h2>Ranking Difícil</h2>
             <div class="row py-3">
                 <table class="table table-sm" id="top-rank">
                     <thead class="thead">
@@ -167,7 +264,7 @@
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
 
-        
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
