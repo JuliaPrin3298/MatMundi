@@ -13,10 +13,11 @@ $id_usuario = $_SESSION['id_usuario'];
 $id_jogo = $_POST['id_jogo'] ?? null;
 $pontuacao = $_POST['pontuacao'] ?? null;
 
-if (!$id_jogo || !$pontuacao) {
+if ($id_jogo === null || $pontuacao === null || $pontuacao === '') {
     echo json_encode(['sucesso' => false, 'erro' => 'Dados inválidos']);
     exit;
 }
+
 
 // Primeiro, pega a pontuação atual do usuário nesse jogo
 $sqlCheck = "SELECT pontuacao FROM jogar WHERE id_usuario = ? AND id_jogo = ?";

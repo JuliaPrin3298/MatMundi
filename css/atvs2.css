@@ -1,0 +1,566 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;   
+    background-color: rgba(138, 222, 255, 0.3); 
+}
+/* opcional, mas ajuda a evitar estourar a largura */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/* Ícones no container */
+.container i {
+    font-size: 5vw;
+    color: black;
+}
+@media (min-width: 1200px) {
+    .container i {
+        font-size: 30px;
+    }
+}
+/* Container que centraliza o quadro branco */
+.atividade-container {
+    display: flex;
+    justify-content: center;
+    padding: 75px 0 60px;
+}
+/* QUADRO BRANCO DA ATIVIDADE */
+.game {
+    background: #ffffff;
+    width: 95%;
+    max-width: 1000px;
+    border-radius: 25px;
+    padding: 40px 60px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+/* Texto geral */
+p {
+    font-family: 'Rammetto One';
+}
+/* Imagens genéricas dentro do quadro */
+.game img {
+    max-width: 100%;
+    height: auto;
+}
+/* Parágrafos dentro do quadro */
+.game p {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 17px;
+}
+/* Títulos dentro do quadro */
+.game h3 {
+    font-family: "Reem Kufi Fun";
+}
+/* Linha doceria / imagem */
+#imgsss {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+}
+/* Centraliza setas */
+#neck {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; 
+}
+/* NAVBAR */
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-family: "Chewy";
+}
+ul li {
+    margin-left: 10px;
+}
+ul a {
+    color: black;
+    text-decoration: none;
+}
+ul a:hover {
+    color: black;
+    text-decoration: underline;
+}
+/* Sistema de exercícios */
+.exercicio {
+    display: none;
+}
+.exercicio.ativo {
+    display: block;
+}
+/* Rodapé */
+.rodape {
+    background: #8ADEFF;
+}
+/* Aviso girar tela */
+#rotate-warning {
+    position: fixed;
+    inset: 0;            
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    background: #ffeb3b;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 9999;
+    font-size: 1.5rem;
+    padding: 20px;
+}
+
+/* DOCINHOS EXERCÍCIO 1 */
+
+img.img-donuts,
+img.img-cupcakes,
+img.img-cookie {
+    width: 150px !important;
+    margin: 0 6px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: transform 0.25s ease;
+}
+
+img.img-donuts:hover,
+img.img-cupcakes:hover,
+img.img-cookie:hover {
+    transform: scale(1.12);
+}
+
+img.img-simbolosoma {
+    width: 55px !important;
+    margin: 0 6px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.docinho-label {
+    text-align: center;
+    font-family: "Chewy";
+    font-size: 18px;
+    margin-top: 6px;
+}
+/* DOCERIA + BALÃO (EX 1 e EX 2)*/
+.doceria-wrapper {
+    width: 100%;
+    position: relative;
+    text-align: center;
+    margin-top: 35px;
+    transform: none;
+}
+
+/* Balão */
+.balao-explicacao {
+    background: #FFF9C4;
+    border-radius: 18px;
+    padding: 12px 18px;
+    font-family: "Chewy";
+    font-size: 17px;
+    border: 2px solid #e8d98b;
+    max-width: 260px;
+    position: absolute;
+    top: 20px;
+    right: 8%;
+}
+
+.balao-explicacao::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 15px;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-top: 12px solid #FFF9C4;
+}
+
+@media (max-width: 768px) {
+    .balao-explicacao {
+        right: 5%;
+        max-width: 220px;
+        font-size: 15px;
+    }
+}
+/* EXERCÍCIO 2 — LAYOUT */
+/* Mascote lado esquerdo */
+.ex2-mascote-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-top: 100px;
+}
+/*COLUNA DIREITA – DOCINHOS ALINHADOS À DIREITA */
+.ex2-docinhos {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start;
+    gap: 45px;
+    margin-left: 40px;
+}
+/* Cada item de docinho (imagem + texto) */
+.ex2-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.ex2-item p {
+    font-family: "Chewy";
+    font-size: 20px;
+    margin: 0;
+}
+/* Imagens dos docinhos */
+.ex2-img {
+    width: 180px;
+    height: auto;
+    transition: transform 0.25s ease;
+}
+.ex2-img.ex2-img-menor {
+    width: 100px;
+}
+.ex2-img:hover {
+    transform: scale(1.12);
+}
+/* Símbolo de + entre os docinhos - alinhado junto */
+.img-simbolosoma.soma-right {
+    display: block;
+    margin: 0;
+}
+/* Responsivo para telas menores */
+@media (max-width: 768px) {
+
+    .ex2-img {
+        width: 90px;
+    }
+    .ex2-img.ex2-img-menor {
+        width:70px !important;
+    }
+    .img-simbolosoma.soma-right {
+        align-self: center;
+    }
+    .ex2-docinhos {
+        margin-left: 0;
+        gap: 30px;
+    }
+}
+/* CARDS / BOTÃO VOLTAR   */
+.card-mat {
+    width: 16rem;        
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    background: #fff;
+}
+.card-mat img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; 
+}
+.btn-voltar {
+    position: absolute;
+    top: -8%;
+    left: 0%;
+    color: #333;
+    font-size: 22px;
+    text-decoration: none;
+}
+.btn-voltar i {
+    font-size: 24px;
+}
+/* Linha do exercício 2 — confeiteira + docinhos lado a lado */
+.ex2-linha {
+    display: flex;
+    align-items: flex-start;   /* 🔥 agora os docinhos NÃO descem demais */
+}
+
+/*INTERATIVIDADE DOCINHOS — ATIVIDADE DE FIXAÇÃO (EXERCÍCIO 1) */
+/* tamanho base de TODOS os docinhos clicáveis */
+.docinho-click {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+/* efeito visual quando o aluno clica no docinho */
+.docinho-click.ativo {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(188, 12, 12, 0.25);
+    opacity: 1;
+    animation: bounce 0.3s ease;
+}
+/* classes individuais para manter padronização */
+.img-choco,
+.img-mora,
+.img-sorvete,
+.img-pirulito {
+    width: 60px;
+    height: auto;
+}
+/* foco de acessibilidade (navegação por teclado) */
+.docinho-click:focus-visible {
+    outline: 3px solid #8ADEFF;
+    outline-offset: 2px;
+}
+/* CONTADOR, FEEDBACK E MENSAGENS */
+.contador-doces {
+    text-align: center;
+    font-family: "Reem Kufi Fun";
+    font-size: 18px;
+    margin-top: 5px;
+}
+/* área onde aparece "parabéns", "ops", etc. */
+.alerta-doces {
+    min-height: 30px;
+    margin-top: 20px !important;
+}
+/* mensagens de feedback */
+.alerta-doces .msg-ok,
+.alerta-doces .msg-erro,
+.alerta-doces .msg-info {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-family: "Chewy";
+    font-size: 16px;
+}
+.alerta-doces .msg-ok {
+    background: #D4EDDA;
+    color: #155724;
+}
+.alerta-doces .msg-erro {
+    background: #F8D7DA;
+    color: #721C24;
+}
+.alerta-doces .msg-info {
+    background: #D1ECF1;
+    color: #0C5460;
+}
+/* BOTÕES DE RESPOSTA*/
+.btn-resposta-doces {
+    background: #CDB5FF;
+    border: none;
+    border-radius: 18px;
+    padding: 6px 16px;
+    margin: 4px;
+    font-family: "Chewy";
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+}
+.btn-resposta-doces:hover {
+    background: #b49ae8;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+}
+.btn-resposta-doces.desativado {
+    opacity: 0.5;
+    pointer-events: none;
+}
+/* foco acessível no botão */
+.btn-resposta-doces:focus-visible {
+    outline: 3px solid #75EDE6;
+    outline-offset: 2px;
+}
+/* ORGANIZAÇÃO DOS DOCINHOS / SOMA EM LINHA*/
+.grupo-doces {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.grupo-doces img {
+    margin-right: 5px;
+}
+/* faixa da soma (igual às caixinhas violetas das outras atividades) */
+.exemplo-soma {
+    background: #CDB5FF;
+    padding: 8px 24px;
+    border-radius: 22px;
+    font-family: "Chewy";
+    font-size: 20px;
+    text-align: center;
+}
+/* RESPONSIVIDADE (CELULAR / TELAS MENORES) */
+@media (max-width: 768px) {
+
+    .docinho-click {
+        width: 45px; 
+    }
+    .img-choco,
+    .img-mora,
+    .img-sorvete,
+    .img-pirulito {
+        width: 45px;
+    }
+    .exemplo-soma {
+        font-size: 16px;
+        padding: 6px 14px;
+    }
+    .btn-resposta-doces {
+        font-size: 18px;
+        padding: 6px 12px;
+    }
+    .contador-doces {
+        font-size: 16px;
+    }
+}
+/* telas grandes */
+@media (min-width: 1200px) {
+    .docinho-click {
+        width: 70px;
+    }
+
+    .img-choco,
+    .img-mora,
+    .img-sorvete,
+    .img-pirulito {
+        width: 70px;
+    }
+    .exemplo-soma {
+        font-size: 22px;
+    }
+}
+/* coloca todos os docinhos e sinais na mesma linha */
+.linha-doces {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px; /* espaço entre grupos */
+    margin-top: 20px;
+}
+/* cada grupo de docinhos */
+.grupo {
+    text-align: center;
+}
+/* imagens dentro do grupo — também lado a lado */
+.grupo .images {
+    display: flex;
+    gap: 8px;
+}
+/* legenda abaixo */
+.legenda {
+    display: flex;
+    justify-content: center;
+    gap: 150px; /* ajusta espaçamento entre legendas */
+    margin-top: 5px;
+    font-family: "Chewy";
+    font-size: 18px;
+}
+/* sinal (+) entre os grupos */
+.sinal {
+    font-size: 42px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+.doceria-grande {
+    width: 60%;
+    max-width: 500px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 25px;
+}
+.linha-final {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+/* doceria à esquerda */
+.lado-esquerdo .doceria-grande {
+    width: 500px;         
+    max-width: 45vw;
+}
+/* painel à direita */
+.painel-pergunta {
+    background: #a1c8a1;
+    padding: 60px 28px;
+    border-radius: 40px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.18);
+    width: 360px;
+    margin-bottom: 20px;
+}
+.titulo-painel {
+    font-family: "Chewy";
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.botoes-opcoes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+.msg-info {
+    display: inline-block;
+    margin-top: 10px;
+}
+/* CONTAGEM ANIMADA NO PAINEL */
+.contagem-animada {
+    text-align: center;
+    margin-bottom: 18px;
+    font-family: "Chewy";
+    font-size: 18px;
+}
+#contagem-atual {
+    font-size: 26px;
+    margin-right: 4px;
+    display: inline-block;
+}
+/* animação quando o número muda */
+.pulse {
+    animation: pulse 0.3s ease-out;
+}
+@keyframes pulse {
+    0%   { transform: scale(1); }
+    50%  { transform: scale(1.3); }
+    100% { transform: scale(1); }
+}
+
+/* BALÃO DA ELLIE (FALA DO MASCOTE) */
+.doceria-com-fala {
+    position: relative;
+    display: inline-block;
+}
+.fala-ellie {
+    position: absolute;
+    top: 60px;
+    left: 220px;
+    background: #fff6a8;
+    padding: 12px 20px;
+    border-radius: 18px;
+    font-family: "Chewy";
+    font-size: 20px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+    z-index: 3;
+}
+/* triângulo do balão */
+.fala-ellie::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 30px;
+    border-width: 10px 10px 0 10px;
+    border-style: solid;
+    border-color: #FFF4B8 transparent transparent transparent;
+}
+/* ajuste em telas pequenas */
+@media (max-width: 768px) {
+    .fala-ellie {
+        top: -30px;
+        left: 10px;
+        font-size: 14px;
+        max-width: 220px;
+    }
+}

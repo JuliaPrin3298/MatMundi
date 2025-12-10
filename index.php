@@ -158,7 +158,7 @@
                                </div>
                                <div class="caroitem" style="background: #FFFBB5;">
                                    <h1>2°</h1>
-                                   <a href="" class="btn">Acessar Atividades</a>
+                                   <a href="atv2.php" class="btn">Acessar Atividades</a>
                                </div>
                                <div class="caroitem" style="background: #FFA09D;">
                                    <h1>3°</h1>
@@ -196,7 +196,7 @@
                        <div class="card" style="width: 18rem;">
                            <img class="card-img-top img-fluid" src="images/IlhaDoTesouro/Ilha do tesouro logo.png" alt="">
                            <div class="card-body">
-                               <a href="Ilha do Tesouro/ilha.php" class="btn btn-dark w-100">Jogar Agora</a>
+                               <a href="Ilha_do_Tesouro/ilha.php" class="btn btn-dark w-100">Jogar Agora</a>
                            </div>
                        </div>
                    </div>

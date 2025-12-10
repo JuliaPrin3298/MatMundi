@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doces da Trixie - Atividade 1</title>
+
+    <link rel="icon" href="../../images/logo.png" type="image/png">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/atvs2.css">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400..700&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+    <style>
+        .exercicio { display: none; }
+        .exercicio.ativo { display: block; }
+    </style>
+
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light"
+         style="background: linear-gradient(to right, #8ADEFF, #75EDE6);">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="../../index.php#home">Home</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="../../index.php#atividades">Atividades</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="../../index.php#jogos">Jogos</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="../../index.php#loca">Login / Cadastrar</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="../perfil.html">Perfil</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <div class="container-fluid">
+
+        <div class="atividade-container">
+
+            <div id="rotate-warning" style="display: none;">
+                <p>🔄 Vire seu celular para o modo paisagem para jogar melhor!</p>
+            </div>
+
+            <div class="game position-relative">
+
+                <!-- Botão voltar ao MENU de atividades -->
+                <a class="btn-voltar"  href="../../index.php#atividades">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+
+                <!-- ====================================================== -->
+                <!-- EXERCÍCIO 1                                            -->
+                <!-- ====================================================== -->
+
+                <div class="exercicio ativo">
+
+                    <p>
+                        Olá coleguinhas! Quero saber quantos docinhos eu vendi.
+                        Então, contem comigo? <br>
+                        Observe os docinhos e veja como montamos a conta de soma.
+                    </p>
+
+                    <!-- LINHA DOS DOCINHOS -->
+                    <div class="w-100 text-center mt-4 mb-3">
+
+                        <!-- ROSQUINHAS -->
+                        <div class="d-inline-block mx-3">
+                            <img src="../../images/atv2/donuts.png" class="ex2-img">
+                            <div class="docinho-label">3 rosquinhas</div>
+                        </div>
+
+                        <img src="../../images/atv2/+.png" class="img-simbolosoma">
+
+                        <!-- BOLINHOS -->
+                        <div class="d-inline-block mx-3">
+                            <img src="../../images/atv2/cupcake.png" class="ex2-img ex2-img-menor">
+                            <div class="docinho-label">6 bolinhos</div>
+                        </div>
+
+                        <img src="../../images/atv2/+.png" class="img-simbolosoma">
+
+                        <!-- BISCOITOS -->
+                        <div class="d-inline-block mx-3">
+                            <img src="../../images/atv2/cookies.png" class="ex2-img ex2-img-menor">
+                            <div class="docinho-label">2 biscoitos</div>
+                        </div>
+                    </div>
+
+                    <!-- SOMA CENTRALIZADA -->
+                    <div class="row mt-3">
+                        <div class="col-12 d-flex justify-content-center">
+                            <div class="exemplo-soma">
+                                3 rosquinhas + 6 bolinhos + 2 biscoitos = 11 docinhos ao total
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DOCERIA + BALÃO -->
+                    <div class="matmundi-wrapper position-relative">
+
+                        <img src="../../images/atv2/doceria.png"
+                             class="matmundi-grande">
+
+                        <div class="balao-explicacao balao-cima-mascote">
+                            Primeiro contamos quantos docinhos tem em cada grupo.
+                            Depois somamos tudo para descobrir o total.
+                        </div>
+
+                    </div>
+
+                    <!-- SETAS DE NAVEGAÇÃO -->
+                    <div class="row" id="neck">
+                        <div class="next">
+                            <div style="text-align: center; margin-top: 20px;">
+
+                                <span class="material-symbols-outlined"
+                                    onclick="voltarExercicio()"
+                                    style="cursor: pointer; margin-right: 15px;">
+                                    arrow_back
+                                </span>
+
+                                <span class="material-symbols-outlined"
+                                    onclick="proximoExercicio()"
+                                    style="cursor: pointer;">
+                                    arrow_forward
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- Fim EXERCÍCIO 1 -->
+
+
+                <!-- ====================================================== -->
+                <!-- EXERCÍCIO 2 – CORRIGIDO COMPLETO                       -->
+                <!-- ====================================================== -->
+
+                <div class="exercicio">
+
+                    <div style="text-align: center; margin-top: 20px;">
+                        <h3>Atividade Exemplo</h3>
+                    </div>
+
+                    <p>
+                        Problema: Trixie fez docinhos e separou 5 brigadeiros,
+                        2 barrinhas de chocolate e 4 mini bolos.
+                        Quantos docinhos ela fez ao todo?
+                    </p>
+
+                    <!-- LINHA FLEX REAL -->
+                    <div style="display:flex; align-items:flex-start; justify-content:center; margin-top:30px;">
+
+                        <!-- IMAGEM ESQUERDA -->
+                        <div style="flex:1; display:flex; justify-content:center;">
+
+                            <div style="position:relative; display:inline-block; margin-top: 130px;">
+
+                                <img src="../../images/atv2/cozinhando.png"
+                                     class="ex2-bancada" style="max-width:500px;"
+                                     style="max-width: 500px; position:relative; top:50px;">
+
+                                <div class="balao-explicacao balao-ex2"
+                                     style="top:-110px; right:30px;">
+                                    Ao contar as quantidades 3, 2 e 4, percebemos que ao todo são 9 docinhos.
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- DOCINHOS DIREITA -->
+                        <div style="
+                            flex:1;
+                            display:flex;
+                            flex-direction:column;
+                            gap:-10px;
+                            padding-left:40px;">
+
+                            <!-- 5 brigadeiros -->
+                            <!-- Brigadeiros -->
+                            <div style="display:flex; align-items:center; gap:12px; margin-top:-25px;">
+                                <img src="../../images/atv2/brigadeiros.png" class="ex2-img">
+                                <p style="margin:0; font-family:'Chewy'; font-size:22px;">
+                                    3 brigadeiros
+                                </p>
+                            </div>
+
+                            <img src="../../images/atv2/+.png" style="width:55px; margin-left:70px;">
+
+                            <!-- Barrinhas -->
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img src="../../images/atv2/barrinha.png" class="ex2-img">
+                                <p style="margin:0; font-family:'Chewy'; font-size:22px;">
+                                    2 barrinhas
+                                </p>
+                            </div>
+
+                            <img src="../../images/atv2/+.png" style="width:55px; margin-left:70px;">
+
+                            <!-- Mini bolos -->
+                            <div style="display:flex; align-items:center; gap:12px;">
+                                <img src="../../images/atv2/minibolo.png" class="ex2-img">
+                                <p style="margin:0; font-family:'Chewy'; font-size:22px;">
+                                    4 mini bolos
+                                </p>
+                            </div>
+
+
+                        </div> <!-- fim direita -->
+
+                    </div> <!-- fim linha flex -->
+
+                    <!-- SOMA CENTRALIZADA -->
+                    <div class="row mt-3">
+                        <div class="col-12 d-flex justify-content-center">
+                            <div class="exemplo-soma">
+                                3 brigadeiros + 2 barrinhas + 4 mini-bolos = 9 docinhos ao total
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SETAS -->
+                    <div class="row" id="neck">
+                        <div class="next">
+                            <div style="text-align: center; margin-top: 20px;">
+
+                                <span class="material-symbols-outlined"
+                                      onclick="voltarExercicio()"
+                                      style="cursor: pointer; margin-right: 15px;">
+                                    arrow_back
+                                </span>
+
+                                <a href="../../Atividades/2/atv1.html"
+                                   style="cursor: pointer; text-decoration: none; color: inherit;">
+                                    <span class="material-symbols-outlined">
+                                        arrow_forward
+                                    </span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- FIM EXERCÍCIO 2 -->
+
+
+            </div> <!-- fim .game -->
+
+        </div> <!-- fim .atividade-container -->
+
+    </div> <!-- fim container-fluid -->
+
+
+    <!-- SCRIPT -->
+    <script>
+        let indexExercicio = 0;
+        const exercicios = document.querySelectorAll(".exercicio");
+
+        function proximoExercicio() {
+            if (indexExercicio < exercicios.length - 1) {
+                exercicios[indexExercicio].classList.remove("ativo");
+                indexExercicio++;
+                exercicios[indexExercicio].classList.add("ativo");
+            }
+        }
+
+        function voltarExercicio() {
+            if (indexExercicio > 0) {
+                exercicios[indexExercicio].classList.remove("ativo");
+                indexExercicio--;
+                exercicios[indexExercicio].classList.add("ativo");
+            }
+        }
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</body>
+
+<footer style="width: 100%; height: 180px; display: block; object-fit: cover;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="width: 100%; height: auto; display: block;">
+        <path fill="#8ADEFF" fill-opacity="1"
+            d="M0,224L40,234.7C80,245,160,267,240,266.7C320,267,400,245,480,197.3C560,149,640,75,720,85.3C800,96,880,192,960,218.7C1040,245,1120,203,1200,186.7C1280,171,1360,181,1400,186.7L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+        </path>
+    </svg>
+
+    <div class="rodape text-center py-3">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+                <img src="../../images/logo.png" class="img-fluid logo" alt="Logo" style="max-height: 80px;">
+            </div>
+            <div class="col-12 col-md-8">
+                <p class="mb-0" style="font-family: 'Coming Soon', cursive; font-size: 15px;">© 2025 Copyright</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>

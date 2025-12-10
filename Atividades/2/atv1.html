@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doces da Trixie - Atividade 1</title>
+
+    <link rel="icon" href="../../images/logo.png" type="image/png">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          crossorigin="anonymous">
+
+    <!-- CSS geral da atividade -->
+    <link rel="stylesheet" href="../../css/atvs2.css">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400..700&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+    <style>
+        .exercicio { display: none; }
+        .exercicio.ativo { display: block; }
+    </style>
+
+    <script src="js/script.js"></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light"
+         style="background: linear-gradient(to right, #8ADEFF, #75EDE6);">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarNav" aria-controls="navbarNav"
+                aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="../../index.php#home">Home</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="../../index.php#atividades">Atividades</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="../../index.php#jogos">Jogos</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="../../index.php#loca">Login / Cadastrar</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="../../perfil.html">Perfil</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <!-- CONTAINER PRINCIPAL -->
+    <div class="container-fluid">
+
+        <div class="atividade-container">
+
+            <div id="rotate-warning" style="display: none;">
+                <p>🔄 Vire seu celular para o modo paisagem para jogar melhor!</p>
+            </div>
+
+            <div class="game position-relative">
+
+                <!-- Botão voltar -->
+                <a class="btn-voltar" href="../../index.php#atividades">
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+
+                <!-- ====================================================== -->
+                <!-- EXERCÍCIO 1 – LAYOUT ESTILO OPÇÃO 1                   -->
+                <!-- ====================================================== -->
+
+                <div class="exercicio ativo">
+
+                    <p>
+                        Olá coleguinhas! Quero saber quantos docinhos eu vendi.
+                        Então, contem comigo? <br>
+                        Clique em cada docinho para contar e depois escolha a resposta certa.
+                    </p>
+
+                    <!-- DOCINHOS EM LINHA (interativos) -->
+                    <div class="linha-doces">
+
+                        <!-- bolos -->
+                        <div class="grupo docinhos-top">
+                            <img src="../../images/atv2/bolochoco.png" class="docinho-click">
+                            <img src="../../images/atv2/bolomora.png" class="docinho-click">
+                        </div>
+
+                        <span class="sinal">+</span>
+
+                        <!-- sorvetes -->
+                        <div class="grupo docinhos-top">
+                            <img src="../../images/atv2/sorvete.png" class="docinho-click">
+                            <img src="../../images/atv2/sorvete.png" class="docinho-click">
+                            <img src="../../images/atv2/sorvete.png" class="docinho-click">
+                            <img src="../../images/atv2/sorvete.png" class="docinho-click">
+                            <img src="../../images/atv2/sorvete.png" class="docinho-click">
+                        </div>
+
+                        <span class="sinal">+</span>
+
+                        <!-- pirulitos -->
+                        <div class="grupo docinhos-top">
+                            <img src="../../images/atv2/pirulito.png" class="docinho-click">
+                            <img src="../../images/atv2/pirulito.png" class="docinho-click">
+                            <img src="../../images/atv2/pirulito.png" class="docinho-click">
+                            
+                            <img src="../../images/atv2/pirulito.png" class="docinho-click">
+                            <img src="../../images/atv2/pirulito.png" class="docinho-click">
+                            <img src="../../images/atv2/pirulito.png" class="docinho-click">
+                        </div>
+
+                    </div>
+                    
+                    <!-- CONTADOR DOS DOCINHOS (texto em cima) -->
+                    <div class="contador-doces" id="contador-doces"><br>
+                        Você já contou: <strong>0</strong> doces.
+                    </div>
+
+                    <!-- BLOCO FINAL: DOCERIA À ESQUERDA + PAINEL DE RESPOSTA À DIREITA -->
+                    <div class="linha-final mt-4">
+
+                        <!-- LADO ESQUERDO: DOCERIA + FALA DA ELLIE -->
+                        <div class="lado-esquerdo doceria-com-fala">
+                            <img src="../../images/atv2/doceriaEllie.png" class="doceria-grande">
+
+                            <!-- Balão da Ellie -->
+                            <div class="fala-ellie" id="fala-ellie">
+                                Comece a contar!
+                            </div>
+                        </div>
+
+                        <!-- LADO DIREITO: PERGUNTA + BOTÕES -->
+                        <div class="lado-direito painel-pergunta">
+
+                            <p class="titulo-painel">
+                                Quantos doces foram vendidos ao todo?
+                            </p>
+
+                            <div class="contagem-animada">
+                                <span id="contagem-atual">0</span> / 13 docinhos
+                            </div>
+
+                            <div class="botoes-opcoes">
+                                <button class="btn-resposta-doces" data-valor="11">11</button>
+                                <button class="btn-resposta-doces" data-valor="12">12</button>
+                                <button class="btn-resposta-doces" data-valor="13">13</button>
+                                <button class="btn-resposta-doces" data-valor="14">14</button>
+                            </div>
+
+                            <div id="alerta-doces" class="alerta-doces mt-2"></div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- SETAS DE NAVEGAÇÃO -->
+                    <div class="row" id="neck">
+                        <div class="next">
+                            <div style="text-align: center; margin-top: 20px;">
+
+                                <!-- VOLTA PARA OS EXERCÍCIOS 1 E 2 -->
+                                <a href="1.html"
+                                    style="cursor:pointer; text-decoration:none; color:inherit; margin-right:15px;">
+                                    <span class="material-symbols-outlined">arrow_back</span>
+                                </a>
+
+                                <span class="material-symbols-outlined"
+                                    onclick="proximoExercicio()"
+                                    style="cursor: pointer;">
+                                    arrow_forward
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- fim exercício 1 -->
+
+            </div> <!-- fim .game -->
+
+        </div> <!-- fim .atividade-container -->
+
+    </div> <!-- fim container-fluid -->
+
+    <!-- SCRIPT INTERATIVIDADE + NAVEGAÇÃO -->
+    <script>
+        // ---------- NAVEGAÇÃO ENTRE EXERCÍCIOS ----------
+        let indexExercicio = 0;
+        const exercicios = document.querySelectorAll(".exercicio");
+
+        function proximoExercicio() {
+            if (indexExercicio < exercicios.length - 1) {
+                exercicios[indexExercicio].classList.remove("ativo");
+                indexExercicio++;
+                exercicios[indexExercicio].classList.add("ativo");
+            }
+        }
+
+        function voltarExercicio() {
+            if (indexExercicio > 0) {
+                exercicios[indexExercicio].classList.remove("ativo");
+                indexExercicio--;
+                exercicios[indexExercicio].classList.add("ativo");
+            }
+        }
+
+        // ---------- LÓGICA DA ATIVIDADE INTERATIVA ----------
+        const docinhos = document.querySelectorAll('.docinho-click');
+        const contadorSpan = document.getElementById('contador-doces');
+        const alertaDoces = document.getElementById('alerta-doces');
+        const botoesResposta = document.querySelectorAll('.btn-resposta-doces');
+
+        const contagemAtualSpan = document.getElementById('contagem-atual');
+        const falaEllie = document.getElementById('fala-ellie');
+
+        const TOTAL_CORRETO = 13; // 2 + 5 + 6
+        let totalContado = 0;
+
+        // Conta docinhos clicando (liga/desliga)
+        docinhos.forEach(docinho => {
+            docinho.addEventListener('click', () => {
+                if (docinho.classList.contains('ativo')) {
+                    docinho.classList.remove('ativo');
+                    totalContado--;
+                } else {
+                    docinho.classList.add('ativo');
+                    totalContado++;
+                }
+                atualizarContador();
+            });
+        });
+
+        function atualizarContador() {
+            // texto de cima
+            contadorSpan.innerHTML = `Você já contou: <strong>${totalContado}</strong> doces.`;
+
+            // número grande no painel
+            if (contagemAtualSpan) {
+                contagemAtualSpan.textContent = totalContado;
+
+                // animação "pulse"
+                contagemAtualSpan.classList.remove('pulse');
+                void contagemAtualSpan.offsetWidth; // força reflow
+                contagemAtualSpan.classList.add('pulse');
+            }
+
+            atualizarFalaEllie();
+        }
+
+        // falas bem curtas para a Ellie
+        function atualizarFalaEllie() {
+            if (!falaEllie) return;
+
+            let texto;
+
+            if (totalContado === 0) {
+                texto = "Comece a contar!";
+            } else if (totalContado < 4) {
+                texto = "Muito bem!";
+            } else if (totalContado < 10) {
+                texto = "Continue!";
+            } else if (totalContado < TOTAL_CORRETO) {
+                texto = "Quase lá!";
+            } else {
+                texto = "Você mandou super bem! Agora clique na resposta certa.";
+            }
+
+            falaEllie.textContent = texto;
+        }
+
+        function mostrarMensagem(tipo, texto) {
+            let classe = 'msg-info';
+            if (tipo === 'ok') classe = 'msg-ok';
+            if (tipo === 'erro') classe = 'msg-erro';
+
+            alertaDoces.innerHTML = `<span class="${classe}">${texto}</span>`;
+        }
+
+        // Clique nas respostas
+        botoesResposta.forEach(botao => {
+            botao.addEventListener('click', () => {
+                const valor = parseInt(botao.dataset.valor);
+
+                if (valor === TOTAL_CORRETO) {
+                    mostrarMensagem('ok', 'Você acertou!');
+                    botoesResposta.forEach(b => b.classList.add('desativado'));
+                    if (falaEllie) falaEllie.textContent = "Parabéns, você conseguiu!";
+                } else {
+                    mostrarMensagem('erro', 'Tente outra resposta.');
+                    if (falaEllie) falaEllie.textContent = "Tente outra resposta.";
+                }
+            });
+        });
+
+        // Mensagem inicial
+        mostrarMensagem('info', 'Clique nos docinhos para ajudar a contar.');
+        atualizarFalaEllie();
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</body>
+
+<footer style="width: 100%; height: 180px; display: block; object-fit: cover;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" style="width: 100%; height: auto; display: block;">
+        <path fill="#8ADEFF" fill-opacity="1"
+              d="M0,224L40,234.7C80,245,160,267,240,266.7C320,267,400,245,480,197.3C560,149,640,75,720,85.3C800,96,880,192,960,218.7C1040,245,1120,203,1200,186.7C1280,171,1360,181,1400,186.7L1440,192L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z">
+        </path>
+    </svg>
+
+    <div class="rodape text-center py-3">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-4 mb-3 mb-md-0">
+                <img src="../../images/logo.png" class="img-fluid logo" alt="Logo" style="max-height: 80px;">
+            </div>
+            <div class="col-12 col-md-8">
+                <p class="mb-0" style="font-family: 'Coming Soon', cursive; font-size: 15px;">© 2025 Copyright</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</html>
